@@ -17,4 +17,6 @@
 
 ## 셀레늄 단위 테스트-게시판관리
 
+게시판생성관리 셀레늄 단위 테스트
+
 https://www.egovframe.go.kr/wiki/doku.php?id=egovframework:com:v4.3:cop:%EA%B2%8C%EC%8B%9C%ED%8C%90%EC%83%9D%EC%84%B1%EA%B4%80%EB%A6%AC
