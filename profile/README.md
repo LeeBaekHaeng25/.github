@@ -1,5 +1,15 @@
 # 전자정부 표준프레임워크 4.3.0 컨트리뷰션
 
+유튜브
+
+https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
+
+|날짜|제목|공유링크|
+|-|-|-|
+|2025-04-12 토|전자정부 표준프레임워크 4.3.0 컨트리뷰션 준비|https://youtu.be/G82xDweUsX4|
+
+<hr>
+
 셀레늄 단위 테스트
 
 셀레늄 화면 단위 테스트
@@ -15,6 +25,8 @@
 - https://www.selenium.dev/documentation/webdriver/getting_started/
 - https://www.selenium.dev/documentation/webdriver/getting_started/using_selenium/
 
+<hr>
+
 ## 셀레늄 단위 테스트-게시판관리
 
 게시판생성관리 셀레늄 단위 테스트
@@ -29,3 +41,5 @@ https://www.egovframe.go.kr/wiki/doku.php?id=egovframework:com:v4.3:cop:%EA%B2%8
 - 등록 화면
 - 상세 화면
 - 수정 화면
+
+<hr>
