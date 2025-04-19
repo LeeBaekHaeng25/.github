@@ -1,5 +1,13 @@
 # 전자정부 표준프레임워크 4.3.0 컨트리뷰션
 
+컨트리뷰션 대상
+- DAO 단위 테스트
+- ServiceImpl 단위 테스트
+- Controller 단위 테스트
+- 셀레늄(화면) 단위 테스트
+- 이클립스 Problems 제거
+- PMD로 소프트웨어 보안약점 진단하고 제거하기
+
 유튜브
 
 https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
