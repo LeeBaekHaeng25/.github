@@ -7,6 +7,10 @@
 - 셀레늄(화면) 단위 테스트
 - 이클립스 Problems 제거
 - PMD로 소프트웨어 보안약점 진단하고 제거하기
+- 시큐어코딩 일련번호 PK 파라미터 암복호화
+- 검색 조건 유지
+- 롬복 생성자 기반 종속성 주입
+- CRUD 프로그램 자동 생생 기능 템플릿 수정
 
 유튜브
 
@@ -16,6 +20,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |-|-|-|
 |2025-04-12 토|전자정부 표준프레임워크 4.3.0 컨트리뷰션 준비|https://youtu.be/G82xDweUsX4|
 |2025-04-19 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기](#2025-04-19-토-pmd로-소프트웨어-보안약점-진단하고-제거하기)|https://youtu.be/QKyUDsitx90|
+|2025-04-20 일|[test PMD-AltibaseClobStringTypeHandler](#2025-04-20-일-test-pmd-altibaseclobstringtypehandler)|https://youtu.be/_oS7O1awbA0|
 
 <hr>
 
@@ -55,12 +60,17 @@ https://www.egovframe.go.kr/wiki/doku.php?id=egovframework:com:v4.3:cop:%EA%B2%8
 
 ## 2025-04-19 토 PMD로 소프트웨어 보안약점 진단하고 제거하기
 
+### 2025-04-20 일 test PMD-AltibaseClobStringTypeHandler
 1. AltibaseClobStringTypeHandler
 ```
 src/main/java/egovframework/com/cmm/AltibaseClobStringTypeHandler.java:86:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'read_data' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/AltibaseClobStringTypeHandler.java:87:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'read_length' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/AltibaseClobStringTypeHandler.java:93:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
 ```
+
+https://github.com/LeeBaekHaeng25/egovframe-common-components-25/commits/feature/pmd/test/2025/04/20/
+
+<hr>
 
 2. EgovComCrossSiteHndlr
 ```
