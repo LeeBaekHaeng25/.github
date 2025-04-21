@@ -22,6 +22,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-04-19 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기](#2025-04-19-토-pmd로-소프트웨어-보안약점-진단하고-제거하기)|https://youtu.be/QKyUDsitx90|
 |2025-04-20 일|[test PMD-AltibaseClobStringTypeHandler](#2025-04-20-일-test-pmd-altibaseclobstringtypehandler)|https://youtu.be/_oS7O1awbA0|
 |2025-04-21 월|[test PMD-EgovComCrossSiteHndlr](#2025-04-21-월-test-pmd-egovcomcrosssitehndlr)|https://youtu.be/3_07tmsmeys|
+|2025-04-22 화|[test PMD-EgovWebApplicationInitializer](#2025-04-22-화-test-pmd-egovwebapplicationinitializer)|https://youtu.be/v8z63Dahg_k|
 
 <hr>
 
@@ -85,11 +86,37 @@ src/main/java/egovframework/com/cmm/EgovComCrossSiteHndlr.java:174:	AssignmentIn
 src/main/java/egovframework/com/cmm/EgovComCrossSiteHndlr.java:185:	CloseResource:	CloseResource: 리소스 'JspWriter' 가 사용 후에 닫혔는지 확인필요
 ```
 
+AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+```java
+w.write(IOUtils.toString((Reader) obj));
+
+String text = IOUtils.toString((Reader) obj);
+writeEscapedXml(text.toCharArray(), text.length(), w);
+```
+
+<hr>
+
+### 2025-04-22 화 test PMD-EgovWebApplicationInitializer
+
+feature/pmd/test/2025/04/22
+
+feature/pmd/test/EgovWebApplicationInitializer
+
+PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWebApplicationInitializer
+
+PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource
+
 3. EgovWebApplicationInitializer
 ```
 src/main/java/egovframework/com/cmm/config/EgovWebApplicationInitializer.java:75:	CloseResource:	CloseResource: 리소스 'XmlWebApplicationContext' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/config/EgovWebApplicationInitializer.java:86:	CloseResource:	CloseResource: 리소스 'XmlWebApplicationContext' 가 사용 후에 닫혔는지 확인필요
 ```
+
+```java
+ // NOPMD: CloseResource
+```
+
+<hr>
 
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilter.java:43:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:117:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
