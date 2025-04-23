@@ -24,6 +24,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-04-21 월|[test PMD-EgovComCrossSiteHndlr](#2025-04-21-월-test-pmd-egovcomcrosssitehndlr)|https://youtu.be/3_07tmsmeys|
 |2025-04-22 화|[test PMD-EgovWebApplicationInitializer](#2025-04-22-화-test-pmd-egovwebapplicationinitializer)|https://youtu.be/v8z63Dahg_k|
 |2025-04-23 수|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilter](#2025-04-23-수-test-pmd-htmltagfilter)|https://youtu.be/uqPuU5rEFKs|
+|2025-04-24 목|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilterRequestWrapper](#2025-04-24-목-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-htmltagfilterrequestwrapper)|https://youtu.be/FB3kPtOyD6w|
 
 <hr>
 
@@ -132,13 +133,15 @@ PMD로 소프트웨어 보안약점 진단하고 제거하기-UncommentedEmptyMe
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilter.java:43:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
 ```
 
+https://github.com/LeeBaekHaeng25/egovframe-common-components-25/commits/feature/pmd/test/HTMLTagFilter/
+
 <hr>
 
-### 2025-04-24 목 test PMD-HTMLTagFilterRequestWrapper
+### 2025-04-24 목 test PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilterRequestWrapper
 
 feature/pmd/test/HTMLTagFilterRequestWrapper
 
-PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilterRequestWrapper
+이클립스 > Source > Format
 
 PMD로 소프트웨어 보안약점 진단하고 제거하기-SimplifyBooleanExpressions, AvoidReassigningParameters
 
@@ -147,6 +150,10 @@ PMD로 소프트웨어 보안약점 진단하고 제거하기-SimplifyBooleanExp
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:117:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:124:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:154:	AvoidReassigningParameters:	AvoidReassigningParameters: 'value' 처럼 파라미터 값을 직접 변경하지 말 것
+```
+
+```java
+ *   2025.04.24  이백행              PMD로 소프트웨어 보안약점 진단하고 제거하기-SimplifyBooleanExpressions, AvoidReassigningParameters
 ```
 
 <hr>
@@ -170,6 +177,10 @@ src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:348:	CloseResou
 src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:368:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
 src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:400:	CloseResource:	CloseResource: 리소스 'BufferedInputStream' 가 사용 후에 닫혔는지 확인필요
 ```
+
+Java 7 이상이라면 try-with-resources를 사용해서 훨씬 깔끔하고 안전하게 리소스를 관리할 수 있습니다
+
+IOUtils.copy(inputStream, outputStream);
 
 ```
 src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:190:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
