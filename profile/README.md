@@ -25,6 +25,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-04-22 화|[test PMD-EgovWebApplicationInitializer](#2025-04-22-화-test-pmd-egovwebapplicationinitializer)|https://youtu.be/v8z63Dahg_k|
 |2025-04-23 수|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilter](#2025-04-23-수-test-pmd-htmltagfilter)|https://youtu.be/uqPuU5rEFKs|
 |2025-04-24 목|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilterRequestWrapper](#2025-04-24-목-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-htmltagfilterrequestwrapper)|https://youtu.be/FB3kPtOyD6w|
+|2025-04-25 금|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-SessionTimeoutCookieFilter](#2025-04-25-금-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-sessiontimeoutcookiefilter)|https://youtu.be/aA8nZ0QeFkM|
 
 <hr>
 
@@ -158,9 +159,23 @@ src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:154:
 
 <hr>
 
+### 2025-04-25 금 test PMD로 소프트웨어 보안약점 진단하고 제거하기-SessionTimeoutCookieFilter
+
+feature/pmd/test/SessionTimeoutCookieFilter
+
+이클립스 > Source > Format
+
+PMD로 소프트웨어 보안약점 진단하고 제거하기-UncommentedEmptyMethodBody
+
 ```
 src/main/java/egovframework/com/cmm/filter/SessionTimeoutCookieFilter.java:89:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
 ```
+
+```java
+ *  2025.04.25   이백행            PMD로 소프트웨어 보안약점 진단하고 제거하기-UncommentedEmptyMethodBody
+```
+
+<hr>
 
 ```
 src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:75:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'KeyStr' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
