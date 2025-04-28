@@ -28,6 +28,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-04-25 금|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-SessionTimeoutCookieFilter](#2025-04-25-금-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-sessiontimeoutcookiefilter)|https://youtu.be/aA8nZ0QeFkM|
 |2025-04-26 토|||
 |2025-04-28 월|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMngUtil](#2025-04-28-월-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilemngutil)|https://youtu.be/bjEDZsm9_4Y|
+|2025-04-29 화|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-FileSystemUtils](#2025-04-29-화-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-filesystemutils)|https://youtu.be/185e28SJt6o|
 
 <hr>
 
@@ -211,6 +212,14 @@ FileCopyUtils.copy(in, out);
 ```
 
 <hr>
+
+### 2025-04-29 화 test PMD로 소프트웨어 보안약점 진단하고 제거하기-FileSystemUtils
+
+feature/pmd/test/FileSystemUtils
+
+이클립스 > Source > Format
+
+PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses, AvoidReassigningParameters, CloseResource, UnusedFormalParameter
 
 ```
 src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:190:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
