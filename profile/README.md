@@ -26,6 +26,8 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-04-23 수|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilter](#2025-04-23-수-test-pmd-htmltagfilter)|https://youtu.be/uqPuU5rEFKs|
 |2025-04-24 목|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilterRequestWrapper](#2025-04-24-목-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-htmltagfilterrequestwrapper)|https://youtu.be/FB3kPtOyD6w|
 |2025-04-25 금|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-SessionTimeoutCookieFilter](#2025-04-25-금-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-sessiontimeoutcookiefilter)|https://youtu.be/aA8nZ0QeFkM|
+|2025-04-26 토|||
+|2025-04-28 월|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMngUtil](#2025-04-28-월-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilemngutil)|https://youtu.be/bjEDZsm9_4Y|
 
 <hr>
 
@@ -177,6 +179,14 @@ src/main/java/egovframework/com/cmm/filter/SessionTimeoutCookieFilter.java:89:	U
 
 <hr>
 
+### 2025-04-28 월 test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMngUtil
+
+feature/pmd/test/EgovFileMngUtil
+
+이클립스 > Source > Format
+
+PMD로 소프트웨어 보안약점 진단하고 제거하기-FormalParameterNamingConventions, CloseResource, LocalVariableNamingConventions, AssignmentInOperand
+
 ```
 src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:75:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'KeyStr' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:147:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'KeyStr' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -195,7 +205,12 @@ src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:400:	CloseResou
 
 Java 7 이상이라면 try-with-resources를 사용해서 훨씬 깔끔하고 안전하게 리소스를 관리할 수 있습니다
 
-IOUtils.copy(inputStream, outputStream);
+```java
+//IOUtils.copy(inputStream, outputStream);
+FileCopyUtils.copy(in, out);
+```
+
+<hr>
 
 ```
 src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:190:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
@@ -208,6 +223,8 @@ src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:395:	CloseResou
 src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:396:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:444:	UnusedFormalParameter:	UnusedFormalParameter: 'cmdAttribs' 처럼  사용되지 않는  'method' 파라미터가 있음
 ```
+
+<hr>
 
 ```
 src/main/java/egovframework/com/cmm/service/impl/EgovComAbstractDAO.java:36:	FieldNamingConventions:	FieldNamingConventions: 'final field' 의 변수 'LOGGER' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
