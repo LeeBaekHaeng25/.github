@@ -30,6 +30,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-04-28 월|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMngUtil](#2025-04-28-월-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilemngutil)|https://youtu.be/bjEDZsm9_4Y|
 |2025-04-29 화|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-FileSystemUtils](#2025-04-29-화-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-filesystemutils)|https://youtu.be/185e28SJt6o|
 |2025-04-30 수|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComAbstractDAO](#2025-04-30-수-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomabstractdao)|https://youtu.be/6XnOPm7HZp0|
+|2025-05-01 목|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBasicLogger](#2025-05-01-목-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbasiclogger)|https://youtu.be/FUG2LiU_VeQ|
 
 <hr>
 
@@ -250,10 +251,28 @@ src/main/java/egovframework/com/cmm/service/impl/EgovComAbstractDAO.java:36:	Fie
 
 <hr>
 
+### 2025-05-01 목 test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBasicLogger
+
+feature/pmd/test/EgovBasicLogger
+
 ```
 src/main/java/egovframework/com/cmm/util/EgovBasicLogger.java:27:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'ignoreLogger' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/util/EgovBasicLogger.java:28:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'debugLogger' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/util/EgovBasicLogger.java:29:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'infoLogger' 이  '[A-Z][A-Z_0-9]*'  로 시작함
+```
+
+FieldNamingConventions
+- 필드 명명 규칙
+- Field Naming Conventions
+- 필드 명명 규칙
+
+이클립스 > Source > Format
+
+PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/util/EgovMybatisUtil.java:33:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'logger' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/util/EgovMybatisUtil.java:88:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/cmm/util/EgovMybatisUtil.java:92:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
