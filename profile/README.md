@@ -34,6 +34,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-02 금|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMybatisUtil](#2025-05-02-금-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmybatisutil)|https://youtu.be/8YZyzeBon44|
 |2025-05-03 토|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovResourceCloseHelper](#2025-05-03-토-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovresourceclosehelper)|https://youtu.be/7Cu3kZxBN4o|
 |2025-05-05 월|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUrlRewriteFilter](#2025-05-05-월-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovurlrewritefilter)|https://youtu.be/sPhESldOgaA|
+|2025-05-06 화|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWildcardReloadableResourceBundleMessageSource](#2025-05-06-화-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwildcardreloadableresourcebundlemessagesource)|https://youtu.be/3S8ZxzMXSsk|
 
 <hr>
 
@@ -401,9 +402,56 @@ Commit Message(커밋 메시지)
 
 <hr>
 
+### 2025-05-06 화 test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWildcardReloadableResourceBundleMessageSource
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/util/EgovWildcardReloadableResourceBundleMessageSource.java:33:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'resourcePatternResolver' 를 Final로 선언하지 않았음
 src/main/java/egovframework/com/cmm/util/EgovWildcardReloadableResourceBundleMessageSource.java:59:	UnnecessarySemicolon:	UnnecessarySemicolon: 필요없는 문장 (;)이 있음
+```
+
+ImmutableField 번역
+- 불변필드
+- Immutable Field
+- 불변 필드
+
+UnnecessarySemicolon 번역
+- 불필요한 세미콜론
+- Unnecessary Semicolon
+- 불필요한 세미콜론
+
+#### 브랜치 생성
+```
+feature/pmd/test/EgovWildcardReloadableResourceBundleMessageSource
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-ImmutableField(불변필드), UnnecessarySemicolon(불필요한 세미콜론)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.06  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-ImmutableField(불변필드), UnnecessarySemicolon(불필요한 세미콜론)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+```
 src/main/java/egovframework/com/cmm/web/EgovBindingInitializer.java:33:	SimpleDateFormatNeedsLocale:	SimpleDateFormatNeedsLocale: SimpleDateFormat 인스턴스를 생성할때 Locale 을 지정하는 것이 바람직함
 src/main/java/egovframework/com/cmm/web/EgovComAbstractController.java:31:	AbstractClassWithoutAbstractMethod:	AbstractClassWithoutAbstractMethod: Abstract Class내에  Abstract Method가 존재하지 않음
 src/main/java/egovframework/com/cmm/web/EgovComIndexController.java:89:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'exception block parameter' 의 변수 'Nfe' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
