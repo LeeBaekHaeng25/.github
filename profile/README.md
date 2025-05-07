@@ -36,6 +36,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-05 월|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUrlRewriteFilter](#2025-05-05-월-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovurlrewritefilter)|https://youtu.be/sPhESldOgaA|
 |2025-05-06 화|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWildcardReloadableResourceBundleMessageSource](#2025-05-06-화-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwildcardreloadableresourcebundlemessagesource)|https://youtu.be/3S8ZxzMXSsk|
 |2025-05-07 수|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBindingInitializer](#2025-05-07-수-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbindinginitializer)|https://youtu.be/cA6OS-UIEaY|
+|2025-05-08 목|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBindingInitializer](#2025-05-08-목-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomabstractcontroller)|https://youtu.be/xgn6EqSbru0|
 
 <hr>
 
@@ -499,14 +500,59 @@ Commit Message(커밋 메시지)
 
 <hr>
 
+### 2025-05-08 목 test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComAbstractController
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/web/EgovComAbstractController.java:31:	AbstractClassWithoutAbstractMethod:	AbstractClassWithoutAbstractMethod: Abstract Class내에  Abstract Method가 존재하지 않음
+```
+
+AbstractClassWithoutAbstractMethod 번역
+- 추상 메서드가 없는 추상 클래스
+- Abstract Class Without Abstract Method
+
+#### 브랜치 생성
+```
+feature/pmd/test/EgovComAbstractController
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-AbstractClassWithoutAbstractMethod(추상 메서드가 없는 추상 클래스)
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+```java
+ *   2025.05.08  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-AbstractClassWithoutAbstractMethod(추상 메서드가 없는 추상 클래스)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/web/EgovComIndexController.java:89:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'exception block parameter' 의 변수 'Nfe' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+```
 src/main/java/egovframework/com/cmm/web/EgovComUtlController.java:13:	UnnecessaryImport:	UnnecessaryImport: Unused import 'com.raonsecure.omnione.core.eoscommander.util.StringUtils'
+```
+
+```
 src/main/java/egovframework/com/cmm/web/EgovFileDownloadController.java:79:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/web/EgovFileDownloadController.java:124:	CloseResource:	CloseResource: 리소스 'BufferedInputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/web/EgovFileDownloadController.java:125:	CloseResource:	CloseResource: 리소스 'BufferedOutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/web/EgovFileDownloadController.java:144:	CloseResource:	CloseResource: 리소스 'PrintWriter' 가 사용 후에 닫혔는지 확인필요
+```
+
+```
 src/main/java/egovframework/com/cmm/web/EgovFileMngController.java:74:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/web/EgovFileMngController.java:116:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/web/EgovImageProcessController.java:76:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
