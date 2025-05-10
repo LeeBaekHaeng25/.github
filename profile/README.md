@@ -38,6 +38,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-07 수|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBindingInitializer](#2025-05-07-수-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbindinginitializer)|https://youtu.be/cA6OS-UIEaY|
 |2025-05-08 목|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBindingInitializer](#2025-05-08-목-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomabstractcontroller)|https://youtu.be/xgn6EqSbru0|
 |2025-05-09 금|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComIndexController](#2025-05-09-금-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomindexcontroller)|https://youtu.be/l-_UKMmPTVU|
+|2025-05-10 토|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComUtlController](#2025-05-10-토-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomutlcontroller)|https://youtu.be/c83sHEWW0zo|
 
 <hr>
 
@@ -608,9 +609,50 @@ Commit Message(커밋 메시지)
 
 <hr>
 
+### 2025-05-10 토 test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComUtlController
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/web/EgovComUtlController.java:13:	UnnecessaryImport:	UnnecessaryImport: Unused import 'com.raonsecure.omnione.core.eoscommander.util.StringUtils'
 ```
+
+UnnecessaryImport 번역
+- 불필요한 수입
+- Unnecessary Import
+- 불필요한 주입
+
+#### 브랜치 생성
+```
+feature/pmd/test/EgovComUtlController
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryImport(불필요한 주입)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.10  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryImport(불필요한 주입)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+<hr>
 
 ```
 src/main/java/egovframework/com/cmm/web/EgovFileDownloadController.java:79:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
