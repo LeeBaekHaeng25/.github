@@ -39,7 +39,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-08 목|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBindingInitializer](#2025-05-08-목-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomabstractcontroller)|https://youtu.be/xgn6EqSbru0|
 |2025-05-09 금|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComIndexController](#2025-05-09-금-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomindexcontroller)|https://youtu.be/l-_UKMmPTVU|
 |2025-05-10 토|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComUtlController](#2025-05-10-토-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomutlcontroller)|https://youtu.be/c83sHEWW0zo|
-|2025-05-12 월|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileDownloadController](#2025-05-12-월-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfiledownloadcontroller)||
+|2025-05-12 월|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileDownloadController](#2025-05-12-월-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfiledownloadcontroller)|https://youtu.be/UqFTcA_b_fk|
 
 <hr>
 
