@@ -40,6 +40,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-09 금|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComIndexController](#2025-05-09-금-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomindexcontroller)|https://youtu.be/l-_UKMmPTVU|
 |2025-05-10 토|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComUtlController](#2025-05-10-토-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomutlcontroller)|https://youtu.be/c83sHEWW0zo|
 |2025-05-12 월|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileDownloadController](#2025-05-12-월-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfiledownloadcontroller)|https://youtu.be/UqFTcA_b_fk|
+|2025-05-13 화|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMngController](#2025-05-13-월-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilemngcontroller)|https://youtu.be/MqqaUV2AWM4|
 
 <hr>
 
@@ -698,7 +699,53 @@ PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamin
 #### Commit and Push(커밋 및 푸시) 3
 
 ```java
- *   2025.05.12  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(불필요한 주입), CloseResource(리소스 닫기)
+ *   2025.05.12  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙), CloseResource(리소스 닫기)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+<hr>
+
+### 2025-05-13 월 test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMngController
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/cmm/web/EgovFileMngController.java:74:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/cmm/web/EgovFileMngController.java:116:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+LocalVariableNamingConventions 번역
+- 로컬 변수 명명 규칙
+- Local Variable Naming Conventions
+- 지역 변수 명명 규칙
+
+#### 브랜치 생성
+```
+feature/pmd/test/EgovFileMngController
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.13  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
 ```
 
 Commit Message(커밋 메시지)
@@ -709,15 +756,13 @@ Commit Message(커밋 메시지)
 <hr>
 
 ```
-src/main/java/egovframework/com/cmm/web/EgovFileMngController.java:74:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/cmm/web/EgovFileMngController.java:116:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-```
-
-```
 src/main/java/egovframework/com/cmm/web/EgovImageProcessController.java:76:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/web/EgovImageProcessController.java:112:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/web/EgovImageProcessController.java:114:	CloseResource:	CloseResource: 리소스 'BufferedInputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/web/EgovImageProcessController.java:128:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+```
+
+```
 src/main/java/egovframework/com/cop/bbs/web/EgovArticleController.java:428:	AvoidReassigningParameters:	AvoidReassigningParameters: 'boardVO' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/cop/bbs/web/EgovArticleController.java:669:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/ems/service/impl/EgovSndngMailRegistServiceImpl.java:160:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
