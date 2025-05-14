@@ -42,6 +42,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-12 월|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileDownloadController](#2025-05-12-월-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfiledownloadcontroller)|https://youtu.be/UqFTcA_b_fk|
 |2025-05-13 화|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMngController](#2025-05-13-화-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilemngcontroller)|https://youtu.be/MqqaUV2AWM4|
 |2025-05-14 수|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovImageProcessController](#2025-05-14-수-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovimageprocesscontroller)|https://youtu.be/sEcw1Nkbzfg|
+|2025-05-15 목|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovArticleController](#2025-05-15-목-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovarticlecontroller)|https://youtu.be/u7qSqln_q2M|
 
 <hr>
 
@@ -839,15 +840,65 @@ Commit Message(커밋 메시지)
 
 <hr>
 
+### 2025-05-15 목 test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovArticleController
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cop/bbs/web/EgovArticleController.java:428:	AvoidReassigningParameters:	AvoidReassigningParameters: 'boardVO' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/cop/bbs/web/EgovArticleController.java:669:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+AvoidReassigningParameters 번역
+- 매개변수 재할당을 피하세요
+- Avoid Reassigning Parameters
+- 매개변수 재할당 방지
+
+LocalVariableNamingConventions 번역
+- 로컬 변수 명명 규칙
+- Local Variable Naming Conventions
+- 지역 변수 명명 규칙
+
+#### 브랜치 생성
+
+```
+feature/pmd/test/EgovArticleController
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(매개변수 재할당 방지), LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.15  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(매개변수 재할당 방지), LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
 ```
 
 <hr>
 
 ```
 src/main/java/egovframework/com/cop/ems/service/impl/EgovSndngMailRegistServiceImpl.java:160:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/cop/ems/web/EgovSndngMailDetailController.java:158:	CloseResource:	CloseResource: 리소스 'PrintWriter' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cop/ems/web/EgovSndngMailRegistController.java:102:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/ems/web/EgovSndngMailRegistController.java:103:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
