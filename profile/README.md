@@ -49,6 +49,8 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-20 화|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSmsBasicReceiver](#2025-05-20-화-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsmsbasicreceiver)|https://youtu.be/IQ3zOwrFCZY|
 |2025-05-21 수|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSmsBasicServiceImpl](#2025-05-21-수-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsmsbasicserviceimpl)|https://youtu.be/8Ph-hZWA6Wg|
 |2025-05-21 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-AltibaseClobStringTypeHandler](#2025-05-21-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-altibaseclobstringtypehandler)|https://youtu.be/SQAP-I40f1M|
+|2025-05-22 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComCrossSiteHndlr](#2025-05-22-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomcrosssitehndlr)|https://youtu.be/7kw-9H2XlXo|
+
 <hr>
 
 셀레늄 단위 테스트
@@ -1144,6 +1146,10 @@ https://github.com/eGovFramework/egovframe-common-components/pull/525
 
 <hr>
 
+### 2025-05-22 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComCrossSiteHndlr
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/EgovComCrossSiteHndlr.java:48:	FieldNamingConventions:	FieldNamingConventions: 'final field' 의 변수 'm_sDiffChar' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/EgovComCrossSiteHndlr.java:49:	FieldNamingConventions:	FieldNamingConventions: 'final field' 의 변수 'm_sArrDiffChar' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -1152,8 +1158,75 @@ src/main/java/egovframework/com/cmm/EgovComCrossSiteHndlr.java:155:	CloseResourc
 src/main/java/egovframework/com/cmm/EgovComCrossSiteHndlr.java:162:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
 src/main/java/egovframework/com/cmm/EgovComCrossSiteHndlr.java:174:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
 src/main/java/egovframework/com/cmm/EgovComCrossSiteHndlr.java:185:	CloseResource:	CloseResource: 리소스 'JspWriter' 가 사용 후에 닫혔는지 확인필요
+```
+
+FieldNamingConventions 번역
+- 필드 명명 규칙
+- Field Naming Conventions
+
+CloseResource 번역
+- 닫기리소스
+- Close Resource
+- 리소스 닫기
+
+AssignmentInOperand 번역
+- 피연산자의 할당
+- Assignment In Operand
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovComCrossSiteHndlr
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(필드 명명 규칙), CloseResource(리소스 닫기), AssignmentInOperand(피연산자의 할당)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.22  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(필드 명명 규칙), CloseResource(리소스 닫기), AssignmentInOperand(피연산자의 할당)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+egovc File Search 파일 검색
+- egovc.tld
+- ${egovc:
+- ${egovc:out 없음
+
+NOPMD comment
+- // NOPMD - CloseResource
+- Alternatively, you can tell PMD to ignore a specific line by using the “NOPMD” marker in a comment, like this:
+  - 또는 다음과 같이 주석에 "NOPMD" 마커를 사용하여 PMD가 특정 줄을 무시하도록 지시할 수 있습니다.
+- https://pmd.github.io/pmd/pmd_userdocs_suppressing_warnings.html#nopmd-comment
+
+https://github.com/eGovFramework/egovframe-common-components/pull/526
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/aop/EgovFileBasePathSecurityValidator.java:48:	InefficientEmptyStringCheck:	InefficientEmptyStringCheck: Empty String 을 체크하기 위해 String.trim().length() /String.trim().isEmpty() 을 사용하는 것은 피하도록 함
 src/main/java/egovframework/com/cmm/aop/EgovFileBasePathSecurityValidator.java:77:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/config/EgovWebApplicationInitializer.java:75:	CloseResource:	CloseResource: 리소스 'XmlWebApplicationContext' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/config/EgovWebApplicationInitializer.java:86:	CloseResource:	CloseResource: 리소스 'XmlWebApplicationContext' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilter.java:43:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
