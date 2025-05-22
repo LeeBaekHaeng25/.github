@@ -51,6 +51,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-21 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-AltibaseClobStringTypeHandler](#2025-05-21-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-altibaseclobstringtypehandler)|https://youtu.be/SQAP-I40f1M|
 |2025-05-22 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComCrossSiteHndlr](#2025-05-22-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomcrosssitehndlr)|https://youtu.be/7kw-9H2XlXo|
 |2025-05-22 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileBasePathSecurityValidator](#2025-05-22-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilebasepathsecurityvalidator)|https://youtu.be/8m0WRoJzLp4|
+|2025-05-23 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWebApplicationInitializer](#2025-05-23-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwebapplicationinitializer)|https://youtu.be/OkgssPwyuVw|
 
 <hr>
 
@@ -1276,15 +1277,62 @@ https://github.com/eGovFramework/egovframe-common-components/pull/527
 
 <hr>
 
+### 2025-05-23 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWebApplicationInitializer
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/config/EgovWebApplicationInitializer.java:75:	CloseResource:	CloseResource: 리소스 'XmlWebApplicationContext' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/config/EgovWebApplicationInitializer.java:86:	CloseResource:	CloseResource: 리소스 'XmlWebApplicationContext' 가 사용 후에 닫혔는지 확인필요
 ```
 
+CloseResource 번역
+- 닫기 리소스
+- Close Resource
+- 리소스 닫기
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovWebApplicationInitializer
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(리소스 닫기)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.23  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(리소스 닫기)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/528
+
 <hr>
 
 ```
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilter.java:43:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:117:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:124:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:154:	AvoidReassigningParameters:	AvoidReassigningParameters: 'value' 처럼 파라미터 값을 직접 변경하지 말 것
