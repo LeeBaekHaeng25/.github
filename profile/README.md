@@ -50,7 +50,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-21 수|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSmsBasicServiceImpl](#2025-05-21-수-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsmsbasicserviceimpl)|https://youtu.be/8Ph-hZWA6Wg|
 |2025-05-21 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-AltibaseClobStringTypeHandler](#2025-05-21-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-altibaseclobstringtypehandler)|https://youtu.be/SQAP-I40f1M|
 |2025-05-22 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComCrossSiteHndlr](#2025-05-22-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomcrosssitehndlr)|https://youtu.be/7kw-9H2XlXo|
-|2025-05-22 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileBasePathSecurityValidator](#2025-05-22-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilebasepathsecurityvalidator|https://youtu.be/8m0WRoJzLp4|
+|2025-05-22 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileBasePathSecurityValidator](#2025-05-22-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilebasepathsecurityvalidator)|https://youtu.be/8m0WRoJzLp4|
 
 <hr>
 
