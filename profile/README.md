@@ -50,6 +50,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-21 수|[test PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSmsBasicServiceImpl](#2025-05-21-수-test-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsmsbasicserviceimpl)|https://youtu.be/8Ph-hZWA6Wg|
 |2025-05-21 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-AltibaseClobStringTypeHandler](#2025-05-21-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-altibaseclobstringtypehandler)|https://youtu.be/SQAP-I40f1M|
 |2025-05-22 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComCrossSiteHndlr](#2025-05-22-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomcrosssitehndlr)|https://youtu.be/7kw-9H2XlXo|
+|2025-05-22 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileBasePathSecurityValidator](#2025-05-22-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilebasepathsecurityvalidator|https://youtu.be/8m0WRoJzLp4|
 
 <hr>
 
@@ -1219,16 +1220,70 @@ https://github.com/eGovFramework/egovframe-common-components/pull/526
 
 <hr>
 
+### 2025-05-22 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileBasePathSecurityValidator
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/aop/EgovFileBasePathSecurityValidator.java:48:	InefficientEmptyStringCheck:	InefficientEmptyStringCheck: Empty String 을 체크하기 위해 String.trim().length() /String.trim().isEmpty() 을 사용하는 것은 피하도록 함
 src/main/java/egovframework/com/cmm/aop/EgovFileBasePathSecurityValidator.java:77:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
 ```
+
+InefficientEmptyStringCheck 번역
+- 비효율적인 빈 문자열 검사
+- Inefficient Empty String Check
+
+SimplifyBooleanExpressions 번역
+- 부울 표현식 단순화
+- Simplify Boolean Expressions
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovFileBasePathSecurityValidator
+```
+
+EgovFileBasePathSecurityValidator Class 구현 단위 테스트 추가
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-InefficientEmptyStringCheck(비효율적인 빈 문자열 검사), SimplifyBooleanExpressions(부울 표현식 단순화)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.22  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-InefficientEmptyStringCheck(비효율적인 빈 문자열 검사), SimplifyBooleanExpressions(부울 표현식 단순화)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+if (log.isErrorEnabled()) { 추가
+
+https://github.com/eGovFramework/egovframe-common-components/pull/527
 
 <hr>
 
 ```
 src/main/java/egovframework/com/cmm/config/EgovWebApplicationInitializer.java:75:	CloseResource:	CloseResource: 리소스 'XmlWebApplicationContext' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/config/EgovWebApplicationInitializer.java:86:	CloseResource:	CloseResource: 리소스 'XmlWebApplicationContext' 가 사용 후에 닫혔는지 확인필요
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilter.java:43:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:117:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:124:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
