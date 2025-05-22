@@ -52,6 +52,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-22 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComCrossSiteHndlr](#2025-05-22-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomcrosssitehndlr)|https://youtu.be/7kw-9H2XlXo|
 |2025-05-22 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileBasePathSecurityValidator](#2025-05-22-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilebasepathsecurityvalidator)|https://youtu.be/8m0WRoJzLp4|
 |2025-05-23 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWebApplicationInitializer](#2025-05-23-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwebapplicationinitializer)|https://youtu.be/OkgssPwyuVw|
+|2025-05-23 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilter](#2025-05-23-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-htmltagfilter)|https://youtu.be/hlnX-9TiIQM|
 
 <hr>
 
@@ -1326,9 +1327,51 @@ https://github.com/eGovFramework/egovframe-common-components/pull/528
 
 <hr>
 
+### 2025-05-23 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilter
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilter.java:43:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
 ```
+
+UncommentedEmptyMethodBody 번역
+- 주석 처리되지 않은 EmptyMethodBody
+- Uncommented Empty Method Body
+- 주석 처리되지 않은 빈 메서드 본문
+
+#### 브랜치 생성
+
+```
+feature/pmd/HTMLTagFilter
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-UncommentedEmptyMethodBody(주석 처리되지 않은 빈 메서드 본문)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.23  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-UncommentedEmptyMethodBody(주석 처리되지 않은 빈 메서드 본문)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/529
 
 <hr>
 
@@ -1336,6 +1379,11 @@ src/main/java/egovframework/com/cmm/filter/HTMLTagFilter.java:43:	UncommentedEmp
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:117:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:124:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
 src/main/java/egovframework/com/cmm/filter/HTMLTagFilterRequestWrapper.java:154:	AvoidReassigningParameters:	AvoidReassigningParameters: 'value' 처럼 파라미터 값을 직접 변경하지 말 것
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/filter/SessionTimeoutCookieFilter.java:89:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
 src/main/java/egovframework/com/cmm/resolver/EgovSecurityMap.java:41:	SwitchStmtsShouldHaveDefault:	SwitchStmtsShouldHaveDefault: Switch구문에는 반드시 default label이 있어야 함
 src/main/java/egovframework/com/cmm/resolver/EgovSecurityMap.java:47:	AvoidReassigningParameters:	AvoidReassigningParameters: 'value' 처럼 파라미터 값을 직접 변경하지 말 것
