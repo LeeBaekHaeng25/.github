@@ -55,6 +55,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-23 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilter](#2025-05-23-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-htmltagfilter)|https://youtu.be/hlnX-9TiIQM|
 |2025-05-24 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilterRequestWrapper](#2025-05-24-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-htmltagfilterrequestwrapper)|https://youtu.be/Fw6mtnStocg|
 |2025-05-24 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-SessionTimeoutCookieFilter](#2025-05-24-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-sessiontimeoutcookiefilter)|https://youtu.be/BmXPy9CBTMA|
+|2025-05-24 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSecurityMap](#2025-05-24-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsecuritymap)|https://youtu.be/P-q1ZJqcSCQ|
 
 <hr>
 
@@ -1479,10 +1480,58 @@ https://github.com/eGovFramework/egovframe-common-components/pull/531
 
 <hr>
 
+### 2025-05-24 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSecurityMap
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/resolver/EgovSecurityMap.java:41:	SwitchStmtsShouldHaveDefault:	SwitchStmtsShouldHaveDefault: Switch구문에는 반드시 default label이 있어야 함
 src/main/java/egovframework/com/cmm/resolver/EgovSecurityMap.java:47:	AvoidReassigningParameters:	AvoidReassigningParameters: 'value' 처럼 파라미터 값을 직접 변경하지 말 것
 ```
+
+SwitchStmtsShouldHaveDefault 번역
+- Switch Stmts Should Have Default
+- 스위치 명령문에는 기본값이 있어야 합니다.
+
+AvoidReassigningParameters 번역
+- 매개변수 재할당을 피하세요
+- Avoid Reassigning Parameters
+- 매개변수 재할당 방지
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovSecurityMap
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-SwitchStmtsShouldHaveDefault(스위치 명령문에는 기본값이 있어야 합니다.), AvoidReassigningParameters(매개변수 재할당 방지)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.24  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-SwitchStmtsShouldHaveDefault(스위치 명령문에는 기본값이 있어야 합니다.), AvoidReassigningParameters(매개변수 재할당 방지)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+LOGGER 를 @Slf4j 로 수정
+
+https://github.com/eGovFramework/egovframe-common-components/pull/532
 
 <hr>
 
@@ -1500,6 +1549,11 @@ src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:349:	CloseResou
 src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:350:	CloseResource:	CloseResource: 리소스 'OutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:370:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
 src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:403:	CloseResource:	CloseResource: 리소스 'BufferedInputStream' 가 사용 후에 닫혔는지 확인필요
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:190:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:211:	AvoidReassigningParameters:	AvoidReassigningParameters: 'path' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:302:	AvoidReassigningParameters:	AvoidReassigningParameters: 'path' 처럼 파라미터 값을 직접 변경하지 말 것
