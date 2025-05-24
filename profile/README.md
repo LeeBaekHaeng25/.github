@@ -54,6 +54,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-23 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWebApplicationInitializer](#2025-05-23-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwebapplicationinitializer)|https://youtu.be/OkgssPwyuVw|
 |2025-05-23 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilter](#2025-05-23-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-htmltagfilter)|https://youtu.be/hlnX-9TiIQM|
 |2025-05-24 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-HTMLTagFilterRequestWrapper](#2025-05-24-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-htmltagfilterrequestwrapper)|https://youtu.be/Fw6mtnStocg|
+|2025-05-24 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-SessionTimeoutCookieFilter](#2025-05-24-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-sessiontimeoutcookiefilter)|https://youtu.be/BmXPy9CBTMA|
 
 <hr>
 
@@ -1430,15 +1431,64 @@ https://github.com/eGovFramework/egovframe-common-components/pull/530
 
 <hr>
 
+### 2025-05-24 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-SessionTimeoutCookieFilter
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/filter/SessionTimeoutCookieFilter.java:89:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
 ```
+
+UncommentedEmptyMethodBody 번역
+- 주석 처리되지 않은 EmptyMethodBody
+- Uncommented Empty Method Body
+- 주석 처리되지 않은 빈 메서드 본문
+
+#### 브랜치 생성
+
+```
+feature/pmd/SessionTimeoutCookieFilter
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-UncommentedEmptyMethodBody 번역
+(주석 처리되지 않은 빈 메서드 본문)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.24  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-UncommentedEmptyMethodBody 번역
+(주석 처리되지 않은 빈 메서드 본문)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/531
 
 <hr>
 
 ```
 src/main/java/egovframework/com/cmm/resolver/EgovSecurityMap.java:41:	SwitchStmtsShouldHaveDefault:	SwitchStmtsShouldHaveDefault: Switch구문에는 반드시 default label이 있어야 함
 src/main/java/egovframework/com/cmm/resolver/EgovSecurityMap.java:47:	AvoidReassigningParameters:	AvoidReassigningParameters: 'value' 처럼 파라미터 값을 직접 변경하지 말 것
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:76:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'KeyStr' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:148:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'KeyStr' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/service/EgovFileMngUtil.java:220:	CloseResource:	CloseResource: 리소스 'InputStream' 가 사용 후에 닫혔는지 확인필요
