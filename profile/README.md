@@ -58,6 +58,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-24 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSecurityMap](#2025-05-24-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsecuritymap)|https://youtu.be/P-q1ZJqcSCQ|
 |2025-05-26 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMngUtil](#2025-05-26-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilemngutil)|https://youtu.be/hRu1nHvmtQw|
 |2025-05-26 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-FileSystemUtils](#2025-05-26-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-filesystemutils)|https://youtu.be/qb3lz0BRXeU|
+|2025-05-27 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComAbstractDAO](#2025-05-27-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomabstractdao)|https://youtu.be/hXw00NoOopE|
 
 <hr>
 
@@ -1669,8 +1670,47 @@ https://github.com/eGovFramework/egovframe-common-components/pull/534
 
 <hr>
 
+### 2025-05-27 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComAbstractDAO
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/service/impl/EgovComAbstractDAO.java:36:	FieldNamingConventions:	FieldNamingConventions: 'final field' 의 변수 'LOGGER' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+FieldNamingConventions 번역
+- 필드 명명 규칙
+- Field Naming Conventions
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovComAbstractDAO
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(필드 명명 규칙)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.27  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(필드 명명 규칙)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
 ```
 
 <hr>
@@ -1679,6 +1719,11 @@ src/main/java/egovframework/com/cmm/service/impl/EgovComAbstractDAO.java:36:	Fie
 src/main/java/egovframework/com/cmm/util/EgovBasicLogger.java:27:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'ignoreLogger' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/util/EgovBasicLogger.java:28:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'debugLogger' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/util/EgovBasicLogger.java:29:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'infoLogger' 이  '[A-Z][A-Z_0-9]*'  로 시작함
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/util/EgovMybatisUtil.java:33:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'logger' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/util/EgovMybatisUtil.java:88:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/cmm/util/EgovMybatisUtil.java:92:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
