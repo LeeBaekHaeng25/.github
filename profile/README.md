@@ -57,6 +57,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-24 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-SessionTimeoutCookieFilter](#2025-05-24-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-sessiontimeoutcookiefilter)|https://youtu.be/BmXPy9CBTMA|
 |2025-05-24 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSecurityMap](#2025-05-24-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsecuritymap)|https://youtu.be/P-q1ZJqcSCQ|
 |2025-05-26 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMngUtil](#2025-05-26-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilemngutil)|https://youtu.be/hRu1nHvmtQw|
+|2025-05-26 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-FileSystemUtils](#2025-05-26-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-filesystemutils)|https://youtu.be/qb3lz0BRXeU|
 
 <hr>
 
@@ -1610,6 +1611,10 @@ https://github.com/eGovFramework/egovframe-common-components/pull/533
 
 <hr>
 
+### 2025-05-26 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-FileSystemUtils
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:190:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:211:	AvoidReassigningParameters:	AvoidReassigningParameters: 'path' 처럼 파라미터 값을 직접 변경하지 말 것
@@ -1622,10 +1627,55 @@ src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:396:	CloseResou
 src/main/java/egovframework/com/cmm/service/FileSystemUtils.java:444:	UnusedFormalParameter:	UnusedFormalParameter: 'cmdAttribs' 처럼  사용되지 않는  'method' 파라미터가 있음
 ```
 
+UselessParentheses 번역
+- 쓸모없는 괄호
+- Useless Parentheses
+
+AvoidReassigningParameters 번역
+- 매개변수 재할당을 피하세요
+- Avoid Reassigning Parameters
+- 매개변수 재할당 방지
+
+CloseResource 번역
+- 닫기 리소스
+- Close Resource
+- 리소스 닫기
+
+UnusedFormalParameter 번역
+- 사용되지 않는 형식 매개변수
+- Unused Formal Parameter
+
+#### 브랜치 생성
+
+```
+feature/pmd/FileSystemUtils
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(쓸모없는 괄호), AvoidReassigningParameters(매개변수 재할당 방지), CloseResource(리소스 닫기), UnusedFormalParameter(사용되지 않는 형식 매개변수)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/534
+
 <hr>
 
 ```
 src/main/java/egovframework/com/cmm/service/impl/EgovComAbstractDAO.java:36:	FieldNamingConventions:	FieldNamingConventions: 'final field' 의 변수 'LOGGER' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/util/EgovBasicLogger.java:27:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'ignoreLogger' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/util/EgovBasicLogger.java:28:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'debugLogger' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/util/EgovBasicLogger.java:29:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'infoLogger' 이  '[A-Z][A-Z_0-9]*'  로 시작함
