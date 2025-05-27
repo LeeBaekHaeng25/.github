@@ -61,6 +61,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-27 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComAbstractDAO](#2025-05-27-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomabstractdao)|https://youtu.be/hXw00NoOopE|
 |2025-05-27 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBasicLogger](#2025-05-27-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbasiclogger)|https://youtu.be/gN0Ski5ZugI|
 |2025-05-28 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMybatisUtil](#2025-05-28-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmybatisutil)|https://youtu.be/ViTCmA0KTtc|
+|2025-05-28 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovResourceCloseHelper](#2025-05-28-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovresourceclosehelper)|https://youtu.be/FRIrJOg2FPU|
 
 <hr>
 
@@ -1823,16 +1824,63 @@ https://github.com/eGovFramework/egovframe-common-components/pull/537
 
 <hr>
 
+### 2025-05-28 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovResourceCloseHelper
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/util/EgovResourceCloseHelper.java:35:	CloseResource:	CloseResource: 리소스 'Closeable' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/util/EgovResourceCloseHelper.java:112:	CloseResource:	CloseResource: 리소스 'Socket' 가 사용 후에 닫혔는지 확인필요
 ```
 
-<h4>
+CloseResource 번역
+- 닫기 리소스
+- Close Resource
+- 리소스 닫기
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovResourceCloseHelper
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(리소스 닫기)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.28  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(리소스 닫기)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/538
+
+<hr>
 
 ```
 src/main/java/egovframework/com/cmm/util/EgovUrlRewriteFilter.java:81:	StringInstantiation:	StringInstantiation: 필요없는 Instance가 생성되어 있음
 src/main/java/egovframework/com/cmm/util/EgovUrlRewriteFilter.java:93:	StringInstantiation:	StringInstantiation: 필요없는 Instance가 생성되어 있음
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/util/EgovWildcardReloadableResourceBundleMessageSource.java:33:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'resourcePatternResolver' 를 Final로 선언하지 않았음
 src/main/java/egovframework/com/cmm/util/EgovWildcardReloadableResourceBundleMessageSource.java:59:	UnnecessarySemicolon:	UnnecessarySemicolon: 필요없는 문장 (;)이 있음
 src/main/java/egovframework/com/cmm/web/EgovBindingInitializer.java:34:	SimpleDateFormatNeedsLocale:	SimpleDateFormatNeedsLocale: SimpleDateFormat 인스턴스를 생성할때 Locale 을 지정하는 것이 바람직함
