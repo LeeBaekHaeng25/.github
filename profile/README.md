@@ -60,6 +60,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-26 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-FileSystemUtils](#2025-05-26-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-filesystemutils)|https://youtu.be/qb3lz0BRXeU|
 |2025-05-27 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComAbstractDAO](#2025-05-27-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomabstractdao)|https://youtu.be/hXw00NoOopE|
 |2025-05-27 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBasicLogger](#2025-05-27-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbasiclogger)|https://youtu.be/gN0Ski5ZugI|
+|2025-05-28 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMybatisUtil](#2025-05-28-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmybatisutil)|https://youtu.be/ViTCmA0KTtc|
 
 <hr>
 
@@ -1767,6 +1768,10 @@ https://github.com/eGovFramework/egovframe-common-components/pull/536
 
 <hr>
 
+### 2025-05-28 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMybatisUtil
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/util/EgovMybatisUtil.java:33:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'logger' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/util/EgovMybatisUtil.java:88:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
@@ -1775,11 +1780,57 @@ src/main/java/egovframework/com/cmm/util/EgovMybatisUtil.java:96:	UselessParenth
 src/main/java/egovframework/com/cmm/util/EgovMybatisUtil.java:101:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 ```
 
+FieldNamingConventions 번역
+- 필드 명명 규칙
+- Field Naming Conventions
+
+UselessParentheses 번역
+- 쓸모없는 괄호
+- Useless Parentheses
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovMybatisUtil
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(필드 명명 규칙), UselessParentheses(쓸모없는 괄호)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.28  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(필드 명명 규칙), UselessParentheses(쓸모없는 괄호)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/537
+
 <hr>
 
 ```
 src/main/java/egovframework/com/cmm/util/EgovResourceCloseHelper.java:35:	CloseResource:	CloseResource: 리소스 'Closeable' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/util/EgovResourceCloseHelper.java:112:	CloseResource:	CloseResource: 리소스 'Socket' 가 사용 후에 닫혔는지 확인필요
+```
+
+<h4>
+
+```
 src/main/java/egovframework/com/cmm/util/EgovUrlRewriteFilter.java:81:	StringInstantiation:	StringInstantiation: 필요없는 Instance가 생성되어 있음
 src/main/java/egovframework/com/cmm/util/EgovUrlRewriteFilter.java:93:	StringInstantiation:	StringInstantiation: 필요없는 Instance가 생성되어 있음
 src/main/java/egovframework/com/cmm/util/EgovWildcardReloadableResourceBundleMessageSource.java:33:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'resourcePatternResolver' 를 Final로 선언하지 않았음
