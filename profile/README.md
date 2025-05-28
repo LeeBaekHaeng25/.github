@@ -62,6 +62,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-27 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBasicLogger](#2025-05-27-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbasiclogger)|https://youtu.be/gN0Ski5ZugI|
 |2025-05-28 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMybatisUtil](#2025-05-28-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmybatisutil)|https://youtu.be/ViTCmA0KTtc|
 |2025-05-28 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovResourceCloseHelper](#2025-05-28-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovresourceclosehelper)|https://youtu.be/FRIrJOg2FPU|
+|2025-05-28 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUrlRewriteFilter](#2025-05-28-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovurlrewritefilter)|https://youtu.be/K6cRxs8j5xI|
 
 <hr>
 
@@ -1873,10 +1874,51 @@ https://github.com/eGovFramework/egovframe-common-components/pull/538
 
 <hr>
 
+### 2025-05-28 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUrlRewriteFilter
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/util/EgovUrlRewriteFilter.java:81:	StringInstantiation:	StringInstantiation: 필요없는 Instance가 생성되어 있음
 src/main/java/egovframework/com/cmm/util/EgovUrlRewriteFilter.java:93:	StringInstantiation:	StringInstantiation: 필요없는 Instance가 생성되어 있음
 ```
+
+StringInstantiation 번역
+- 문자열 인스턴스화
+- String Instantiation
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovUrlRewriteFilter
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-StringInstantiation(문자열 인스턴스화)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.28  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-StringInstantiation(문자열 인스턴스화)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/539
 
 <hr>
 
