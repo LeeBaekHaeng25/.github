@@ -64,6 +64,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-28 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovResourceCloseHelper](#2025-05-28-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovresourceclosehelper)|https://youtu.be/FRIrJOg2FPU|
 |2025-05-28 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUrlRewriteFilter](#2025-05-28-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovurlrewritefilter)|https://youtu.be/K6cRxs8j5xI|
 |2025-05-29 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWildcardReloadableResourceBundleMessageSource](#2025-05-29-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwildcardreloadableresourcebundlemessagesource)|https://youtu.be/lNN2MGmdMXI|
+|2025-05-29 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBindingInitializer](#2025-05-29-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbindinginitializer)|https://youtu.be/26a8ReH2KNI|
 
 <hr>
 
@@ -1976,8 +1977,54 @@ https://github.com/eGovFramework/egovframe-common-components/pull/540
 
 <hr>
 
+### 2025-05-29 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBindingInitializer
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/web/EgovBindingInitializer.java:34:	SimpleDateFormatNeedsLocale:	SimpleDateFormatNeedsLocale: SimpleDateFormat 인스턴스를 생성할때 Locale 을 지정하는 것이 바람직함
+```
+
+SimpleDateFormatNeedsLocale 번역
+- Simple Date Format Needs Locale
+- 간단한 날짜 형식에 로캘이 필요합니다.
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovBindingInitializer
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-SimpleDateFormatNeedsLocale(간단한 날짜 형식에 로캘이 필요합니다.)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.29  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-SimpleDateFormatNeedsLocale(간단한 날짜 형식에 로캘이 필요합니다.)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/541
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/web/EgovComAbstractController.java:31:	AbstractClassWithoutAbstractMethod:	AbstractClassWithoutAbstractMethod: Abstract Class내에  Abstract Method가 존재하지 않음
 src/main/java/egovframework/com/cmm/web/EgovComIndexController.java:89:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'exception block parameter' 의 변수 'Nfe' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/web/EgovFileDownloadController.java:79:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
