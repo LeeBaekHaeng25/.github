@@ -65,6 +65,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-28 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUrlRewriteFilter](#2025-05-28-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovurlrewritefilter)|https://youtu.be/K6cRxs8j5xI|
 |2025-05-29 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWildcardReloadableResourceBundleMessageSource](#2025-05-29-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwildcardreloadableresourcebundlemessagesource)|https://youtu.be/lNN2MGmdMXI|
 |2025-05-29 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBindingInitializer](#2025-05-29-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbindinginitializer)|https://youtu.be/26a8ReH2KNI|
+|2025-05-30 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComAbstractController](#2025-05-30-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomabstractcontroller)|https://youtu.be/VSoss8QcG00|
 
 <hr>
 
@@ -2024,8 +2025,56 @@ https://github.com/eGovFramework/egovframe-common-components/pull/541
 
 <hr>
 
+### 2025-05-30 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComAbstractController
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cmm/web/EgovComAbstractController.java:31:	AbstractClassWithoutAbstractMethod:	AbstractClassWithoutAbstractMethod: Abstract Class내에  Abstract Method가 존재하지 않음
+```
+
+AbstractClassWithoutAbstractMethod 번역
+- 추상 메서드가 없는 추상 클래스
+- Abstract Class Without Abstract Method
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovComAbstractController
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-AbstractClassWithoutAbstractMethod(추상 메서드가 없는 추상 클래스)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.30  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-AbstractClassWithoutAbstractMethod(추상 메서드가 없는 추상 클래스)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+egovLogger 제거
+
+https://github.com/eGovFramework/egovframe-common-components/pull/542
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/web/EgovComIndexController.java:89:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'exception block parameter' 의 변수 'Nfe' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/web/EgovFileDownloadController.java:79:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/web/EgovFileDownloadController.java:124:	CloseResource:	CloseResource: 리소스 'BufferedInputStream' 가 사용 후에 닫혔는지 확인필요
