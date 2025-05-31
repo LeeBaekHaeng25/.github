@@ -68,6 +68,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-05-30 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComAbstractController](#2025-05-30-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomabstractcontroller)|https://youtu.be/VSoss8QcG00|
 |2025-05-30 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovComIndexController](#2025-05-30-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcomindexcontroller)|https://youtu.be/1ZgoViUg3Pw|
 |2025-05-31 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileDownloadController](#2025-05-31-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfiledownloadcontroller)|https://youtu.be/arTaW68iz-M|
+|2025-05-31 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMngController](#2025-05-31-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilemngcontroller)|https://youtu.be/ETQCbnfjSbc|
 
 <hr>
 
@@ -2178,11 +2179,59 @@ Commit Message(커밋 메시지)
 
 https://github.com/eGovFramework/egovframe-common-components/pull/544
 
+
 <hr>
+
+### 2025-05-31 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMngController
+
+#### PMD로 소프트웨어 보안약점 진단 결과
 
 ```
 src/main/java/egovframework/com/cmm/web/EgovFileMngController.java:75:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/web/EgovFileMngController.java:117:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+LocalVariableNamingConventions 번역
+- 로컬 변수 명명 규칙
+- Local Variable Naming Conventions
+- 지역 변수 명명 규칙
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovFileMngController
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.05.31  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/545
+
+<hr>
+
+```
 src/main/java/egovframework/com/cmm/web/EgovImageProcessController.java:76:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'param_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cmm/web/EgovImageProcessController.java:112:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cmm/web/EgovImageProcessController.java:114:	CloseResource:	CloseResource: 리소스 'BufferedInputStream' 가 사용 후에 닫혔는지 확인필요
