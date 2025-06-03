@@ -72,6 +72,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-03 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovImageProcessController](#2025-06-03-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovimageprocesscontroller)|https://youtu.be/e6S_0GQMWIE|
 |2025-06-03 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovArticleServiceImpl](#2025-06-03-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovarticleserviceimpl)|https://youtu.be/k24Q6M1Ax9o|
 |2025-06-03 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovArticleController](#2025-06-03-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovarticlecontroller)|https://youtu.be/tiCrmfVfdFk|
+|2025-06-03 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSndngMailRegistServiceImpl](#2025-06-03-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsndngmailregistserviceimpl)|https://youtu.be/6TVGEgdeSLc|
 
 <hr>
 
@@ -2396,8 +2397,54 @@ https://github.com/eGovFramework/egovframe-common-components/pull/548
 
 <hr>
 
+### 2025-06-03 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSndngMailRegistServiceImpl
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cop/ems/service/impl/EgovSndngMailRegistServiceImpl.java:158:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
+```
+
+SimplifyBooleanExpressions 번역
+- Simplify Boolean Expressions
+- 부울 표현식 단순화
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovSndngMailRegistServiceImpl
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-SimplifyBooleanExpressions(부울 표현식 단순화)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.06.03  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-SimplifyBooleanExpressions(부울 표현식 단순화)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/549
+
+<hr>
+
+```
 src/main/java/egovframework/com/cop/ems/web/EgovSndngMailDetailController.java:158:	CloseResource:	CloseResource: 리소스 'PrintWriter' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cop/ems/web/EgovSndngMailRegistController.java:102:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/ems/web/EgovSndngMailRegistController.java:103:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
