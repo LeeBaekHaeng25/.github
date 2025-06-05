@@ -73,6 +73,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-03 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovArticleServiceImpl](#2025-06-03-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovarticleserviceimpl)|https://youtu.be/k24Q6M1Ax9o|
 |2025-06-03 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovArticleController](#2025-06-03-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovarticlecontroller)|https://youtu.be/tiCrmfVfdFk|
 |2025-06-03 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSndngMailRegistServiceImpl](#2025-06-03-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsndngmailregistserviceimpl)|https://youtu.be/6TVGEgdeSLc|
+|2025-06-05 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSndngMailDetailController](#2025-06-05-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsndngmaildetailcontroller)|https://youtu.be/16pyjT2dISc|
 
 <hr>
 
@@ -2444,8 +2445,55 @@ https://github.com/eGovFramework/egovframe-common-components/pull/549
 
 <hr>
 
+### 2025-06-05 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSndngMailDetailController
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cop/ems/web/EgovSndngMailDetailController.java:158:	CloseResource:	CloseResource: 리소스 'PrintWriter' 가 사용 후에 닫혔는지 확인필요
+```
+
+CloseResource 번역
+- 닫기 리소스
+- Close Resource
+- 리소스 닫기
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovSndngMailDetailController
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(리소스 닫기)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.06.05  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(리소스 닫기)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/550
+
+<hr>
+
+```
 src/main/java/egovframework/com/cop/ems/web/EgovSndngMailRegistController.java:102:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/ems/web/EgovSndngMailRegistController.java:103:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/sms/service/impl/EgovSmsBasicReceiver.java:40:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'smsDao' 를 Final로 선언하지 않았음
