@@ -75,6 +75,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-03 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSndngMailRegistServiceImpl](#2025-06-03-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsndngmailregistserviceimpl)|https://youtu.be/6TVGEgdeSLc|
 |2025-06-05 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSndngMailDetailController](#2025-06-05-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsndngmaildetailcontroller)|https://youtu.be/16pyjT2dISc|
 |2025-06-05 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSndngMailRegistController](#2025-06-05-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsndngmailregistcontroller)|https://youtu.be/CMZkRM1bZ_4|
+|2025-06-05 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSmsBasicReceiver](#2025-06-05-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsmsbasicreceiver)|https://youtu.be/-09B8QU-8y8|
 
 <hr>
 
@@ -2543,9 +2544,56 @@ https://github.com/eGovFramework/egovframe-common-components/pull/551
 
 <hr>
 
+### 2025-06-05 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSmsBasicReceiver
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cop/sms/service/impl/EgovSmsBasicReceiver.java:40:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'smsDao' 를 Final로 선언하지 않았음
 src/main/java/egovframework/com/cop/sms/service/impl/EgovSmsBasicReceiver.java:42:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'smeConfigPath' 를 Final로 선언하지 않았음
+```
+
+ImmutableField 번역
+- 불변필드
+- Immutable Field
+- 변경 불가능한 필드
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovSmsBasicReceiver
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-ImmutableField(불변필드)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.06.05  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-ImmutableField(불변필드)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/552
+
+<hr>
+
+```
 src/main/java/egovframework/com/cop/sms/service/impl/EgovSmsBasicServiceImpl.java:36:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'smsDao' 를 Final로 선언하지 않았음
 src/main/java/egovframework/com/cop/sms/service/impl/EgovSmsBasicServiceImpl.java:76:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'FILE_SEPARATOR' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/sms/service/impl/SmsBasicDAO.java:40:	CloseResource:	CloseResource: 리소스 'Connection' 가 사용 후에 닫혔는지 확인필요
