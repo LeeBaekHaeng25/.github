@@ -78,6 +78,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-05 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSmsBasicReceiver](#2025-06-05-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsmsbasicreceiver)|https://youtu.be/-09B8QU-8y8|
 |2025-06-05 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSmsBasicServiceImpl](#2025-06-05-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsmsbasicserviceimpl)|https://youtu.be/Lxkp5KglvU0|
 |2025-06-09 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-SmsBasicDAO](#2025-06-09-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-smsbasicdao)|https://youtu.be/UOjvjtXKvKc|
+|2025-06-09 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-SmsBasicDBUtil](#2025-06-09-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-smsbasicdbutil)|https://youtu.be/-7YXr6-v38g|
 
 <hr>
 
@@ -2716,10 +2717,61 @@ https://github.com/eGovFramework/egovframe-common-components/pull/554
 
 <hr>
 
+### 2025-06-09 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-SmsBasicDBUtil
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cop/sms/service/impl/SmsBasicDBUtil.java:106:	CloseResource:	CloseResource: 리소스 'GenericObjectPool' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/cop/sms/service/impl/SmsBasicDBUtil.java:114:	AvoidSynchronizedAtMethodLevel:	AvoidSynchronizedAtMethodLevel: mothod 레벨의 synchronization 보다 block 레벨 synchronization 을 사용하는 것이 바람직함
 src/main/java/egovframework/com/cop/sms/service/impl/SmsBasicDBUtil.java:115:	CloseResource:	CloseResource: 리소스 'BasicDataSource' 가 사용 후에 닫혔는지 확인필요
+```
+
+CloseResource 번역
+- 닫기 리소스
+- Close Resource
+- 리소스 닫기
+
+AvoidSynchronizedAtMethodLevel 번역
+- Avoid Synchronized At Method Level
+- 메서드 수준에서 동기화를 피하세요
+
+#### 브랜치 생성
+
+```
+feature/pmd/SmsBasicDBUtil
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(리소스 닫기), AvoidSynchronizedAtMethodLevel(메서드 수준에서 동기화를 피하세요)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.06.09  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(리소스 닫기), AvoidSynchronizedAtMethodLevel(메서드 수준에서 동기화를 피하세요)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/555
+
+<hr>
+
+```
 src/main/java/egovframework/com/cop/smt/djm/web/EgovDeptJobController.java:613:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/smt/djm/web/EgovDeptJobController.java:621:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/smt/djm/web/EgovDeptJobController.java:629:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
