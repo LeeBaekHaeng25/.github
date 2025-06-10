@@ -81,6 +81,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-09 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-SmsBasicDBUtil](#2025-06-09-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-smsbasicdbutil)|https://youtu.be/-7YXr6-v38g|
 |2025-06-10 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovDeptJobController](#2025-06-10-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovdeptjobcontroller)|https://youtu.be/dr6F_Ms3VWA|
 |2025-06-10 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovDiaryManageController](#2025-06-10-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovdiarymanagecontroller)|https://youtu.be/CyHHsIOw40g|
+|2025-06-11 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLeaderSchdulServiceImpl](#2025-06-11-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovleaderschdulserviceimpl)|https://youtu.be/aNBW4wUuOgw|
 
 <hr>
 
@@ -2880,6 +2881,10 @@ https://github.com/eGovFramework/egovframe-common-components/pull/557
 
 <hr>
 
+### 2025-06-11 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLeaderSchdulServiceImpl
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cop/smt/lsm/service/impl/EgovLeaderSchdulServiceImpl.java:142:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 implicit unboxing. Use Integer.parseInt(...) instead
 src/main/java/egovframework/com/cop/smt/lsm/service/impl/EgovLeaderSchdulServiceImpl.java:143:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 implicit unboxing. Use Integer.parseInt(...) instead
@@ -2892,6 +2897,55 @@ src/main/java/egovframework/com/cop/smt/lsm/service/impl/EgovLeaderSchdulService
 src/main/java/egovframework/com/cop/smt/lsm/service/impl/EgovLeaderSchdulServiceImpl.java:211:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 implicit unboxing. Use Integer.parseInt(...) instead
 src/main/java/egovframework/com/cop/smt/lsm/service/impl/EgovLeaderSchdulServiceImpl.java:215:	SimpleDateFormatNeedsLocale:	SimpleDateFormatNeedsLocale: SimpleDateFormat 인스턴스를 생성할때 Locale 을 지정하는 것이 바람직함
 src/main/java/egovframework/com/cop/smt/lsm/service/impl/EgovLeaderSchdulServiceImpl.java:216:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 implicit unboxing. Use Integer.parseInt(...) instead
+```
+
+UnnecessaryBoxing 번역
+- 불필요한 복싱
+- Unnecessary Boxing
+- 불필요한 복싱
+- 불필요한 박싱
+
+SimpleDateFormatNeedsLocale 번역
+- Simple Date Format Needs Locale
+- 간단한 날짜 형식에 로캘이 필요합니다.
+- 간단한 날짜 형식에 로케일이 필요합니다.
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovLeaderSchdulServiceImpl
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryBoxing(불필요한 박싱), SimpleDateFormatNeedsLocale(간단한 날짜 형식에 로케일이 필요합니다.)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.06.10  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryBoxing(불필요한 박싱), SimpleDateFormatNeedsLocale(간단한 날짜 형식에 로케일이 필요합니다.)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/558
+
+<hr>
+
+```
 src/main/java/egovframework/com/cop/smt/mrm/web/EgovMemoReprtController.java:304:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/smt/mrm/web/EgovMemoReprtController.java:313:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/smt/mrm/web/EgovMemoReprtController.java:322:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
