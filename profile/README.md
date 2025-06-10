@@ -82,6 +82,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-10 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovDeptJobController](#2025-06-10-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovdeptjobcontroller)|https://youtu.be/dr6F_Ms3VWA|
 |2025-06-10 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovDiaryManageController](#2025-06-10-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovdiarymanagecontroller)|https://youtu.be/CyHHsIOw40g|
 |2025-06-11 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLeaderSchdulServiceImpl](#2025-06-11-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovleaderschdulserviceimpl)|https://youtu.be/aNBW4wUuOgw|
+|2025-06-11 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMemoReprtController](#2025-06-11-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmemoreprtcontroller)|https://youtu.be/tgQBzI1DTds|
 
 <hr>
 
@@ -2945,6 +2946,10 @@ https://github.com/eGovFramework/egovframe-common-components/pull/558
 
 <hr>
 
+### 2025-06-11 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMemoReprtController
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cop/smt/mrm/web/EgovMemoReprtController.java:304:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/smt/mrm/web/EgovMemoReprtController.java:313:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -2953,6 +2958,49 @@ src/main/java/egovframework/com/cop/smt/mrm/web/EgovMemoReprtController.java:323
 src/main/java/egovframework/com/cop/smt/mrm/web/EgovMemoReprtController.java:393:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/smt/mrm/web/EgovMemoReprtController.java:394:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/smt/mrm/web/EgovMemoReprtController.java:440:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+LocalVariableNamingConventions 번역
+- 로컬 변수 명명 규칙
+- Local Variable Naming Conventions
+- 지역 변수 명명 규칙
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovMemoReprtController
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.06.11  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/559
+
+<hr>
+
+```
 src/main/java/egovframework/com/cop/smt/sdm/web/EgovDeptSchdulManageController.java:692:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/smt/sdm/web/EgovDeptSchdulManageController.java:701:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/smt/sdm/web/EgovDeptSchdulManageController.java:709:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
