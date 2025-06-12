@@ -85,6 +85,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-11 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMemoReprtController](#2025-06-11-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmemoreprtcontroller)|https://youtu.be/tgQBzI1DTds|
 |2025-06-11 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovDeptSchdulManageController](#2025-06-11-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovdeptschdulmanagecontroller)|https://youtu.be/7AOMzQK-7zA|
 |2025-06-12 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovIndvdlSchdulManageController](#2025-06-12-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovindvdlschdulmanagecontroller)|https://youtu.be/8iRwby4YQ08|
+|2025-06-12 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWikMnthngReprtController](#2025-06-12-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwikmnthngreprtcontroller)|https://youtu.be/rhfyEl_23i8|
 
 <hr>
 
@@ -3108,6 +3109,10 @@ https://github.com/eGovFramework/egovframe-common-components/pull/561
 
 <hr>
 
+### 2025-06-12 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWikMnthngReprtController
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/cop/smt/wmr/web/EgovWikMnthngReprtController.java:314:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/smt/wmr/web/EgovWikMnthngReprtController.java:323:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -3116,6 +3121,49 @@ src/main/java/egovframework/com/cop/smt/wmr/web/EgovWikMnthngReprtController.jav
 src/main/java/egovframework/com/cop/smt/wmr/web/EgovWikMnthngReprtController.java:382:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/smt/wmr/web/EgovWikMnthngReprtController.java:383:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/cop/smt/wmr/web/EgovWikMnthngReprtController.java:424:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+LocalVariableNamingConventions 번역
+- 로컬 변수 명명 규칙
+- Local Variable Naming Conventions
+- 지역 변수 명명 규칙
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovWikMnthngReprtController
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.06.12  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/562
+
+<hr>
+
+```
 src/main/java/egovframework/com/dam/app/service/impl/EgovKnoAppraisalServiceImpl.java:31:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'KnoAppraisalDAO' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/app/web/EgovKnoAppraisalController.java:106:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'KnoAppraisalList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/map/mat/service/impl/EgovMapMaterialServiceImpl.java:30:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'MapMaterialDAO' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
