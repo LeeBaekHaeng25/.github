@@ -88,6 +88,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-12 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWikMnthngReprtController](#2025-06-12-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwikmnthngreprtcontroller)|https://youtu.be/rhfyEl_23i8|
 |2025-06-13 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovKnoAppraisalServiceImpl](#2025-06-13-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovknoappraisalserviceimpl)|https://youtu.be/l42swd4KtUc|
 |2025-06-13 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovKnoAppraisalController](#2025-06-13-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovknoappraisalcontroller)|https://youtu.be/co4NA0shLLs|
+|2025-06-14 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMapMaterialServiceImpl](#2025-06-14-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmapmaterialserviceimpl)|https://youtu.be/mLc0AJhSHs4|
 
 <hr>
 
@@ -3261,8 +3262,54 @@ https://github.com/eGovFramework/egovframe-common-components/pull/564
 
 <hr>
 
+### 2025-06-14 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMapMaterialServiceImpl
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/dam/map/mat/service/impl/EgovMapMaterialServiceImpl.java:30:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'MapMaterialDAO' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+FieldNamingConventions 번역
+- 필드 명명 규칙
+- Field Naming Conventions
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovMapMaterialServiceImpl
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(필드 명명 규칙)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.06.14  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(필드 명명 규칙)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/566
+
+<hr>
+
+```
 src/main/java/egovframework/com/dam/map/mat/web/EgovMapMaterialController.java:93:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MapMaterialList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/map/mat/web/EgovMapMaterialController.java:141:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MapMaterialList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/map/mat/web/EgovMapMaterialController.java:155:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MapMaterialList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
