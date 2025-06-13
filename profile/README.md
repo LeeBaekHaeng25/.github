@@ -6,7 +6,7 @@
 - Controller 단위 테스트
 - 셀레늄(화면) 단위 테스트
 - 이클립스 Problems 제거
-- PMD로 소프트웨어 보안약점 진단하고 제거하기
+- [PMD로 소프트웨어 보안약점 진단하고 제거하기](pmd.md)
 - 시큐어코딩 일련번호 PK 파라미터 암복호화
 - 검색 조건 유지
 - 롬복 생성자 기반 종속성 주입
@@ -89,6 +89,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-13 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovKnoAppraisalServiceImpl](#2025-06-13-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovknoappraisalserviceimpl)|https://youtu.be/l42swd4KtUc|
 |2025-06-13 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovKnoAppraisalController](#2025-06-13-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovknoappraisalcontroller)|https://youtu.be/co4NA0shLLs|
 |2025-06-14 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMapMaterialServiceImpl](#2025-06-14-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmapmaterialserviceimpl)|https://youtu.be/mLc0AJhSHs4|
+|2025-06-14 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMapMaterialController](#2025-06-14-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmapmaterialcontroller)|https://youtu.be/Sqb0bEWpuYg|
 
 <hr>
 
@@ -3309,10 +3310,57 @@ https://github.com/eGovFramework/egovframe-common-components/pull/566
 
 <hr>
 
+### 2025-06-14 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMapMaterialController
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/dam/map/mat/web/EgovMapMaterialController.java:93:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MapMaterialList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/map/mat/web/EgovMapMaterialController.java:141:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MapMaterialList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/map/mat/web/EgovMapMaterialController.java:155:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MapMaterialList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+LocalVariableNamingConventions 번역
+- 로컬 변수 명명 규칙
+- Local Variable Naming Conventions
+- 지역 변수 명명 규칙
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovMapMaterialController
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.06.14  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/567
+
+<hr>
+
+```
 src/main/java/egovframework/com/dam/map/tea/service/impl/EgovMapTeamServiceImpl.java:29:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'MapTeamDAO' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/map/tea/web/EgovMapTeamController.java:88:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MapTeamList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/mgm/service/impl/EgovKnoManagementServiceImpl.java:31:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'KnoManagementDAO' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
