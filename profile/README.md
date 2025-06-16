@@ -91,6 +91,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-14 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMapMaterialServiceImpl](#2025-06-14-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmapmaterialserviceimpl)|https://youtu.be/mLc0AJhSHs4|
 |2025-06-14 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMapMaterialController](#2025-06-14-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmapmaterialcontroller)|https://youtu.be/Sqb0bEWpuYg|
 |2025-06-16 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMapTeamServiceImpl](#2025-06-16-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmapteamserviceimpl)|https://youtu.be/r-P56PuzLCU|
+|2025-06-16 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMapTeamController](#2025-06-16-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmapteamcontroller)|https://youtu.be/CzY9_SBPNk4|
 
 <hr>
 
@@ -3411,8 +3412,55 @@ https://github.com/eGovFramework/egovframe-common-components/pull/569
 
 <hr>
 
+### 2025-06-16 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMapTeamController
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/dam/map/tea/web/EgovMapTeamController.java:88:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MapTeamList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+LocalVariableNamingConventions 번역
+- 로컬 변수 명명 규칙
+- Local Variable Naming Conventions
+- 지역 변수 명명 규칙
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovMapTeamController
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.06.16  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/571
+
+<hr>
+
+```
 src/main/java/egovframework/com/dam/mgm/service/impl/EgovKnoManagementServiceImpl.java:31:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'KnoManagementDAO' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/per/web/EgovKnoPersonalController.java:231:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/per/web/EgovKnoPersonalController.java:232:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
