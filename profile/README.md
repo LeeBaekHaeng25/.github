@@ -96,6 +96,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-17 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovKnoPersonalController](#2025-06-17-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovknopersonalcontroller)|https://youtu.be/qZFCGXCCDLQ|
 |2025-06-18 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRequestOfferController](#2025-06-18-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovrequestoffercontroller)|https://youtu.be/S79vPc0nPnw|
 |2025-06-18 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovKnoSpecialistServiceImpl](#2025-06-18-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovknospecialistserviceimpl)|https://youtu.be/llpujB-lj9Y|
+|2025-06-19 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovKnoSpecialistController](#2025-06-19-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovknospecialistcontroller)|https://youtu.be/en2DHCDUOMU|
 
 <hr>
 
@@ -3673,12 +3674,59 @@ https://github.com/eGovFramework/egovframe-common-components/pull/575
 
 <hr>
 
+### 2025-06-19 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovKnoSpecialistController
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/dam/spe/spe/web/EgovKnoSpecialistController.java:105:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'KnoSpecialistList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/spe/spe/web/EgovKnoSpecialistController.java:170:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MapTeamList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/spe/spe/web/EgovKnoSpecialistController.java:180:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MapMaterialList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/spe/spe/web/EgovKnoSpecialistController.java:194:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MapTeamList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/dam/spe/spe/web/EgovKnoSpecialistController.java:209:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MapMaterialList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+LocalVariableNamingConventions 번역
+- 로컬 변수 명명 규칙
+- Local Variable Naming Conventions
+- 지역 변수 명명 규칙
+
+#### 브랜치 생성
+
+```
+feature/pmd/EgovKnoSpecialistController
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.06.19  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/576
+
+<hr>
+
+```
 src/main/java/egovframework/com/ext/captcha/EgovCaptchaController.java:66:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/ext/ldapumt/service/LdapObject.java:38:	AbstractClassWithoutAbstractMethod:	AbstractClassWithoutAbstractMethod: Abstract Class내에  Abstract Method가 존재하지 않음
 src/main/java/egovframework/com/ext/ldapumt/service/LdapTreeObject.java:92:	FieldNamingConventions:	FieldNamingConventions: 'enum constant' 의 변수 'dept' 이  '[A-Z][A-Z_0-9]*'  로 시작함
