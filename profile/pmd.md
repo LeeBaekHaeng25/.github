@@ -4,6 +4,7 @@
 - [LocalVariableNamingConventions(지역 변수 명명 규칙)](#localvariablenamingconventions지역-변수-명명-규칙)
 - [FieldNamingConventions(필드 명명 규칙)](#fieldnamingconventions필드-명명-규칙)
 - [UselessParentheses(쓸모없는 괄호)](#uselessparentheses쓸모없는-괄호)
+- [AbstractClassWithoutAbstractMethod(추상 메서드가 없는 추상 클래스)](#abstractclasswithoutabstractmethod추상-메서드가-없는-추상-클래스)
 
 ## LocalVariableNamingConventions(지역 변수 명명 규칙)
 
@@ -35,4 +36,14 @@ UselessParentheses 번역
 - Useless Parentheses
 
 UselessParentheses(쓸모없는 괄호)
+```
+
+## AbstractClassWithoutAbstractMethod(추상 메서드가 없는 추상 클래스)
+
+```
+AbstractClassWithoutAbstractMethod 번역
+- 추상 메서드가 없는 추상 클래스
+- Abstract Class Without Abstract Method
+
+AbstractClassWithoutAbstractMethod(추상 메서드가 없는 추상 클래스)
 ```

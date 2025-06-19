@@ -98,6 +98,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-18 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovKnoSpecialistServiceImpl](#2025-06-18-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovknospecialistserviceimpl)|https://youtu.be/llpujB-lj9Y|
 |2025-06-19 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovKnoSpecialistController](#2025-06-19-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovknospecialistcontroller)|https://youtu.be/en2DHCDUOMU|
 |2025-06-19 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCaptchaController](#2025-06-19-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcaptchacontroller)|https://youtu.be/PI8ZOV7Nsm4|
+|2025-06-20 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-LdapObject](#2025-06-20-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-ldapobject)|https://youtu.be/qfHDJyvzpm8|
 
 <hr>
 
@@ -3774,8 +3775,54 @@ https://github.com/eGovFramework/egovframe-common-components/pull/577
 
 <hr>
 
+### 2025-06-20 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-LdapObject
+
+#### PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/ext/ldapumt/service/LdapObject.java:38:	AbstractClassWithoutAbstractMethod:	AbstractClassWithoutAbstractMethod: Abstract Class내에  Abstract Method가 존재하지 않음
+```
+
+AbstractClassWithoutAbstractMethod 번역
+- 추상 메서드가 없는 추상 클래스
+- Abstract Class Without Abstract Method
+
+#### 브랜치 생성
+
+```
+feature/pmd/LdapObject
+```
+
+#### Commit and Push(커밋 및 푸시) 1
+
+Commit Message(커밋 메시지)
+```
+이클립스 > Source > Format
+```
+
+#### Commit and Push(커밋 및 푸시) 2
+
+Commit Message(커밋 메시지)
+```
+PMD로 소프트웨어 보안약점 진단하고 제거하기-AbstractClassWithoutAbstractMethod(추상 메서드가 없는 추상 클래스)
+```
+
+#### Commit and Push(커밋 및 푸시) 3
+
+```java
+ *   2025.06.20  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-AbstractClassWithoutAbstractMethod(추상 메서드가 없는 추상 클래스)
+```
+
+Commit Message(커밋 메시지)
+```
+개정이력 수정
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/578
+
+<hr>
+
+```
 src/main/java/egovframework/com/ext/ldapumt/service/LdapTreeObject.java:92:	FieldNamingConventions:	FieldNamingConventions: 'enum constant' 의 변수 'dept' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/ext/ldapumt/service/LdapTreeObject.java:92:	FieldNamingConventions:	FieldNamingConventions: 'enum constant' 의 변수 'user' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/ext/ldapumt/service/impl/ObjectMapper.java:57:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'type' 를 Final로 선언하지 않았음
