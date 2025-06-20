@@ -100,6 +100,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-19 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCaptchaController](#2025-06-19-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcaptchacontroller)|https://youtu.be/PI8ZOV7Nsm4|
 |2025-06-20 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-LdapObject](#2025-06-20-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-ldapobject)|https://youtu.be/qfHDJyvzpm8|
 |2025-06-20 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-LdapTreeObject](#2025-06-20-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-ldaptreeobject)|https://youtu.be/tKrhZn-xr9A|
+|2025-06-21 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ObjectMapper](#2025-06-21-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-objectmapper-immutablefield불변필드-uselessparentheses쓸모없는-괄호)|https://youtu.be/KClj7VG4GgI|
 
 <hr>
 
@@ -3871,10 +3872,34 @@ https://github.com/eGovFramework/egovframe-common-components/pull/579
 
 <hr>
 
+### 2025-06-21 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-ObjectMapper-ImmutableField(불변필드), UselessParentheses(쓸모없는 괄호)
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
-src/main/java/egovframework/com/ext/ldapumt/service/LdapTreeObject.java:92:	FieldNamingConventions:	FieldNamingConventions: 'enum constant' 의 변수 'user' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/ext/ldapumt/service/impl/ObjectMapper.java:57:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'type' 를 Final로 선언하지 않았음
 src/main/java/egovframework/com/ext/ldapumt/service/impl/ObjectMapper.java:104:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/ObjectMapper
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.06.21  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-ImmutableField(불변필드), UselessParentheses(쓸모없는 괄호)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/580
+
+<hr>
+
+```
 src/main/java/egovframework/com/ext/msg/server/ChatServerEndPoint.java:60:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'chatroomUsers' 를 Final로 선언하지 않았음
 src/main/java/egovframework/com/ext/msg/server/ChatServerEndPoint.java:97:	CloseResource:	CloseResource: 리소스 'Session' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/ext/msg/server/ChatServerEndPoint.java:105:	CloseResource:	CloseResource: 리소스 'Session' 가 사용 후에 닫혔는지 확인필요
