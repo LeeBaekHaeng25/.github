@@ -105,6 +105,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-23 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-UsersServerEndPoint](#2025-06-23-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-usersserverendpoint)|https://youtu.be/443X9J3y5Cs|
 |2025-06-23 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ChatServerAppConfig](#2025-06-23-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-chatserverappconfig)|https://youtu.be/2VqOBW2n8g8|
 |2025-06-24 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MessageDecoder](#2025-06-24-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-messagedecoder)|https://youtu.be/fSX5Ql72M7U|
+|2025-06-24 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MessageEncoder](#2025-06-24-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-messageencoder)|https://youtu.be/U7T7achmMIE
 
 <hr>
 
@@ -4037,6 +4038,41 @@ LOGGER 를 @Slf4j 로 수정하고 debug 를 error 로 수정
 destroy, init 를 init, destroy 로 순서 수정
 
 https://github.com/eGovFramework/egovframe-common-components/pull/584
+
+<hr>
+
+### 2025-06-24 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-MessageEncoder
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/ext/msg/server/model/encoder/MessageEncoder.java:47:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
+src/main/java/egovframework/com/ext/msg/server/model/encoder/MessageEncoder.java:51:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/MessageEncoder
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.06.24  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-UncommentedEmptyMethodBody(주석 처리되지 않은 빈 메서드 본문)
+```
+
+// destroy 주석 추가
+
+// init 주석 추가
+
+arg0 를 config 로 수정
+
+destroy, init 를 init, destroy 로 순서 수정
+
+https://github.com/eGovFramework/egovframe-common-components/pull/585
 
 <hr>
 
