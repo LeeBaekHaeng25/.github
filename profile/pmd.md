@@ -10,6 +10,7 @@
 - [CloseResource(리소스 닫기)](#closeresource리소스-닫기)
 - [EmptyControlStatement(빈 제어문)](#emptycontrolstatement빈-제어문)
 - [UnnecessarySemicolon(불필요한 세미콜론)](#uselessparentheses쓸모없는-괄호)
+- [UncommentedEmptyMethodBody(주석 처리되지 않은 빈 메서드 본문)](#uncommentedemptymethodbody주석-처리되지-않은-빈-메서드-본문)
 
 ## LocalVariableNamingConventions(지역 변수 명명 규칙)
 
@@ -104,3 +105,16 @@ UnnecessarySemicolon(불필요한 세미콜론)
 ```
 
 필요없는 문장 (;)이 있음
+
+## UncommentedEmptyMethodBody(주석 처리되지 않은 빈 메서드 본문)
+
+```
+UncommentedEmptyMethodBody 번역
+- 주석 처리되지 않은 EmptyMethodBody
+- Uncommented Empty Method Body
+- 주석 처리되지 않은 빈 메서드 본문
+
+UncommentedEmptyMethodBody(주석 처리되지 않은 빈 메서드 본문)
+```
+
+빈 Method Body에 주석을 추가 할 것
