@@ -8,6 +8,8 @@
 - [ImmutableField(불변필드)](#immutablefield불변필드)
 - [UselessParentheses(쓸모없는 괄호)](#uselessparentheses쓸모없는-괄호)
 - [CloseResource(리소스 닫기)](#closeresource리소스-닫기)
+- [EmptyControlStatement(빈 제어문)](#emptycontrolstatement빈-제어문)
+- [UnnecessarySemicolon(불필요한 세미콜론)](#uselessparentheses쓸모없는-괄호)
 
 ## LocalVariableNamingConventions(지역 변수 명명 규칙)
 
@@ -78,3 +80,27 @@ CloseResource(리소스 닫기)
 ```
 
 리소스 'Session' 가 사용 후에 닫혔는지 확인필요
+
+## EmptyControlStatement(빈 제어문)
+
+```
+EmptyControlStatement 번역
+- Empty Control Statement
+- 빈 제어문
+
+EmptyControlStatement(빈 제어문)
+```
+
+Empty else statement
+
+## UnnecessarySemicolon(불필요한 세미콜론)
+
+```
+UnnecessarySemicolon 번역
+- 불필요한 세미콜론
+- Unnecessary Semicolon
+
+UnnecessarySemicolon(불필요한 세미콜론)
+```
+
+필요없는 문장 (;)이 있음
