@@ -103,6 +103,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-21 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ObjectMapper](#2025-06-21-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-objectmapper-immutablefield불변필드-uselessparentheses쓸모없는-괄호)|https://youtu.be/KClj7VG4GgI|
 |2025-06-21 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ChatServerEndPoint](#2025-06-21-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-chatserverendpoint)|https://youtu.be/nj4alpeD2fw|
 |2025-06-23 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-UsersServerEndPoint](#2025-06-23-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-usersserverendpoint)|https://youtu.be/443X9J3y5Cs|
+|2025-06-23 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ChatServerAppConfig](#2025-06-23-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-chatserverappconfig)|https://youtu.be/2VqOBW2n8g8|
 
 <hr>
 
@@ -3970,8 +3971,35 @@ https://github.com/eGovFramework/egovframe-common-components/pull/582
 
 <hr>
 
+### 2025-06-23 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-ChatServerAppConfig
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/ext/msg/server/config/ChatServerAppConfig.java:44:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'endpointMap' 이  '[A-Z][A-Z_0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/ChatServerAppConfig
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.06.23  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(필드 명명 규칙)
+```
+
+endpointMap 를 ENDPOINT_MAP 로 수정
+
+https://github.com/eGovFramework/egovframe-common-components/pull/583
+
+<hr>
+
+```
 src/main/java/egovframework/com/ext/msg/server/model/decoder/MessageDecoder.java:51:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
 src/main/java/egovframework/com/ext/msg/server/model/decoder/MessageDecoder.java:54:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
 src/main/java/egovframework/com/ext/msg/server/model/decoder/MessageDecoder.java:67:	CloseResource:	CloseResource: 리소스 'JsonReader' 가 사용 후에 닫혔는지 확인필요
