@@ -109,6 +109,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-25 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-OAuthLogin](#2025-06-25-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-oauthlogin)|https://youtu.be/5vsyxw9dVxw|
 |2025-06-25 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-OAuthVO](#2025-06-25-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-oauthvo)|https://youtu.be/-8cESlHOFKo|
 |2025-06-26 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-GroupManageVO](#2025-06-26-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-groupmanagevo)|https://youtu.be/_WbPENp2r8o|
+|2025-06-26 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-RoleManageVO](#2025-06-26-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-rolemanagevo)|https://youtu.be/HkAX_9ZuKCw|
 
 <hr>
 
@@ -4181,6 +4182,39 @@ feature/pmd/GroupManageVO
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/591
+
+<hr>
+
+### 2025-06-26 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-RoleManageVO
+
+`getDelYn` 메서드를 롬복 `@Getter` 으로 수정
+
+`setDelYn` 메서드를 롬복 `@Setter` 으로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/sec/rmt/service/RoleManageVO.java:55:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
+src/main/java/egovframework/com/sec/rmt/service/RoleManageVO.java:62:	ArrayIsStoredDirectly:	ArrayIsStoredDirectly: 배열 'delYn' 이 직접 저장되어 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/RoleManageVO
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.06.26  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-MethodReturnsInternalArray(메서드 반환 내부 배열), ArrayIsStoredDirectly(배열이 직접 저장됨)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/592
 
 <hr>
 
