@@ -107,6 +107,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-24 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MessageDecoder](#2025-06-24-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-messagedecoder)|https://youtu.be/fSX5Ql72M7U|
 |2025-06-24 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MessageEncoder](#2025-06-24-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-messageencoder)|https://youtu.be/U7T7achmMIE|
 |2025-06-25 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-OAuthLogin](#2025-06-25-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-oauthlogin)|https://youtu.be/5vsyxw9dVxw|
+|2025-06-25 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-OAuthVO](#2025-06-25-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-oauthvo)|https://youtu.be/-8cESlHOFKo|
 
 <hr>
 
@@ -4116,6 +4117,36 @@ feature/pmd/OAuthLogin
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/589
+
+<hr>
+
+### 2025-06-25 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-OAuthVO
+
+`private String origin;` 을 `private final String origin;` 로 final 추가
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/ext/oauth/service/OAuthVO.java:77:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'origin' 를 Final로 선언하지 않았음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/OAuthVO
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.06.25  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-ImmutableField(불변필드)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/590
 
 <hr>
 
