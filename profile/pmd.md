@@ -12,6 +12,8 @@
 - [UnnecessarySemicolon(불필요한 세미콜론)](#uselessparentheses쓸모없는-괄호)
 - [UncommentedEmptyMethodBody(주석 처리되지 않은 빈 메서드 본문)](#uncommentedemptymethodbody주석-처리되지-않은-빈-메서드-본문)
 - [UnusedPrivateMethod(사용되지 않는 개인 메서드)](#unusedprivatemethod사용되지-않는-개인-메서드)
+- [MethodReturnsInternalArray(메서드 반환 내부 배열)](#methodreturnsinternalarray메서드-반환-내부-배열)
+- [ArrayIsStoredDirectly(배열이 직접 저장됨)](#arrayisstoreddirectly배열이-직접-저장됨)
 
 ## LocalVariableNamingConventions(지역 변수 명명 규칙)
 
@@ -131,3 +133,29 @@ UnusedPrivateMethod(사용되지 않는 개인 메서드)
 ```
 
 사용되지 않는 Private Method 'getEmails(OAuthUniversalUser, JsonNode)' 가 선언되었음
+
+## MethodReturnsInternalArray(메서드 반환 내부 배열)
+
+```
+MethodReturnsInternalArray 번역
+- 메서드 반환 내부 배열
+- Method Returns Internal Array
+- 메서드는 내부 배열을 반환합니다.
+
+MethodReturnsInternalArray(메서드 반환 내부 배열)
+```
+
+'delYn'을 반환하면 내부 배열이 노출될 수 있음
+
+## ArrayIsStoredDirectly(배열이 직접 저장됨)
+
+```
+ArrayIsStoredDirectly 번역
+- 배열이 직접 저장됨
+- Array Is Stored Directly
+- 배열은 직접 저장됩니다
+
+ArrayIsStoredDirectly(배열이 직접 저장됨)
+```
+
+배열 'delYn' 이 직접 저장되어 있음
