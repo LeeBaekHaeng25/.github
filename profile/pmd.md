@@ -11,6 +11,7 @@
 - [EmptyControlStatement(빈 제어문)](#emptycontrolstatement빈-제어문)
 - [UnnecessarySemicolon(불필요한 세미콜론)](#uselessparentheses쓸모없는-괄호)
 - [UncommentedEmptyMethodBody(주석 처리되지 않은 빈 메서드 본문)](#uncommentedemptymethodbody주석-처리되지-않은-빈-메서드-본문)
+- [UnusedPrivateMethod(사용되지 않는 개인 메서드)](#unusedprivatemethod사용되지-않는-개인-메서드)
 
 ## LocalVariableNamingConventions(지역 변수 명명 규칙)
 
@@ -118,3 +119,15 @@ UncommentedEmptyMethodBody(주석 처리되지 않은 빈 메서드 본문)
 ```
 
 빈 Method Body에 주석을 추가 할 것
+
+## UnusedPrivateMethod(사용되지 않는 개인 메서드)
+
+```
+UnusedPrivateMethod 번역
+- 사용되지 않는 개인 메서드
+- Unused Private Method
+
+UnusedPrivateMethod(사용되지 않는 개인 메서드)
+```
+
+사용되지 않는 Private Method 'getEmails(OAuthUniversalUser, JsonNode)' 가 선언되었음

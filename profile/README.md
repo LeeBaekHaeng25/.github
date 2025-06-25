@@ -105,7 +105,8 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-23 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-UsersServerEndPoint](#2025-06-23-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-usersserverendpoint)|https://youtu.be/443X9J3y5Cs|
 |2025-06-23 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ChatServerAppConfig](#2025-06-23-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-chatserverappconfig)|https://youtu.be/2VqOBW2n8g8|
 |2025-06-24 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MessageDecoder](#2025-06-24-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-messagedecoder)|https://youtu.be/fSX5Ql72M7U|
-|2025-06-24 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MessageEncoder](#2025-06-24-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-messageencoder)|https://youtu.be/U7T7achmMIE
+|2025-06-24 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MessageEncoder](#2025-06-24-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-messageencoder)|https://youtu.be/U7T7achmMIE|
+|2025-06-25 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-OAuthLogin](#2025-06-25-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-oauthlogin)|https://youtu.be/5vsyxw9dVxw|
 
 <hr>
 
@@ -4076,13 +4077,49 @@ https://github.com/eGovFramework/egovframe-common-components/pull/585
 
 <hr>
 
+### 2025-06-25 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-OAuthLogin
+
+`Response response = oauthService.execute(request);` try-with-resources 로 수정
+
+mapper 를 MAPPER 로 수정
+
+`private OAuthVO oauthVO;` 를 `private final OAuthVO oauthVO;` 로 final 추가
+
+`private OAuth20Service oauthService;` 를 `private final OAuth20Service oauthService;` 로 final 추가
+
+`private void getEmails(OAuthUniversalUser user, JsonNode rootNode) {` 사용되지 않는 Private Method 주석
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/ext/oauth/service/OAuthLogin.java:19:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'oauthService' 를 Final로 선언하지 않았음
 src/main/java/egovframework/com/ext/oauth/service/OAuthLogin.java:20:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'oauthVO' 를 Final로 선언하지 않았음
 src/main/java/egovframework/com/ext/oauth/service/OAuthLogin.java:22:	FieldNamingConventions:	FieldNamingConventions: 'constant' 의 변수 'mapper' 이  '[A-Z][A-Z_0-9]*'  로 시작함
 src/main/java/egovframework/com/ext/oauth/service/OAuthLogin.java:52:	CloseResource:	CloseResource: 리소스 'Response' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/ext/oauth/service/OAuthLogin.java:86:	UnusedPrivateMethod:	UnusedPrivateMethod: 사용되지 않는 Private Method 'getEmails(OAuthUniversalUser, JsonNode)' 가 선언되었음
-src/main/java/egovframework/com/ext/oauth/service/OAuthVO.java:77:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'origin' 를 Final로 선언하지 않았음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/OAuthLogin
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.06.25  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-ImmutableField(불변필드), FieldNamingConventions(필드 명명 규칙), CloseResource(리소스 닫기), UnusedPrivateMethod(사용되지 않는 개인 메서드)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/589
+
+<hr>
+
+```
 src/main/java/egovframework/com/sec/gmt/service/GroupManageVO.java:60:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
 src/main/java/egovframework/com/sec/gmt/service/GroupManageVO.java:68:	ArrayIsStoredDirectly:	ArrayIsStoredDirectly: 배열 'delYn' 이 직접 저장되어 있음
 src/main/java/egovframework/com/sec/rmt/service/RoleManageVO.java:55:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
