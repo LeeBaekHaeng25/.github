@@ -111,6 +111,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-26 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-GroupManageVO](#2025-06-26-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-groupmanagevo)|https://youtu.be/_WbPENp2r8o|
 |2025-06-26 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-RoleManageVO](#2025-06-26-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-rolemanagevo)|https://youtu.be/HkAX_9ZuKCw|
 |2025-06-27 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSpringSecurityLogoutFilter](#2025-06-27-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovspringsecuritylogoutfilter)|https://youtu.be/5aTQVtaO8sc|
+|2025-06-27 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSpringSecurityLoginFilter](#2025-06-27-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovspringsecuritylogoutfilter)|https://youtu.be/ng8uuxPNF6k|
 
 <hr>
 
@@ -4246,6 +4247,42 @@ feature/pmd/EgovSpringSecurityLogoutFilter
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/593
+
+<hr>
+
+### 2025-06-27 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSpringSecurityLoginFilter
+
+`destroy` 빈 Method Body에 주석을 추가
+
+`private String username` 생성자에서 Assign된 변수 'username' 를 Final로 선언
+
+`private String password` 생성자에서 Assign된 변수 'password' 를 Final로 선언
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/sec/security/filter/EgovSpringSecurityLoginFilter.java:62:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
+src/main/java/egovframework/com/sec/security/filter/EgovSpringSecurityLoginFilter.java:278:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'username' 를 Final로 선언하지 않았음
+src/main/java/egovframework/com/sec/security/filter/EgovSpringSecurityLoginFilter.java:279:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'password' 를 Final로 선언하지 않았음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovSpringSecurityLoginFilter
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.06.27  이백행          PMD로 소프트웨어 보안약점 진단하고 제거하기-UncommentedEmptyMethodBody(주석 처리되지 않은 빈 메서드 본문), ImmutableField(불변필드)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/594
 
 <hr>
 
