@@ -112,6 +112,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-26 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-RoleManageVO](#2025-06-26-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-rolemanagevo)|https://youtu.be/HkAX_9ZuKCw|
 |2025-06-27 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSpringSecurityLogoutFilter](#2025-06-27-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovspringsecuritylogoutfilter)|https://youtu.be/5aTQVtaO8sc|
 |2025-06-27 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSpringSecurityLoginFilter](#2025-06-27-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovspringsecuritylogoutfilter)|https://youtu.be/ng8uuxPNF6k|
+|2025-06-27 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCntcInsttController](#2025-06-27-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcntcinsttcontroller)|https://youtu.be/4a2DFGFL7Hs|
 
 <hr>
 
@@ -4286,9 +4287,35 @@ https://github.com/eGovFramework/egovframe-common-components/pull/594
 
 <hr>
 
+### 2025-06-27 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCntcInsttController
+
+`CmmnCodeList` 를 `resultList` 로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/ssi/syi/iis/web/EgovCntcInsttController.java:394:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/ssi/syi/ims/web/EgovCntcMessageController.java:278:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovCntcInsttController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.06.27  이백행          컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(지역 변수 명명 규칙)
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/ssi/syi/ist/service/EgovCntcSttusService.java:33:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'CntcSttus' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/ssi/syi/ist/service/impl/CntcSttusDAO.java:39:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'CntcSttus' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/ssi/syi/ist/service/impl/EgovCntcSttusServiceImpl.java:45:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'CntcSttus' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
