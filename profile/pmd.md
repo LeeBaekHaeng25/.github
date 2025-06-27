@@ -15,6 +15,10 @@
 - [MethodReturnsInternalArray(메서드 반환 내부 배열)](#methodreturnsinternalarray메서드-반환-내부-배열)
 - [ArrayIsStoredDirectly(배열이 직접 저장됨)](#arrayisstoreddirectly배열이-직접-저장됨)
 
+Code Inspection
+- 정의된 규칙을 기반으로 개발자가 작성한 소스 코드를 검사하여, 오류 및 위험 요인을 식별하여 알려 주는 기능을 제공한다. Code Inspection 도구에 대한 개요와 설치, 업데이트 방법에 대하여 설명한다.
+- https://www.egovframe.go.kr/wiki/doku.php?id=egovframework:dev4.3:imp:inspection
+
 ## LocalVariableNamingConventions(지역 변수 명명 규칙)
 
 ```
@@ -159,3 +163,16 @@ ArrayIsStoredDirectly(배열이 직접 저장됨)
 ```
 
 배열 'delYn' 이 직접 저장되어 있음
+
+## FormalParameterNamingConventions(변수명에 밑줄 사용)
+
+```
+FormalParameterNamingConventions 번역
+- 형식 매개변수 명명 규칙
+- Formal Parameter Naming Conventions
+- 공식 매개변수 명명 규칙
+
+FormalParameterNamingConventions(변수명에 밑줄 사용)
+```
+
+'method parameter' 의 변수 'CntcSttus' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
