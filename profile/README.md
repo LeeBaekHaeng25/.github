@@ -118,6 +118,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-28 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-CntcSttusDAO](#2025-06-28-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-cntcsttusdao)|https://youtu.be/7w2NFdOpifk|
 |2025-06-30 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCntcSttusServiceImpl](#2025-06-30-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcntcsttusserviceimpl)|https://youtu.be/reoJWRcFNIs|
 |2025-06-30 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCntcSttusController](#2025-06-30-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcntcsttuscontroller)|https://youtu.be/KLXXdl0FOfE|
+|2025-07-01 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSystemCntcController](#2025-07-01-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsystemcntccontroller)|https://youtu.be/PUSD7aNuU9w|
 
 <hr>
 
@@ -4480,9 +4481,38 @@ https://github.com/eGovFramework/egovframe-common-components/pull/600
 
 <hr>
 
+### 2025-07-01 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSystemCntcController
+
+`CmmnCodeList` 을(를) `resultList` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/ssi/syi/sim/web/EgovSystemCntcController.java:292:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/ssi/syi/sim/web/EgovSystemCntcController.java:461:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovSystemCntcController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.01  이백행          컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/601
+
+<hr>
+
+```
 src/main/java/egovframework/com/sts/bst/web/EgovBbsStatsController.java:190:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/sts/bst/web/EgovBbsStatsController.java:193:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/sts/cst/web/EgovConectStatsController.java:95:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
