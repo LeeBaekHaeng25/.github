@@ -118,8 +118,8 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-06-28 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-CntcSttusDAO](#2025-06-28-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-cntcsttusdao)|https://youtu.be/7w2NFdOpifk|
 |2025-06-30 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCntcSttusServiceImpl](#2025-06-30-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcntcsttusserviceimpl)|https://youtu.be/reoJWRcFNIs|
 |2025-06-30 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCntcSttusController](#2025-06-30-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcntcsttuscontroller)|https://youtu.be/KLXXdl0FOfE|
-|2025-07-01 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSystemCntcController](#2025-07-01-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsystemcntccontroller)|https://youtu.be/PUSD7aNuU9w|
-|2025-07-01 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBbsStatsController](#2025-07-01-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbbsstatscontroller)|https://youtu.be/ZOSJlLA7xuM|
+|2025-07-01 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSystemCntcController](#2025-07-01-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsystemcntccontroller)|https://youtu.be/PUSD7aNuU9w|
+|2025-07-01 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBbsStatsController](#2025-07-01-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbbsstatscontroller)|https://youtu.be/ZOSJlLA7xuM|
 
 <hr>
 
