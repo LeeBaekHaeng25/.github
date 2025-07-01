@@ -121,6 +121,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-01 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSystemCntcController](#2025-07-01-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsystemcntccontroller)|https://youtu.be/PUSD7aNuU9w|
 |2025-07-01 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBbsStatsController](#2025-07-01-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbbsstatscontroller)|https://youtu.be/ZOSJlLA7xuM|
 |2025-07-02 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovConectStatsController](#2025-07-02-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovconectstatscontroller)|https://youtu.be/baL4jxsBdm0|
+|2025-07-02 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ReprtStatsVO](#2025-07-02-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-reprtstatsvo)|https://youtu.be/olP93J8bIUw|
 
 <hr>
 
@@ -4576,9 +4577,39 @@ https://github.com/eGovFramework/egovframe-common-components/pull/603
 
 <hr>
 
+### 2025-07-02 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-ReprtStatsVO
+
+`getDelYn setDelYn` 을(를) 제거하고 `@Getter @Setter` 로 추가
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sts/rst/service/ReprtStatsVO.java:166:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
 src/main/java/egovframework/com/sts/rst/service/ReprtStatsVO.java:172:	ArrayIsStoredDirectly:	ArrayIsStoredDirectly: 배열 'delYn' 이 직접 저장되어 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/ReprtStatsVO
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.02  이백행          컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-MethodReturnsInternalArray(Private 배열에 Public 데이터 할당)
+ *   2025.07.02  이백행          컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-ArrayIsStoredDirectly(Public 메소드부터 반환된 Private 배열)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/604
+
+<hr>
+
+```
 src/main/java/egovframework/com/sts/sst/web/EgovScrinStatsController.java:60:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_menulist' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/bat/service/BatchShellScriptJob.java:72:	UnusedFormalParameter:	UnusedFormalParameter: 'paramtr' 처럼  사용되지 않는  'method' 파라미터가 있음
 src/main/java/egovframework/com/sym/cal/service/RestdeVO.java:92:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
