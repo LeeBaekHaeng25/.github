@@ -125,6 +125,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-03 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovScrinStatsController](#2025-07-03-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovscrinstatscontroller)|https://youtu.be/3SsOnf7yNXY|
 |2025-07-03 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-BatchShellScriptJob](#2025-07-03-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-batchshellscriptjob)|https://youtu.be/aSijAw5_Ezc|
 |2025-07-04 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-RestdeVO](#2025-07-04-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-restdevo)|https://youtu.be/Didmdr3BUuY|
+|2025-07-04 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCalRestdeManageController](#2025-07-04-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcalrestdemanagecontroller)|https://youtu.be/fcIVEqknAMs|
 
 <hr>
 
@@ -4702,6 +4703,117 @@ https://github.com/eGovFramework/egovframe-common-components/pull/607
 
 <hr>
 
+### 2025-07-04 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCalRestdeManageController
+
+`bindingResult = ` 제거하고  
+`public BindingResult checkRestdeWithValidator` 을(를) `private void checkRestdeWithValidator` 로 수정하고  
+`return bindingResult;` 제거
+
+`iMaxWeeks = iMaxWeeks + (int) Math.ceil(((iLastDate - iMaxWeeks * 7) + iStartWeek - 1) / 7.0);` 을(를) `iMaxWeeks = iMaxWeeks + (int) Math.ceil((iLastDate - iMaxWeeks * 7 + iStartWeek - 1) / 7.0);` 로 수정
+
+이름 바꾸기
+```
+model.addAttribute("resultList_1", CalInfoList_1); resultCalInfo1List
+model.addAttribute("resultList_2", CalInfoList_2); resultCalInfo2List
+model.addAttribute("resultList_3", CalInfoList_3); resultCalInfo3List
+model.addAttribute("resultList_4", CalInfoList_4); resultCalInfo4List
+model.addAttribute("resultList_5", CalInfoList_5); resultCalInfo5List
+model.addAttribute("resultList_6", CalInfoList_6); resultCalInfo6List
+model.addAttribute("resultList_7", CalInfoList_7); resultCalInfo7List
+model.addAttribute("RestdeList_1", NormalWeekRestdeList_1); resultNormalWeekRestde1List
+model.addAttribute("RestdeList_2", NormalWeekRestdeList_2); resultNormalWeekRestde2List
+model.addAttribute("RestdeList_3", NormalWeekRestdeList_3); resultNormalWeekRestde3List
+model.addAttribute("RestdeList_4", NormalWeekRestdeList_4); resultNormalWeekRestde4List
+model.addAttribute("RestdeList_5", NormalWeekRestdeList_5); resultNormalWeekRestde5List
+model.addAttribute("RestdeList_6", NormalWeekRestdeList_6); resultNormalWeekRestde6List
+model.addAttribute("RestdeList_7", NormalWeekRestdeList_7); resultNormalWeekRestde7List
+
+model.addAttribute("resultList_1", CalInfoList_1);
+model.addAttribute("resultList_2", CalInfoList_2);
+model.addAttribute("resultList_3", CalInfoList_3);
+model.addAttribute("resultList_4", CalInfoList_4);
+model.addAttribute("resultList_5", CalInfoList_5);
+model.addAttribute("resultList_6", CalInfoList_6);
+model.addAttribute("resultList_7", CalInfoList_7);
+model.addAttribute("resultList_8", CalInfoList_8);
+model.addAttribute("resultList_9", CalInfoList_9);
+model.addAttribute("resultList_10", CalInfoList_10);
+model.addAttribute("resultList_11", CalInfoList_11);
+model.addAttribute("resultList_12", CalInfoList_12);
+model.addAttribute("RestdeList_1", NormalMonthRestdeList_1); resultNormalMonthRestde1List
+model.addAttribute("RestdeList_2", NormalMonthRestdeList_2); resultNormalMonthRestde2List
+model.addAttribute("RestdeList_3", NormalMonthRestdeList_3); resultNormalMonthRestde3List
+model.addAttribute("RestdeList_4", NormalMonthRestdeList_4); resultNormalMonthRestde4List
+model.addAttribute("RestdeList_5", NormalMonthRestdeList_5); resultNormalMonthRestde5List
+model.addAttribute("RestdeList_6", NormalMonthRestdeList_6); resultNormalMonthRestde6List
+model.addAttribute("RestdeList_7", NormalMonthRestdeList_7); resultNormalMonthRestde7List
+model.addAttribute("RestdeList_8", NormalMonthRestdeList_8); resultNormalMonthRestde8List
+model.addAttribute("RestdeList_9", NormalMonthRestdeList_9); resultNormalMonthRestde9List
+model.addAttribute("RestdeList_10", NormalMonthRestdeList_10); resultNormalMonthRestde10List
+model.addAttribute("RestdeList_11", NormalMonthRestdeList_11); resultNormalMonthRestde11List
+model.addAttribute("RestdeList_12", NormalMonthRestdeList_12); resultNormalMonthRestde12List
+
+model.addAttribute("resultList_1", CalInfoList_1);
+model.addAttribute("resultList_2", CalInfoList_2);
+model.addAttribute("resultList_3", CalInfoList_3);
+model.addAttribute("resultList_4", CalInfoList_4);
+model.addAttribute("resultList_5", CalInfoList_5);
+model.addAttribute("resultList_6", CalInfoList_6);
+model.addAttribute("resultList_7", CalInfoList_7);
+model.addAttribute("RestdeList_1", AdministWeekRestdeList_1); resultAdministWeekRestde1List
+model.addAttribute("RestdeList_2", AdministWeekRestdeList_2); resultAdministWeekRestde2List
+model.addAttribute("RestdeList_3", AdministWeekRestdeList_3); resultAdministWeekRestde3List
+model.addAttribute("RestdeList_4", AdministWeekRestdeList_4); resultAdministWeekRestde4List
+model.addAttribute("RestdeList_5", AdministWeekRestdeList_5); resultAdministWeekRestde5List
+model.addAttribute("RestdeList_6", AdministWeekRestdeList_6); resultAdministWeekRestde6List
+model.addAttribute("RestdeList_7", AdministWeekRestdeList_7); resultAdministWeekRestde7List
+
+model.addAttribute("resultList_1", CalInfoList_1);
+model.addAttribute("resultList_2", CalInfoList_2);
+model.addAttribute("resultList_3", CalInfoList_3);
+model.addAttribute("resultList_4", CalInfoList_4);
+model.addAttribute("resultList_5", CalInfoList_5);
+model.addAttribute("resultList_6", CalInfoList_6);
+model.addAttribute("resultList_7", CalInfoList_7);
+model.addAttribute("resultList_8", CalInfoList_8);
+model.addAttribute("resultList_9", CalInfoList_9);
+model.addAttribute("resultList_10", CalInfoList_10);
+model.addAttribute("resultList_11", CalInfoList_11);
+model.addAttribute("resultList_12", CalInfoList_12);
+model.addAttribute("RestdeList_1", AdministMonthRestdeList_1); resultAdministMonthRestde1List
+model.addAttribute("RestdeList_2", AdministMonthRestdeList_2); resultAdministMonthRestde2List
+model.addAttribute("RestdeList_3", AdministMonthRestdeList_3); resultAdministMonthRestde3List
+model.addAttribute("RestdeList_4", AdministMonthRestdeList_4); resultAdministMonthRestde4List
+model.addAttribute("RestdeList_5", AdministMonthRestdeList_5); resultAdministMonthRestde5List
+model.addAttribute("RestdeList_6", AdministMonthRestdeList_6); resultAdministMonthRestde6List
+model.addAttribute("RestdeList_7", AdministMonthRestdeList_7); resultAdministMonthRestde7List
+model.addAttribute("RestdeList_8", AdministMonthRestdeList_8); resultAdministMonthRestde8List
+model.addAttribute("RestdeList_9", AdministMonthRestdeList_9); resultAdministMonthRestde9List
+model.addAttribute("RestdeList_10", AdministMonthRestdeList_10); resultAdministMonthRestde10List
+model.addAttribute("RestdeList_11", AdministMonthRestdeList_11); resultAdministMonthRestde11List
+model.addAttribute("RestdeList_12", AdministMonthRestdeList_12); resultAdministMonthRestde12List
+
+CalInfoList resultCalInfoList
+
+NormalWeekRestdeList resultNormalWeekRestdeList
+
+NormalMonthRestdeList resultNormalMonthRestdeList
+
+AdministWeekRestdeList resultAdministWeekRestdeList
+
+AdministMonthRestdeList resultAdministMonthRestdeList
+
+CmmnCodeList resultCmmnCodeList
+
+CodeVO codeVO
+
+ComDefaultCodeVO CodeVO comDefaultCodeVO
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/cal/web/EgovCalRestdeManageController.java:108:	AvoidReassigningParameters:	AvoidReassigningParameters: 'bindingResult' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/sym/cal/web/EgovCalRestdeManageController.java:160:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CalInfoList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -4808,6 +4920,29 @@ src/main/java/egovframework/com/sym/cal/web/EgovCalRestdeManageController.java:1
 src/main/java/egovframework/com/sym/cal/web/EgovCalRestdeManageController.java:1485:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/cal/web/EgovCalRestdeManageController.java:1511:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CodeVO' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/cal/web/EgovCalRestdeManageController.java:1537:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CodeVO' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovCalRestdeManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.04  이백행          컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+ *   2025.07.04  이백행          컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+ *   2025.07.04  이백행          컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/608
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/ccm/acr/service/impl/EgovAdministCodeRecptnServiceImpl.java:28:	UnnecessaryImport:	UnnecessaryImport: Unused import 'egovframework.com.cop.cmy.service.impl.EgovCommuManageServiceImpl'
 src/main/java/egovframework/com/sym/ccm/acr/service/impl/EgovAdministCodeRecptnServiceImpl.java:116:	InefficientStringBuffering:	InefficientStringBuffering: StringBuffer / StringBuilder 함수 또는 append() 함수에서 nonliteral 을 직접 concatenate 하지 말 것
 src/main/java/egovframework/com/sym/ccm/acr/service/impl/EgovAdministCodeRecptnServiceImpl.java:117:	InefficientStringBuffering:	InefficientStringBuffering: StringBuffer / StringBuilder 함수 또는 append() 함수에서 nonliteral 을 직접 concatenate 하지 말 것
