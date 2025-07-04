@@ -127,6 +127,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-04 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-RestdeVO](#2025-07-04-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-restdevo)|https://youtu.be/Didmdr3BUuY|
 |2025-07-04 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCalRestdeManageController](#2025-07-04-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcalrestdemanagecontroller)|https://youtu.be/fcIVEqknAMs|
 |2025-07-05 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAdministCodeRecptnServiceImpl](#2025-07-05-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovadministcoderecptnserviceimpl)|https://youtu.be/WIPkaXgPZrA|
+|2025-07-05 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmAdministCodeManageController](#2025-07-05-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmadministcodemanagecontroller)|https://youtu.be/Gc1fWFUBKQg|
 
 <hr>
 
@@ -5064,9 +5065,38 @@ https://github.com/eGovFramework/egovframe-common-components/pull/609
 
 <hr>
 
+### 2025-07-05 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmAdministCodeManageController
+
+CmmnCodeList 을(를) resultList 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/ccm/adc/web/EgovCcmAdministCodeManageController.java:170:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/ccm/adc/web/EgovCcmAdministCodeManageController.java:218:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovCcmAdministCodeManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.05  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/610
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/ccm/cca/web/EgovCcmCmmnCodeManageController.java:95:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/ccm/ccc/web/EgovCcmCmmnClCodeManageController.java:89:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/ccm/cde/web/EgovCcmCmmnDetailCodeManageController.java:100:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
