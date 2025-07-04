@@ -126,6 +126,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-03 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-BatchShellScriptJob](#2025-07-03-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-batchshellscriptjob)|https://youtu.be/aSijAw5_Ezc|
 |2025-07-04 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-RestdeVO](#2025-07-04-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-restdevo)|https://youtu.be/Didmdr3BUuY|
 |2025-07-04 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCalRestdeManageController](#2025-07-04-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcalrestdemanagecontroller)|https://youtu.be/fcIVEqknAMs|
+|2025-07-05 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAdministCodeRecptnServiceImpl](#2025-07-05-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovadministcoderecptnserviceimpl)|https://youtu.be/WIPkaXgPZrA|
 
 <hr>
 
@@ -4942,6 +4943,93 @@ https://github.com/eGovFramework/egovframe-common-components/pull/608
 
 <hr>
 
+### 2025-07-05 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAdministCodeRecptnServiceImpl
+
+TestEgovAdministCodeRecptnServiceImpl 단위 테스트 추가
+
+`import egovframework.com.cop.cmy.service.impl.EgovCommuManageServiceImpl;` 제거
+
+**nonliteral 을 직접 concatenate 하지 말게 수정**
+
+```java
+		sb.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=" + serviceKey); /*Service Key*/
+		sb.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode(Integer.toString(pageNo), "UTF-8")); /*페이지번호*/
+		sb.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode(Integer.toString(numOfRows), "UTF-8")); /*한 페이지 결과 수*/
+		sb.append("&" + URLEncoder.encode("type","UTF-8") + "=" + URLEncoder.encode("JSON", "UTF-8")); /*요청자료형식(XML/JSON) Default: XML*/
+		sb.append("&" + URLEncoder.encode("locatadd_nm","UTF-8") + "=" + URLEncoder.encode("서울특별시", "UTF-8")); /*지역주소명(옵션)*/
+
+		// URL
+		sb.append("https://apis.data.go.kr/1741000/StanReginCd/getStanReginCdList");
+
+		// Service Key
+		sb.append("?");
+		sb.append(URLEncoder.encode("serviceKey", "UTF-8"));
+		sb.append("=");
+		sb.append(serviceKey);
+
+		// 페이지번호
+		sb.append("&");
+		sb.append(URLEncoder.encode("pageNo", "UTF-8"));
+		sb.append("=");
+		sb.append(URLEncoder.encode(Integer.toString(pageNo), "UTF-8"));
+
+		// 한 페이지 결과 수
+		sb.append("&");
+		sb.append(URLEncoder.encode("numOfRows", "UTF-8"));
+		sb.append("=");
+		sb.append(URLEncoder.encode(Integer.toString(numOfRows), "UTF-8"));
+
+		// 요청자료형식(XML/JSON) Default: XML
+		sb.append("&");
+		sb.append(URLEncoder.encode("type", "UTF-8"));
+		sb.append("=");
+		sb.append(URLEncoder.encode("JSON", "UTF-8"));
+
+		// 지역주소명(옵션)
+		sb.append("&");
+		sb.append(URLEncoder.encode("locatadd_nm", "UTF-8"));
+		sb.append("=");
+		sb.append(URLEncoder.encode("서울특별시", "UTF-8"));
+```
+
+**IOUtils.toString 으로 수정**
+
+```java
+        BufferedReader br;
+        if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+
+        	br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        	StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
+            br.close();
+
+sb.append(IOUtils.toString(conn.getInputStream(), StandardCharsets.UTF_8));
+```
+
+**공공데이터포털 행정안전부_행정표준코드_법정동코드**
+
+`인증키 복사(Encoding), URL에서 사용이 가능하도록 인코딩 된 인증키` 사용해야 함
+
+globals.properties
+```properties
+# 기관코드, 법정동코드 수신용 공공데이터포털 인증키(공공데이터포털에서 발급 받은 후 기입)
+
+# 인증키 복사(Encoding), URL에서 사용이 가능하도록 인코딩 된 인증키
+Globals.data.serviceKey=
+
+# 인증키 복사(Decoding), 인코딩 되지 않은 원본 인증키
+#Globals.data.serviceKey=
+```
+
+https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15077871
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/ccm/acr/service/impl/EgovAdministCodeRecptnServiceImpl.java:28:	UnnecessaryImport:	UnnecessaryImport: Unused import 'egovframework.com.cop.cmy.service.impl.EgovCommuManageServiceImpl'
 src/main/java/egovframework/com/sym/ccm/acr/service/impl/EgovAdministCodeRecptnServiceImpl.java:116:	InefficientStringBuffering:	InefficientStringBuffering: StringBuffer / StringBuilder 함수 또는 append() 함수에서 nonliteral 을 직접 concatenate 하지 말 것
@@ -4953,6 +5041,30 @@ src/main/java/egovframework/com/sym/ccm/acr/service/impl/EgovAdministCodeRecptnS
 src/main/java/egovframework/com/sym/ccm/acr/service/impl/EgovAdministCodeRecptnServiceImpl.java:146:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
 src/main/java/egovframework/com/sym/ccm/acr/service/impl/EgovAdministCodeRecptnServiceImpl.java:192:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/sym/ccm/acr/service/impl/EgovAdministCodeRecptnServiceImpl.java:198:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovAdministCodeRecptnServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.05  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryImport(불필요한 import문 선언)
+ *   2025.07.05  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-InefficientStringBuffering(StringBuffer 함수내에서 비문자열 연산 이용하여 직접 결합하는 코드 사용을 탐지. append 메소드 사용을 권장)
+ *   2025.07.05  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.07.05  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/609
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/ccm/adc/web/EgovCcmAdministCodeManageController.java:170:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/ccm/adc/web/EgovCcmAdministCodeManageController.java:218:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/ccm/cca/web/EgovCcmCmmnCodeManageController.java:95:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
