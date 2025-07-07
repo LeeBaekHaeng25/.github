@@ -129,6 +129,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-05 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAdministCodeRecptnServiceImpl](#2025-07-05-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovadministcoderecptnserviceimpl)|https://youtu.be/WIPkaXgPZrA|
 |2025-07-05 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmAdministCodeManageController](#2025-07-05-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmadministcodemanagecontroller)|https://youtu.be/Gc1fWFUBKQg|
 |2025-07-07 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmCmmnCodeManageController](#2025-07-07-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmcmmncodemanagecontroller)|https://youtu.be/6El8FHitsNQ|
+|2025-07-07 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmCmmnClCodeManageController](#2025-07-07-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmcmmnclcodemanagecontroller)||
 
 <hr>
 
@@ -5127,8 +5128,37 @@ https://github.com/eGovFramework/egovframe-common-components/pull/611
 
 <hr>
 
+### 2025-07-07 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmCmmnClCodeManageController
+
+CmmnCodeList 를 resultList 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/ccm/ccc/web/EgovCcmCmmnClCodeManageController.java:89:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovCcmCmmnClCodeManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.07  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/612
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/ccm/cde/web/EgovCcmCmmnDetailCodeManageController.java:100:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/ccm/icr/service/impl/EgovInsttCodeRecptnServiceImpl.java:28:	UnnecessaryImport:	UnnecessaryImport: Unused import 'egovframework.com.sym.ccm.acr.service.impl.EgovAdministCodeRecptnServiceImpl'
 src/main/java/egovframework/com/sym/ccm/icr/service/impl/EgovInsttCodeRecptnServiceImpl.java:126:	InefficientStringBuffering:	InefficientStringBuffering: StringBuffer / StringBuilder 함수 또는 append() 함수에서 nonliteral 을 직접 concatenate 하지 말 것
