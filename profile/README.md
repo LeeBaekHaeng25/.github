@@ -131,6 +131,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-07 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmCmmnCodeManageController](#2025-07-07-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmcmmncodemanagecontroller)|https://youtu.be/6El8FHitsNQ|
 |2025-07-07 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmCmmnClCodeManageController](#2025-07-07-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmcmmnclcodemanagecontroller)||
 |2025-07-08 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmCmmnDetailCodeManageController](#2025-07-08-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmcmmndetailcodemanagecontroller)|https://youtu.be/RiNbBKOpWV0|
+|2025-07-08 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovInsttCodeRecptnServiceImpl](#2025-07-08-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovinsttcoderecptnserviceimpl)|https://youtu.be/m5j52D20WV8|
 
 <hr>
 
@@ -5189,6 +5190,121 @@ https://github.com/eGovFramework/egovframe-common-components/pull/614
 
 <hr>
 
+### 2025-07-08 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovInsttCodeRecptnServiceImpl
+
+TestEgovInsttCodeRecptnServiceImpl 단위 테스트 추가
+
+불필요한 import문 제거
+```java
+import egovframework.com.sym.ccm.acr.service.impl.EgovAdministCodeRecptnServiceImpl;
+```
+
+append 메소드 사용
+```java
+//		sb.append("http://apis.data.go.kr/1741000/StanOrgCd2/getStanOrgCdList2"); /*URL*/
+//		sb.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=" + serviceKey); /*Service Key*/
+//		sb.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode(Integer.toString(pageNo), "UTF-8")); /*페이지번호*/
+//		sb.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode(Integer.toString(numOfRows), "UTF-8")); /*한 페이지 결과 수*/
+//		sb.append("&" + URLEncoder.encode("type","UTF-8") + "=" + URLEncoder.encode("JSON", "UTF-8")); /*요청자료형식(XML/JSON) Default: XML*/
+//		sb.append("&" + URLEncoder.encode("full_nm","UTF-8") + "=" + URLEncoder.encode("행정안전부", "UTF-8")); /*기관명(옵션)*/
+//		sb.append("&" + URLEncoder.encode("stop_selt","UTF-8") + "=" + URLEncoder.encode("0", "UTF-8")); /*사용:0, 폐지:1(옵션)*/
+
+		// URL
+		sb.append("http://apis.data.go.kr/1741000/StanOrgCd2/getStanOrgCdList2");
+
+		// Service Key
+		sb.append("?");
+		sb.append(URLEncoder.encode("serviceKey", "UTF-8"));
+		sb.append("=");
+		sb.append(serviceKey);
+
+		// 페이지번호
+		sb.append("&");
+		sb.append(URLEncoder.encode("pageNo", "UTF-8"));
+		sb.append("=");
+		sb.append(URLEncoder.encode(Integer.toString(pageNo), "UTF-8"));
+
+		// 한 페이지 결과 수
+		sb.append("&");
+		sb.append(URLEncoder.encode("numOfRows", "UTF-8"));
+		sb.append("=");
+		sb.append(URLEncoder.encode(Integer.toString(numOfRows), "UTF-8"));
+
+		// 요청자료형식(XML/JSON) Default: XML
+		sb.append("&");
+		sb.append(URLEncoder.encode("type", "UTF-8"));
+		sb.append("=");
+		sb.append(URLEncoder.encode("JSON", "UTF-8"));
+
+		// 기관명(옵션)
+		sb.append("&");
+		sb.append(URLEncoder.encode("full_nm", "UTF-8"));
+		sb.append("=");
+		sb.append(URLEncoder.encode("행정안전부", "UTF-8"));
+
+		// 사용:0, 폐지:1(옵션)
+		sb.append("&");
+		sb.append(URLEncoder.encode("stop_selt", "UTF-8"));
+		sb.append("=");
+		sb.append(URLEncoder.encode("0", "UTF-8"));
+```
+
+CloseResource(부적절한 자원 해제), AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+```java
+public static int numberOfRows() throws IOException, ParseException {
+...
+//        BufferedReader br;
+//        if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+//
+//        	br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//        	StringBuilder sb = new StringBuilder();
+//            String line;
+//            while ((line = br.readLine()) != null) {
+//                sb.append(line);
+//            }
+//            br.close();
+//
+//            JSONParser jsonParser = new JSONParser();
+//            JSONObject jsonObject = (JSONObject) jsonParser.parse(sb.toString());
+
+		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+			JSONParser jsonParser = new JSONParser();
+			String s = IOUtils.toString(conn.getInputStream(), StandardCharsets.UTF_8);
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("s={}", s);
+			}
+			JSONObject jsonObject = (JSONObject) jsonParser.parse(s);
+
+...
+public static List<HashMap<String, String>> apiLink() throws IOException, ParseException {
+...
+//	        BufferedReader br;
+//	        if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+//
+//	        	br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//	        	StringBuilder sb = new StringBuilder();
+//	            String line;
+//	            while ((line = br.readLine()) != null) {
+//	                sb.append(line);
+//	            }
+//	            br.close();
+//
+//	            JSONParser jsonParser = new JSONParser();
+//	            JSONObject jsonObject = (JSONObject) jsonParser.parse(sb.toString());
+
+			if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+				JSONParser jsonParser = new JSONParser();
+				String s = IOUtils.toString(conn.getInputStream(), StandardCharsets.UTF_8);
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("s={}", s);
+				}
+				JSONObject jsonObject = (JSONObject) jsonParser.parse(s);
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/ccm/icr/service/impl/EgovInsttCodeRecptnServiceImpl.java:28:	UnnecessaryImport:	UnnecessaryImport: Unused import 'egovframework.com.sym.ccm.acr.service.impl.EgovAdministCodeRecptnServiceImpl'
 src/main/java/egovframework/com/sym/ccm/icr/service/impl/EgovInsttCodeRecptnServiceImpl.java:126:	InefficientStringBuffering:	InefficientStringBuffering: StringBuffer / StringBuilder 함수 또는 append() 함수에서 nonliteral 을 직접 concatenate 하지 말 것
@@ -5201,6 +5317,30 @@ src/main/java/egovframework/com/sym/ccm/icr/service/impl/EgovInsttCodeRecptnServ
 src/main/java/egovframework/com/sym/ccm/icr/service/impl/EgovInsttCodeRecptnServiceImpl.java:157:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
 src/main/java/egovframework/com/sym/ccm/icr/service/impl/EgovInsttCodeRecptnServiceImpl.java:203:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/sym/ccm/icr/service/impl/EgovInsttCodeRecptnServiceImpl.java:209:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovInsttCodeRecptnServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.08  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryImport(불필요한 import문 선언)
+ *   2025.07.08  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-InefficientStringBuffering(StringBuffer 함수내에서 비문자열 연산 이용하여 직접 결합하는 코드 사용을 탐지. append 메소드 사용을 권장)
+ *   2025.07.08  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.07.08  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/616
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/ccm/zip/web/EgovCcmZipManageController.java:126:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/ccm/zip/web/EgovCcmZipManageController.java:133:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/ccm/zip/web/EgovCcmZipManageController.java:177:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
