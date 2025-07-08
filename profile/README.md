@@ -132,6 +132,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-07 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmCmmnClCodeManageController](#2025-07-07-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmcmmnclcodemanagecontroller)||
 |2025-07-08 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmCmmnDetailCodeManageController](#2025-07-08-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmcmmndetailcodemanagecontroller)|https://youtu.be/RiNbBKOpWV0|
 |2025-07-08 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovInsttCodeRecptnServiceImpl](#2025-07-08-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovinsttcoderecptnserviceimpl)|https://youtu.be/m5j52D20WV8|
+|2025-07-09 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmZipManageController](#2025-07-09-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmzipmanagecontroller)|https://youtu.be/fBhIg6ESjpw|
 
 <hr>
 
@@ -5340,6 +5341,99 @@ https://github.com/eGovFramework/egovframe-common-components/pull/616
 
 <hr>
 
+### 2025-07-09 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmZipManageController
+
+CmmnCodeList 를 resultList 로 이름 바꾸기
+
+try-catch-finally 를 try-with-resources 로 교체
+
+불필요한 괄호제거
+
+```java
+public String selectZipSearchList(@ModelAttribute("searchVO") ZipVO searchVO, ModelMap model) throws Exception {
+...
+		if (!sList.equals("2")) {
+//			List<EgovMap> CmmnCodeList = zipManageService.selectZipList(searchVO);
+//			model.addAttribute("resultList", CmmnCodeList);
+			List<EgovMap> resultList = zipManageService.selectZipList(searchVO);
+			model.addAttribute("resultList", resultList);
+		} else {
+			List<EgovMap> CmmnCodeList = rdnmadZipService.selectZipList(searchVO);
+			model.addAttribute("resultList", CmmnCodeList);
+...
+public String insertZip(@ModelAttribute("loginVO") LoginVO loginVO
+...
+//model.addAttribute("isRoadAddr", ("2".equals(searchVO.getSearchList()))); // true : 도로명주소등록, false : 일반주소등록
+model.addAttribute("isRoadAddr", "2".equals(searchVO.getSearchList())); // true : 도로명주소등록, false : 일반주소등록
+...
+public String insertZip(@ModelAttribute("loginVO") LoginVO loginVO
+...
+//boolean isRoadAddr = ("2".equals(searchVO.getSearchList()));
+boolean isRoadAddr = "2".equals(searchVO.getSearchList());
+...
+public String insertExcelZip(
+...
+//					InputStream fis = null;
+//
+//					try {
+//						fis = file.getInputStream();
+//						if (searchVO.getSearchList().equals("1")) {
+//							zipManageService.insertExcelZip(fis);
+//						} else {
+//							rdnmadZipService.insertExcelZip(fis);
+//						}
+//					} catch (IOException e) {
+//						throw new IOException(e);
+//					} finally {
+//						EgovResourceCloseHelper.close(fis);
+//					}
+
+// try-catch-finally 를 try-with-resources 로 교체
+					try (InputStream fis = file.getInputStream();) {
+						if (searchVO.getSearchList().equals("1")) {
+							zipManageService.insertExcelZip(fis);
+						} else {
+							rdnmadZipService.insertExcelZip(fis);
+						}
+					}
+...
+public String selectZipList(@ModelAttribute("loginVO") LoginVO loginVO, @ModelAttribute("searchVO") ZipVO searchVO,
+...
+//		if (!searchVO.getSearchList().equals("2")) {
+//			List<EgovMap> CmmnCodeList = zipManageService.selectZipList(searchVO);
+//			model.addAttribute("resultList", CmmnCodeList);
+//
+//			int totCnt = zipManageService.selectZipListTotCnt(searchVO);
+//			paginationInfo.setTotalRecordCount(totCnt);
+//			model.addAttribute("paginationInfo", paginationInfo);
+//		} else {
+//			List<EgovMap> CmmnCodeList = rdnmadZipService.selectZipList(searchVO);
+//			model.addAttribute("resultList", CmmnCodeList);
+
+		if (!searchVO.getSearchList().equals("2")) {
+			List<EgovMap> resultList = zipManageService.selectZipList(searchVO);
+			model.addAttribute("resultList", resultList);
+...
+		} else {
+			List<EgovMap> resultList = rdnmadZipService.selectZipList(searchVO);
+			model.addAttribute("resultList", resultList);
+...
+@RequestMapping(value = "/sym/ccm/zip/EgovCcmZipModifyView.do")
+public String updateZip(@ModelAttribute("loginVO") LoginVO loginVO
+...
+//boolean isRoadAddr = ("2".equals(searchVO.getSearchList()));
+boolean isRoadAddr = "2".equals(searchVO.getSearchList());
+...
+@RequestMapping(value = "/sym/ccm/zip/EgovCcmZipModify.do")
+public String updateZip(@ModelAttribute("loginVO") LoginVO loginVO
+//boolean isRoadAddr = ("2".equals(searchVO.getSearchList()));
+boolean isRoadAddr = "2".equals(searchVO.getSearchList());
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/ccm/zip/web/EgovCcmZipManageController.java:126:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/ccm/zip/web/EgovCcmZipManageController.java:133:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -5350,8 +5444,29 @@ src/main/java/egovframework/com/sym/ccm/zip/web/EgovCcmZipManageController.java:
 src/main/java/egovframework/com/sym/ccm/zip/web/EgovCcmZipManageController.java:354:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CmmnCodeList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/ccm/zip/web/EgovCcmZipManageController.java:379:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/sym/ccm/zip/web/EgovCcmZipManageController.java:410:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/sym/log/clg/service/EgovLoginLogAspect.java:44:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
-src/main/java/egovframework/com/sym/log/clg/service/EgovLoginLogAspect.java:75:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovCcmZipManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.09  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+ *   2025.07.09  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+ *   2025.07.09  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/618
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/log/clg/service/impl/EgovLoginLogServiceImpl.java:76:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/clg/service/impl/EgovLoginLogServiceImpl.java:77:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/clg/service/impl/EgovLoginLogServiceImpl.java:79:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
