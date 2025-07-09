@@ -134,6 +134,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-08 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovInsttCodeRecptnServiceImpl](#2025-07-08-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovinsttcoderecptnserviceimpl)|https://youtu.be/m5j52D20WV8|
 |2025-07-09 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmZipManageController](#2025-07-09-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmzipmanagecontroller)|https://youtu.be/fBhIg6ESjpw|
 |2025-07-09 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogAspect](#2025-07-09-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginlogaspect)|https://youtu.be/F8dmTNxxpsA|
+|2025-07-10 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogServiceImpl](#2025-07-10-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginlogserviceimpl)|https://youtu.be/7EeaUQ6qaJk|
 
 <hr>
 
@@ -5549,11 +5550,67 @@ https://github.com/eGovFramework/egovframe-common-components/pull/619
 
 <hr>
 
+### 2025-07-10 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogServiceImpl
+
+_result 를 resultList 로 이름 바꾸기
+
+_cnt 를 resultCnt 로 이름 바꾸기
+
+_map 을 map 으로 이름 바꾸기
+
+Integer.toString 불필요한 형 변환 제거
+
+```java
+//	public Map<?, ?> selectLoginLogInf(LoginLog loinLog) throws Exception {
+//		List<LoginLog> _result = loginLogDAO.selectLoginLogInf(loinLog);
+//		int _cnt = loginLogDAO.selectLoginLogInfCnt(loinLog);
+//
+//		Map<String, Object> _map = new HashMap<>();
+//		_map.put("resultList", _result);
+//		_map.put("resultCnt", Integer.toString(_cnt));
+//		return _map;
+
+	public Map<?, ?> selectLoginLogInf(LoginLog loinLog) throws Exception {
+		List<LoginLog> resultList = loginLogDAO.selectLoginLogInf(loinLog);
+		int resultCnt = loginLogDAO.selectLoginLogInfCnt(loinLog);
+
+		Map<String, Object> map = new HashMap<>();
+		map.put("resultList", resultList);
+		map.put("resultCnt", resultCnt);
+
+		return map;
+	}
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/log/clg/service/impl/EgovLoginLogServiceImpl.java:76:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/clg/service/impl/EgovLoginLogServiceImpl.java:77:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/clg/service/impl/EgovLoginLogServiceImpl.java:79:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/log/clg/web/EgovLoginLogController.java:70:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovLoginLogServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.10  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/622
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/log/lgm/service/EgovSysLogAspect.java:64:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
 src/main/java/egovframework/com/sym/log/lgm/service/EgovSysLogAspect.java:115:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
 src/main/java/egovframework/com/sym/log/lgm/service/EgovSysLogAspect.java:166:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
