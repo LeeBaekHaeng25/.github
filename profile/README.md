@@ -135,6 +135,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-09 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmZipManageController](#2025-07-09-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmzipmanagecontroller)|https://youtu.be/fBhIg6ESjpw|
 |2025-07-09 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogAspect](#2025-07-09-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginlogaspect)|https://youtu.be/F8dmTNxxpsA|
 |2025-07-10 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogServiceImpl](#2025-07-10-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginlogserviceimpl)|https://youtu.be/7EeaUQ6qaJk|
+|2025-07-10 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogController](#2025-07-10-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginlogcontroller)|https://youtu.be/L0ls5iSwOpI|
 
 <hr>
 
@@ -5607,6 +5608,59 @@ feature/pmd/EgovLoginLogServiceImpl
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/622
+
+
+<hr>
+
+### 2025-07-10 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogController
+
+`_map` 을 `map` 으로 이름 바꾸기
+
+`HashMap` 을 `Map` 으로 수정하고 불필요한 형 변환 `(HashMap<?, ?>)` 제거
+
+resultCnt int 로 형 변환하고 불필요한 Integer.parseInt 제거
+
+`map.get("resultCnt")` 를 totCnt 로 수정
+
+```java
+//@RequestMapping(value="/sym/log/clg/SelectLoginLogList.do")
+//...
+//		HashMap<?, ?> _map = (HashMap<?, ?>)loginLogService.selectLoginLogInf(loginLog);
+//		int totCnt = Integer.parseInt((String)_map.get("resultCnt"));
+//
+//		model.addAttribute("resultList", _map.get("resultList"));
+//		model.addAttribute("resultCnt", _map.get("resultCnt"));
+
+		Map<?, ?> map = loginLogService.selectLoginLogInf(loginLog);
+		int totCnt = (int) map.get("resultCnt");
+
+		model.addAttribute("resultList", map.get("resultList"));
+		model.addAttribute("resultCnt", totCnt);
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/sym/log/clg/web/EgovLoginLogController.java:70:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovLoginLogController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.10  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/623
 
 <hr>
 
