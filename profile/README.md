@@ -133,6 +133,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-08 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmCmmnDetailCodeManageController](#2025-07-08-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmcmmndetailcodemanagecontroller)|https://youtu.be/RiNbBKOpWV0|
 |2025-07-08 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovInsttCodeRecptnServiceImpl](#2025-07-08-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovinsttcoderecptnserviceimpl)|https://youtu.be/m5j52D20WV8|
 |2025-07-09 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCcmZipManageController](#2025-07-09-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovccmzipmanagecontroller)|https://youtu.be/fBhIg6ESjpw|
+|2025-07-09 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogAspect](#2025-07-09-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginlogaspect)|https://youtu.be/F8dmTNxxpsA|
 
 <hr>
 
@@ -5463,6 +5464,88 @@ feature/pmd/EgovCcmZipManageController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/618
+
+<hr>
+
+### 2025-07-09 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogAspect
+
+EgovUserDetailsHelper.isAuthenticated() 을 loginVO != null 로 수정
+
+user 를 loginVO 로 이름 바꾸기
+
+접속ID와 접속IP는 NULL 이라서 공백보다는 NULL 로 저장하는 것이 좋을 것 같음
+```sql
+  `CONECT_ID` varchar(20) DEFAULT NULL COMMENT '접속ID',
+  `CONECT_IP` varchar(23) DEFAULT NULL COMMENT '접속IP',
+```
+
+```java
+//		String uniqId = "";
+//		String ip = "";
+
+		String uniqId = null;
+		String ip = null;
+
+//		/* Authenticated  */
+//        Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+//    	if(isAuthenticated.booleanValue()) {
+//			LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+//			uniqId = (user == null || user.getUniqId() == null) ? "" : user.getUniqId();
+//			ip = (user == null || user.getIp() == null) ? "" : user.getIp();
+//    	}
+
+		LoginVO loginVO = (LoginVO) EgovUserDetailsHelper.getAuthenticatedUser();
+		// loginVO != null 한 번만
+		if (loginVO != null) {
+			uniqId = loginVO.getUniqId();
+			ip = loginVO.getIp();
+		}
+...
+//		String uniqId = "";
+//		String ip = "";
+
+		String uniqId = null;
+		String ip = null;
+
+//		/* Authenticated  */
+//        Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+//    	if(isAuthenticated.booleanValue()) {
+//			LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+//			uniqId = (user == null || user.getUniqId() == null) ? "" : user.getUniqId();
+//			ip = (user == null || user.getIp() == null) ? "" : user.getIp();
+//    	}
+
+		LoginVO loginVO = (LoginVO) EgovUserDetailsHelper.getAuthenticatedUser();
+		if (loginVO != null) {
+			uniqId = loginVO.getUniqId();
+			ip = loginVO.getIp();
+		}
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/sym/log/clg/service/EgovLoginLogAspect.java:44:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
+src/main/java/egovframework/com/sym/log/clg/service/EgovLoginLogAspect.java:75:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovLoginLogAspect
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.09  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryBoxing(불필요한 WrapperObject 생성)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/619
 
 <hr>
 
