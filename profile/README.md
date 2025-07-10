@@ -137,6 +137,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-10 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogServiceImpl](#2025-07-10-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginlogserviceimpl)|https://youtu.be/7EeaUQ6qaJk|
 |2025-07-10 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogController](#2025-07-10-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginlogcontroller)|https://youtu.be/L0ls5iSwOpI|
 |2025-07-11 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysLogAspect](#2025-07-11-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyslogaspect)|https://youtu.be/9ld-mU1qI_4|
+|2025-07-11 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysLogServiceImpl](#2025-07-11-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyslogserviceimpl)|https://youtu.be/x-98wVEup4Q|
 
 <hr>
 
@@ -5726,6 +5727,76 @@ feature/pmd/EgovSysLogAspect
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/626
+
+<hr>
+
+### 2025-07-11 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysLogServiceImpl
+
+`_result` 를 `resultList` 로 이름 바꾸기
+
+`_cnt` 를 `resultCnt` 로 이름 바꾸기
+
+`_map` 을 `map` 으로 이름 바꾸기
+
+`new HashMap<String, Object>()` 을 `String, Object` 제거하고 `new HashMap<>()` 로 수정
+
+`Integer.toString` 제거
+
+```java
+//	/**
+//	 * 시스템 로그정보 목록을 조회한다.
+//	 *
+//	 * @param SysLog
+//	 */
+//	@Override
+//	public Map<?, ?> selectSysLogInf(SysLog sysLog) throws Exception {
+//
+//		List<SysLog> _result = sysLogDAO.selectSysLogInf(sysLog);
+//		int _cnt = sysLogDAO.selectSysLogInfCnt(sysLog);
+//
+//		Map<String, Object> _map = new HashMap<String, Object>();
+//		_map.put("resultList", _result);
+//		_map.put("resultCnt", Integer.toString(_cnt));
+//
+//		return _map;
+//	}
+
+		List<SysLog> resultList = sysLogDAO.selectSysLogInf(sysLog);
+		int resultCnt = sysLogDAO.selectSysLogInfCnt(sysLog);
+
+		Map<String, Object> map = new HashMap<>();
+		map.put("resultList", resultList);
+		map.put("resultCnt", resultCnt);
+
+		return map;
+	}
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/sym/log/lgm/service/impl/EgovSysLogServiceImpl.java:73:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/sym/log/lgm/service/impl/EgovSysLogServiceImpl.java:74:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/sym/log/lgm/service/impl/EgovSysLogServiceImpl.java:76:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovSysLogServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.11  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/627
 
 <hr>
 
