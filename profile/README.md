@@ -136,6 +136,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-09 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogAspect](#2025-07-09-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginlogaspect)|https://youtu.be/F8dmTNxxpsA|
 |2025-07-10 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogServiceImpl](#2025-07-10-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginlogserviceimpl)|https://youtu.be/7EeaUQ6qaJk|
 |2025-07-10 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogController](#2025-07-10-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginlogcontroller)|https://youtu.be/L0ls5iSwOpI|
+|2025-07-11 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysLogAspect](#2025-07-11-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyslogaspect)|https://youtu.be/9ld-mU1qI_4|
 
 <hr>
 
@@ -5664,14 +5665,71 @@ https://github.com/eGovFramework/egovframe-common-components/pull/623
 
 <hr>
 
+### 2025-07-11 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysLogAspect
+
+`String uniqId = "";`, `String ip = "";` 제거
+
+`Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();` 제거
+
+`user` 를 `loginVO` 로 이름 바꾸기
+
+`if(isAuthenticated.booleanValue()) {` 을 `if (loginVO != null) {` 로 수정
+
+```sql
+COMTNSYSLOG 시스템로그
+  `RQESTER_IP` varchar(23) DEFAULT NULL COMMENT '요청자IP',
+  `RQESTER_ID` varchar(20) DEFAULT NULL COMMENT '요청자ID',
+```
+
+```java
+//			String uniqId = "";
+//			String ip = "";
+//
+//	    	/* Authenticated  */
+//	        Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+//	    	if(isAuthenticated.booleanValue()) {
+//				LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+//				uniqId = (user == null || user.getUniqId() == null) ? "" : user.getUniqId();
+//			    ip = (user == null || user.getIp() == null) ? "" : user.getIp();
+//	    	}
+
+			LoginVO loginVO = (LoginVO) EgovUserDetailsHelper.getAuthenticatedUser();
+			if (loginVO != null) {
+				sysLog.setRqesterId(loginVO.getUniqId());
+				sysLog.setRqesterIp(loginVO.getIp());
+			}
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/log/lgm/service/EgovSysLogAspect.java:64:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
 src/main/java/egovframework/com/sym/log/lgm/service/EgovSysLogAspect.java:115:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
 src/main/java/egovframework/com/sym/log/lgm/service/EgovSysLogAspect.java:166:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
 src/main/java/egovframework/com/sym/log/lgm/service/EgovSysLogAspect.java:217:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
-src/main/java/egovframework/com/sym/log/lgm/service/impl/EgovSysLogServiceImpl.java:73:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/log/lgm/service/impl/EgovSysLogServiceImpl.java:74:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/log/lgm/service/impl/EgovSysLogServiceImpl.java:76:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovSysLogAspect
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.11  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryBoxing(불필요한 WrapperObject 생성)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/626
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/log/lgm/web/EgovSysLogController.java:74:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/plg/service/EgovPrivacyLogAspect.java:77:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
 src/main/java/egovframework/com/sym/log/plg/service/EgovPrivacyLogAspect.java:157:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
