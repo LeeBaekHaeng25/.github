@@ -138,6 +138,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-10 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginLogController](#2025-07-10-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginlogcontroller)|https://youtu.be/L0ls5iSwOpI|
 |2025-07-11 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysLogAspect](#2025-07-11-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyslogaspect)|https://youtu.be/9ld-mU1qI_4|
 |2025-07-11 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysLogServiceImpl](#2025-07-11-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyslogserviceimpl)|https://youtu.be/x-98wVEup4Q|
+|2025-07-12 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysLogController](#2025-07-12-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyslogcontroller)|https://youtu.be/LYgywBOsMtE|
 
 <hr>
 
@@ -5800,8 +5801,39 @@ https://github.com/eGovFramework/egovframe-common-components/pull/627
 
 <hr>
 
+### 2025-07-12 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysLogController
+
+`_map` 을 `map` 으로 이름 바꾸기
+
+불필요한 형 변환 제거 `(HashMap<?, ?>), Integer.parseInt((String) map.get("resultCnt"))`
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/log/lgm/web/EgovSysLogController.java:74:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovSysLogController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.12  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/628
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/log/plg/service/EgovPrivacyLogAspect.java:77:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
 src/main/java/egovframework/com/sym/log/plg/service/EgovPrivacyLogAspect.java:157:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
 src/main/java/egovframework/com/sym/log/slg/web/EgovSysHistoryController.java:95:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
