@@ -140,6 +140,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-11 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysLogServiceImpl](#2025-07-11-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyslogserviceimpl)|https://youtu.be/x-98wVEup4Q|
 |2025-07-12 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysLogController](#2025-07-12-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyslogcontroller)|https://youtu.be/LYgywBOsMtE|
 |2025-07-12 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovPrivacyLogAspect](#2025-07-12-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovprivacylogaspect)|https://youtu.be/hqFZu913zfQ|
+|2025-07-14 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysHistoryController](#2025-07-14-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyshistorycontroller)|https://youtu.be/cVba60qk_Gw|
 
 <hr>
 
@@ -5866,7 +5867,20 @@ feature/pmd/EgovPrivacyLogAspect
 
 https://github.com/eGovFramework/egovframe-common-components/pull/629
 
+
 <hr>
+
+### 2025-07-14 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysHistoryController
+
+`_result, _atchFileId, _cnt` 를 카멜 케이스로 이름 바꾸기
+
+`EgovUserDetailsHelper.isAuthenticated()` 를 `loginVO != null` 로 수정
+
+`user` 를 `loginVO` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
 
 ```
 src/main/java/egovframework/com/sym/log/slg/web/EgovSysHistoryController.java:95:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -5879,6 +5893,27 @@ src/main/java/egovframework/com/sym/log/slg/web/EgovSysHistoryController.java:17
 src/main/java/egovframework/com/sym/log/slg/web/EgovSysHistoryController.java:179:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/slg/web/EgovSysHistoryController.java:180:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/slg/web/EgovSysHistoryController.java:210:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovSysHistoryController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.14  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/631
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/log/ulg/service/impl/EgovUserLogServiceImpl.java:69:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/ulg/service/impl/EgovUserLogServiceImpl.java:70:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/ulg/service/impl/EgovUserLogServiceImpl.java:72:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
