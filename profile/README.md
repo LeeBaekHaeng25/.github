@@ -142,6 +142,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-12 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovPrivacyLogAspect](#2025-07-12-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovprivacylogaspect)|https://youtu.be/hqFZu913zfQ|
 |2025-07-14 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysHistoryController](#2025-07-14-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyshistorycontroller)|https://youtu.be/cVba60qk_Gw|
 |2025-07-14 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUserLogServiceImpl](#2025-07-14-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovuserlogserviceimpl)|https://youtu.be/ad2QrIodIAc|
+|2025-07-15 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWebLogInterceptor](#2025-07-15-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwebloginterceptor)|https://youtu.be/5S0BhlJcLaw|
 
 <hr>
 
@@ -5926,6 +5927,8 @@ https://github.com/eGovFramework/egovframe-common-components/pull/631
 src/main/java/egovframework/com/sym/log/ulg/service/impl/EgovUserLogServiceImpl.java:69:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/ulg/service/impl/EgovUserLogServiceImpl.java:70:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/ulg/service/impl/EgovUserLogServiceImpl.java:72:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+
+src/main/java/egovframework/com/sym/log/ulg/web/EgovUserLogController.java:73:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 ```
 
 2. 브랜치 생성
@@ -5946,10 +5949,35 @@ https://github.com/eGovFramework/egovframe-common-components/pull/632
 
 <hr>
 
+### 2025-07-15 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWebLogInterceptor
+
+`isAuthenticated.booleanValue()` 를 `loginVO != null` 로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
-src/main/java/egovframework/com/sym/log/ulg/web/EgovUserLogController.java:73:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/wlg/web/EgovWebLogInterceptor.java:53:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
-src/main/java/egovframework/com/sym/mnu/bmm/service/EgovBkmkMenuManageservice.java:34:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'BkmkMenuManage' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovWebLogInterceptor
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.15  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryBoxing(불필요한 WrapperObject 생성)
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/mnu/mcm/service/MenuSiteMapVO.java:204:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'tmp_Id' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/mnu/mcm/service/MenuSiteMapVO.java:218:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'tmp_Password' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/mnu/mcm/service/MenuSiteMapVO.java:232:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'tmp_Name' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
