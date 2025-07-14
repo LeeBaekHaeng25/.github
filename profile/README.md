@@ -143,6 +143,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-14 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysHistoryController](#2025-07-14-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyshistorycontroller)|https://youtu.be/cVba60qk_Gw|
 |2025-07-14 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUserLogServiceImpl](#2025-07-14-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovuserlogserviceimpl)|https://youtu.be/ad2QrIodIAc|
 |2025-07-15 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWebLogInterceptor](#2025-07-15-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwebloginterceptor)|https://youtu.be/5S0BhlJcLaw|
+|2025-07-15 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBkmkMenuManageservice](#2025-07-15-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbkmkmenumanageservice)|https://youtu.be/UDy7oIrD39k|
 
 <hr>
 
@@ -5974,6 +5975,40 @@ feature/pmd/EgovWebLogInterceptor
 ```java
  *   2025.07.15  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryBoxing(불필요한 WrapperObject 생성)
 ```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/633
+
+<hr>
+
+### 2025-07-15 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBkmkMenuManageservice
+
+`BkmkMenuManage` 를 `bkmkMenuManage` 로 이름 바꾸기
+
+`EgovBkmkMenuManageservice` 를 `EgovBkmkMenuManageService` 대문자로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/sym/mnu/bmm/service/EgovBkmkMenuManageservice.java:34:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'BkmkMenuManage' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovBkmkMenuManageservice
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.15  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-FormalParameterNamingConventions(변수명에 밑줄 사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/634
 
 <hr>
 
