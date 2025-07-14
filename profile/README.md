@@ -141,6 +141,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-12 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysLogController](#2025-07-12-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyslogcontroller)|https://youtu.be/LYgywBOsMtE|
 |2025-07-12 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovPrivacyLogAspect](#2025-07-12-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovprivacylogaspect)|https://youtu.be/hqFZu913zfQ|
 |2025-07-14 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSysHistoryController](#2025-07-14-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsyshistorycontroller)|https://youtu.be/cVba60qk_Gw|
+|2025-07-14 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUserLogServiceImpl](#2025-07-14-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovuserlogserviceimpl)|https://youtu.be/ad2QrIodIAc|
 
 <hr>
 
@@ -5913,10 +5914,39 @@ https://github.com/eGovFramework/egovframe-common-components/pull/631
 
 <hr>
 
+### 2025-07-14 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUserLogServiceImpl
+
+`_result, _cnt, _map` 을 명시적으로 DTO 기반 반환으로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/log/ulg/service/impl/EgovUserLogServiceImpl.java:69:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/ulg/service/impl/EgovUserLogServiceImpl.java:70:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/ulg/service/impl/EgovUserLogServiceImpl.java:72:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovUserLogServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.14  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/632
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/log/ulg/web/EgovUserLogController.java:73:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_map' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/log/wlg/web/EgovWebLogInterceptor.java:53:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
 src/main/java/egovframework/com/sym/mnu/bmm/service/EgovBkmkMenuManageservice.java:34:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'BkmkMenuManage' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
