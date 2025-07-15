@@ -145,6 +145,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-15 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWebLogInterceptor](#2025-07-15-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwebloginterceptor)|https://youtu.be/5S0BhlJcLaw|
 |2025-07-15 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBkmkMenuManageservice](#2025-07-15-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbkmkmenumanageservice)|https://youtu.be/UDy7oIrD39k|
 |2025-07-16 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MenuSiteMapVO](#2025-07-16-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-menusitemapvo)|https://youtu.be/gapv-mNswLM|
+|2025-07-16 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuCreateManageServiceImpl](#2025-07-16-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenucreatemanageserviceimpl)|https://youtu.be/1NgTSXsOtHA|
 
 <hr>
 
@@ -6064,6 +6065,36 @@ feature/pmd/MenuSiteMapVO
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/637
+
+<hr>
+
+### 2025-07-16 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuCreateManageServiceImpl
+
+`AuthorCnt` 를 `resultMenuCreatCnt` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/sym/mnu/mcm/service/impl/EgovMenuCreateManageServiceImpl.java:71:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'AuthorCnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovMenuCreateManageServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.16  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/638
 
 <hr>
 
