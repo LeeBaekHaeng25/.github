@@ -146,6 +146,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-15 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBkmkMenuManageservice](#2025-07-15-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbkmkmenumanageservice)|https://youtu.be/UDy7oIrD39k|
 |2025-07-16 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MenuSiteMapVO](#2025-07-16-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-menusitemapvo)|https://youtu.be/gapv-mNswLM|
 |2025-07-16 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuCreateManageServiceImpl](#2025-07-16-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenucreatemanageserviceimpl)|https://youtu.be/1NgTSXsOtHA|
+|2025-07-17 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuCreateManageController](#2025-07-17-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenucreatemanagecontroller)|https://youtu.be/NwHcS8UaA0Q|
 
 <hr>
 
@@ -6098,16 +6099,36 @@ https://github.com/eGovFramework/egovframe-common-components/pull/638
 
 <hr>
 
+### 2025-07-17 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuCreateManageController
+
+`list_menulist` 를 `resultList` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/mnu/mcm/web/EgovMenuCreateManageController.java:188:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_menulist' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/mnu/mcm/web/EgovMenuCreateManageController.java:279:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_menulist' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/mnu/mpm/service/MenuManageVO.java:223:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'tmp_Id' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/mnu/mpm/service/MenuManageVO.java:237:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'tmp_Password' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/mnu/mpm/service/MenuManageVO.java:251:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'tmp_Name' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/mnu/mpm/service/MenuManageVO.java:265:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'tmp_UserSe' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/mnu/mpm/service/MenuManageVO.java:279:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'tmp_Email' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/mnu/mpm/service/MenuManageVO.java:293:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'tmp_OrgnztId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/mnu/mpm/service/MenuManageVO.java:321:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'tmp_Cmd' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovMenuCreateManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.17  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/mnu/mpm/service/impl/EgovMenuManageServiceImpl.java:476:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit boxing
 src/main/java/egovframework/com/sym/mnu/mpm/service/impl/EgovMenuManageServiceImpl.java:481:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit boxing
 src/main/java/egovframework/com/sym/mnu/mpm/service/impl/EgovMenuManageServiceImpl.java:490:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit boxing
