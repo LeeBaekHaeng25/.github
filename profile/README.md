@@ -148,6 +148,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-16 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuCreateManageServiceImpl](#2025-07-16-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenucreatemanageserviceimpl)|https://youtu.be/1NgTSXsOtHA|
 |2025-07-17 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuCreateManageController](#2025-07-17-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenucreatemanagecontroller)|https://youtu.be/NwHcS8UaA0Q|
 |2025-07-17 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MenuManageVO](#2025-07-17-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-menumanagevo)|https://youtu.be/uMJOVISRvFs|
+|2025-07-18 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuManageServiceImpl](#2025-07-18-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenumanageserviceimpl)|https://youtu.be/DUsPMYDiIZ8|
 
 <hr>
 
@@ -6179,14 +6180,46 @@ https://github.com/eGovFramework/egovframe-common-components/pull/642
 
 <hr>
 
+### 2025-07-18 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuManageServiceImpl
+
+`불필요한 WrapperObject 생성` 대신 Primitive 사용
+
+안전한 방식 (셀 null 체크 + 숫자 여부 확인 포함)
+```java
+					if (cell != null && cell.getCellType() == CellType.NUMERIC) {
+						vo.setMenuNo((int) cell.getNumericCellValue());
+					}
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/mnu/mpm/service/impl/EgovMenuManageServiceImpl.java:476:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit boxing
 src/main/java/egovframework/com/sym/mnu/mpm/service/impl/EgovMenuManageServiceImpl.java:481:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit boxing
 src/main/java/egovframework/com/sym/mnu/mpm/service/impl/EgovMenuManageServiceImpl.java:490:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit boxing
-src/main/java/egovframework/com/sym/mnu/mpm/web/EgovMainMenuManageController.java:111:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_headmenu' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/mnu/mpm/web/EgovMainMenuManageController.java:145:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_headmenu' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/mnu/mpm/web/EgovMainMenuManageController.java:185:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_menulist' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/sym/mnu/mpm/web/EgovMainMenuManageController.java:242:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_headmenu' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovMenuManageServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.18  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryBoxing(불필요한 WrapperObject 생성)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/643
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/mnu/mpm/web/EgovMenuManageController.java:98:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'req_menuNo' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/mnu/mpm/web/EgovMenuManageController.java:317:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_MenuNm' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/mnu/mpm/web/EgovMenuManageController.java:342:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_menulist' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
