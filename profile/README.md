@@ -149,6 +149,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-17 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuCreateManageController](#2025-07-17-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenucreatemanagecontroller)|https://youtu.be/NwHcS8UaA0Q|
 |2025-07-17 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MenuManageVO](#2025-07-17-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-menumanagevo)|https://youtu.be/uMJOVISRvFs|
 |2025-07-18 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuManageServiceImpl](#2025-07-18-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenumanageserviceimpl)|https://youtu.be/DUsPMYDiIZ8|
+|2025-07-18 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMainMenuManageController](#2025-07-18-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmainmenumanagecontroller)|https://youtu.be/CNyRV5kUwnQ|
 
 <hr>
 
@@ -6216,6 +6217,41 @@ feature/pmd/EgovMenuManageServiceImpl
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/643
+
+<hr>
+
+### 2025-07-18 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMainMenuManageController
+
+`list_headmenu` 를 `resultList` 로 이름 바꾸기
+
+`list_menulist` 를 `resultList` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/sym/mnu/mpm/web/EgovMainMenuManageController.java:111:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_headmenu' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/sym/mnu/mpm/web/EgovMainMenuManageController.java:145:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_headmenu' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/sym/mnu/mpm/web/EgovMainMenuManageController.java:185:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_menulist' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/sym/mnu/mpm/web/EgovMainMenuManageController.java:242:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_headmenu' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovMainMenuManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.18  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/644
 
 <hr>
 
