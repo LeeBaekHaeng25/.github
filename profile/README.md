@@ -16,6 +16,18 @@
 
 https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 
+브랜치
+```
+- [ ] 버그수정 Bug fixes
+  - feature/Bugfixes/test
+- [ ] 기능개선 Enhancements
+  - feature/Enhancements/test
+- [ ] 기능추가 Adding features
+  - feature/Addingfeatures/test
+- [x] 기타 Others
+  - feature/Others/test
+```
+
 |날짜|제목|공유링크|
 |-|-|-|
 |2025-04-12 토|전자정부 표준프레임워크 4.3.0 컨트리뷰션 준비|https://youtu.be/G82xDweUsX4|
