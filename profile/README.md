@@ -164,6 +164,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-18 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMainMenuManageController](#2025-07-18-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmainmenumanagecontroller)|https://youtu.be/CNyRV5kUwnQ|
 |2025-07-19 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuManageController](#2025-07-19-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenumanagecontroller)|https://youtu.be/5o0sOM2VECk|
 |2025-07-19 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProgrmManageDtlVO](#2025-07-19-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-progrmmanagedtlvo)|https://youtu.be/9e_zgyKfATE|
+|2025-07-21 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProgrmManageVO](#2025-07-21-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-progrmmanagevo)|https://youtu.be/X15nR35UApo|
 
 <hr>
 
@@ -6348,8 +6349,37 @@ https://github.com/eGovFramework/egovframe-common-components/pull/646
 
 <hr>
 
+### 2025-07-21 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-ProgrmManageVO
+
+`URL` 을 `url` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/prm/service/ProgrmManageVO.java:94:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'URL' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/ProgrmManageVO
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.21  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-FormalParameterNamingConventions(변수명에 밑줄 사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/648
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/prm/web/EgovProgrmManageController.java:81:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'tmp_progrmNm' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/prm/web/EgovProgrmManageController.java:321:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_changerequst' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/prm/web/EgovProgrmManageController.java:349:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'FileNm' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
