@@ -166,6 +166,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-19 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProgrmManageDtlVO](#2025-07-19-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-progrmmanagedtlvo)|https://youtu.be/9e_zgyKfATE|
 |2025-07-21 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProgrmManageVO](#2025-07-21-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-progrmmanagevo)|https://youtu.be/X15nR35UApo|
 |2025-07-21 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovProgrmManageController](#2025-07-21-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovprogrmmanagecontroller)|https://youtu.be/E7S8TRkwU2E|
+|2025-07-22 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-BackupJob](#2025-07-22-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-backupjob)|https://youtu.be/DC6-hQcDmkU|
 
 <hr>
 
@@ -6433,11 +6434,45 @@ https://github.com/eGovFramework/egovframe-common-components/pull/649
 
 <hr>
 
+### 2025-07-22 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-BackupJob
+
+`if (result == false) {` 를 `if (!result) {` 로 수정
+
+단위 테스트 추가하고 나중에 수정할 예정
+- `FileInputStream finput = null;` 를 try-with-resources 로 수정
+- `FileOutputStream fosOutput = null;` 를 try-with-resources 로 수정
+- `import org.apache.commons.compress.utils.IOUtils;` 를 `import org.apache.commons.io.IOUtils;` 로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/sym/bak/service/BackupJob.java:141:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/sym/sym/bak/service/BackupJob.java:142:	CloseResource:	CloseResource: 리소스 'FileOutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/sym/sym/bak/service/BackupJob.java:200:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
-src/main/java/egovframework/com/sym/sym/nwk/service/NtwrkVO.java:83:	AvoidArrayLoops:	AvoidArrayLoops: 배열의 값을 루프문을 이용하여 복사하는 것 보다 System.arraycopy() 메소드를 이용하여 복사하는 것이 효율적이며 수행 속도가 빠름
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/BackupJob
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.22  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.07.22  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-SimplifyBooleanExpressions(boolean 사용 시 불필요한 비교 연산을 피하도록 함)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/650
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/sym/nwk/service/impl/NtwrkDAO.java:41:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
 src/main/java/egovframework/com/sym/sym/nwk/web/EgovNtwrkController.java:71:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'EgovCmmUseService' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/sym/srv/service/ServerEqpmnRelateVO.java:65:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
