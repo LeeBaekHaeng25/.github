@@ -165,6 +165,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-19 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuManageController](#2025-07-19-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenumanagecontroller)|https://youtu.be/5o0sOM2VECk|
 |2025-07-19 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProgrmManageDtlVO](#2025-07-19-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-progrmmanagedtlvo)|https://youtu.be/9e_zgyKfATE|
 |2025-07-21 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProgrmManageVO](#2025-07-21-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-progrmmanagevo)|https://youtu.be/X15nR35UApo|
+|2025-07-21 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovProgrmManageController](#2025-07-21-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovprogrmmanagecontroller)|https://youtu.be/E7S8TRkwU2E|
 
 <hr>
 
@@ -6379,6 +6380,26 @@ https://github.com/eGovFramework/egovframe-common-components/pull/648
 
 <hr>
 
+### 2025-07-21 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovProgrmManageController
+
+`tmp_progrmNm` 을 `progrmFileNm` 로 이름 바꾸기
+
+`list_changerequst` 을 `resultList` 로 이름 바꾸기
+
+`String FileNm` 을 `progrmManageDtlVO.setProgrmFileNm(progrmManageDtlVO.getTmpProgrmNm());` 로 수정
+
+`tmp_vo` 를 `resultVO` 로 이름 바꾸기
+
+`int _tmp_no` 를 `resultVO.setRqesterNo(resultProgrmManageDtlVO.getRqesterNo());` 로 수정
+
+`String _FileNm` 를 `progrmManageDtlVO.setProgrmFileNm(progrmManageDtlVO.getTmpProgrmNm());` 로 수정
+
+`int _Tmp_no` 를 `progrmManageDtlVO.setRqesterNo(progrmManageDtlVO.getTmpRqesterNo());` 로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/prm/web/EgovProgrmManageController.java:81:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'tmp_progrmNm' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/prm/web/EgovProgrmManageController.java:321:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_changerequst' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -6391,6 +6412,28 @@ src/main/java/egovframework/com/sym/prm/web/EgovProgrmManageController.java:552:
 src/main/java/egovframework/com/sym/prm/web/EgovProgrmManageController.java:696:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'list_changerequst' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/prm/web/EgovProgrmManageController.java:724:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_FileNm' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/prm/web/EgovProgrmManageController.java:726:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_tmp_no' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovProgrmManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.21  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-FormalParameterNamingConventions(변수명에 밑줄 사용)
+ *   2025.07.21  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/649
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/sym/bak/service/BackupJob.java:141:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/sym/sym/bak/service/BackupJob.java:142:	CloseResource:	CloseResource: 리소스 'FileOutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/sym/sym/bak/service/BackupJob.java:200:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
