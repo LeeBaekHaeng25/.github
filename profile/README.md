@@ -169,6 +169,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-22 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-BackupJob](#2025-07-22-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-backupjob)|https://youtu.be/DC6-hQcDmkU|
 |2025-07-22 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-NtwrkVO](#2025-07-22-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-backupjob)|https://youtu.be/7dD1bMtTMu8|
 |2025-07-23 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-NtwrkDAO](#2025-07-23-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-ntwrkdao)|https://youtu.be/rbc6ys9-zxI|
+|2025-07-23 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNtwrkController](#2025-07-23-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovntwrkcontroller)|https://youtu.be/8M39KNYo8tY|
 
 <hr>
 
@@ -6531,6 +6532,36 @@ feature/pmd/NtwrkDAO
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/652
+
+<hr>
+
+### 2025-07-23 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNtwrkController
+
+`EgovCmmUseService EgovCmmUseService;` 를 `private EgovCmmUseService egovCmmUseService;` 로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/sym/sym/nwk/web/EgovNtwrkController.java:71:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'EgovCmmUseService' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovNtwrkController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.23  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(변수명에 밑줄 사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/653
 
 <hr>
 
