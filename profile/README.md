@@ -171,6 +171,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-23 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-NtwrkDAO](#2025-07-23-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-ntwrkdao)|https://youtu.be/rbc6ys9-zxI|
 |2025-07-23 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNtwrkController](#2025-07-23-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovntwrkcontroller)|https://youtu.be/8M39KNYo8tY|
 |2025-07-24 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ServerEqpmnRelateVO](#2025-07-24-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-servereqpmnrelatevo)|https://youtu.be/5px5Sx_Y7ko|
+|2025-07-24 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ServerEqpmnVO](#2025-07-24-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-servereqpmnvo)|https://youtu.be/pNURRiMVOC8|
 
 <hr>
 
@@ -6593,6 +6594,36 @@ feature/pmd/ServerEqpmnRelateVO
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/654
+
+<hr>
+
+### 2025-07-24 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-ServerEqpmnVO
+
+`getDelYn, setDelYn` 메서드를 제거하고 `private, @Getter, @Setter` 추가
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/sym/sym/srv/service/ServerEqpmnVO.java:58:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/ServerEqpmnVO
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.24  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-MethodReturnsInternalArray(Private 배열에 Public 데이터 할당)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/655
 
 <hr>
 
