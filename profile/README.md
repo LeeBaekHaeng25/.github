@@ -173,6 +173,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-24 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ServerEqpmnRelateVO](#2025-07-24-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-servereqpmnrelatevo)|https://youtu.be/5px5Sx_Y7ko|
 |2025-07-24 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ServerEqpmnVO](#2025-07-24-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-servereqpmnvo)|https://youtu.be/pNURRiMVOC8|
 |2025-07-25 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ServerVO](#2025-07-25-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-servervo)|https://youtu.be/PrCFPXxqce8|
+|2025-07-25 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovServerController](#2025-07-25-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovservercontroller)|https://youtu.be/2tQK8c8L5_w|
 
 <hr>
 
@@ -6655,6 +6656,36 @@ feature/pmd/ServerVO
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/656
+
+<hr>
+
+### 2025-07-25 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovServerController
+
+`EgovCmmUseService EgovCmmUseService;` 를 `private EgovCmmUseService egovCmmUseService;` 로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/sym/sym/srv/web/EgovServerController.java:75:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'EgovCmmUseService' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovServerController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.25  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(변수명에 밑줄 사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/657
 
 <hr>
 
