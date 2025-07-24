@@ -172,6 +172,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-23 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNtwrkController](#2025-07-23-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovntwrkcontroller)|https://youtu.be/8M39KNYo8tY|
 |2025-07-24 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ServerEqpmnRelateVO](#2025-07-24-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-servereqpmnrelatevo)|https://youtu.be/5px5Sx_Y7ko|
 |2025-07-24 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ServerEqpmnVO](#2025-07-24-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-servereqpmnvo)|https://youtu.be/pNURRiMVOC8|
+|2025-07-25 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ServerVO](#2025-07-25-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-servervo)|https://youtu.be/PrCFPXxqce8|
 
 <hr>
 
@@ -6627,9 +6628,37 @@ https://github.com/eGovFramework/egovframe-common-components/pull/655
 
 <hr>
 
+### 2025-07-25 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-ServerVO
+
+`getDelYn, setDelYn` 메서드를 제거하고 `private, @Getter, @Setter` 추가
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/sym/sym/srv/service/ServerVO.java:60:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
-src/main/java/egovframework/com/sym/sym/srv/web/EgovServerController.java:75:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'EgovCmmUseService' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/ServerVO
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.25  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-MethodReturnsInternalArray(Private 배열에 Public 데이터 할당)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/656
+
+<hr>
+
+```
 src/main/java/egovframework/com/sym/tbm/tbp/service/TroblProcessVO.java:96:	AvoidArrayLoops:	AvoidArrayLoops: 배열의 값을 루프문을 이용하여 복사하는 것 보다 System.arraycopy() 메소드를 이용하여 복사하는 것이 효율적이며 수행 속도가 빠름
 src/main/java/egovframework/com/sym/tbm/tbp/web/EgovTroblProcessController.java:65:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'EgovCmmUseService' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/sym/tbm/tbr/service/TroblReqstVO.java:106:	AvoidArrayLoops:	AvoidArrayLoops: 배열의 값을 루프문을 이용하여 복사하는 것 보다 System.arraycopy() 메소드를 이용하여 복사하는 것이 효율적이며 수행 속도가 빠름
