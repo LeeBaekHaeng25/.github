@@ -178,6 +178,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-26 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTroblProcessController](#2025-07-26-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovtroblprocesscontroller)|https://youtu.be/FdlVlebam_A|
 |2025-07-28 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-TroblReqstVO](#2025-07-28-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-troblreqstvo)|https://youtu.be/YSpMGK3xuH4|
 |2025-07-28 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTroblReqstController](#2025-07-28-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovtroblreqstcontroller)|https://youtu.be/kUIiUcC_BTY|
+|2025-07-29 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSSOLoginFilter](#2025-07-29-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovssologinfilter)|https://youtu.be/C5mp6oGvDPE|
 
 <hr>
 
@@ -6813,10 +6814,43 @@ https://github.com/eGovFramework/egovframe-common-components/pull/662
 
 <hr>
 
+### 2025-07-29 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSSOLoginFilter
+
+`public void destroy() {}` 메서드 제거
+
+`(isLocallyAuthenticated.equals("true"))` 를 `isLocallyAuthenticated.equals("true")` 로 수정
+
+Egov SSO 로그인 필터
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uat/sso/filter/EgovSSOLoginFilter.java:49:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
 src/main/java/egovframework/com/uat/sso/filter/EgovSSOLoginFilter.java:78:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/uat/sso/filter/EgovSSOLogoutFilter.java:38:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovSSOLoginFilter
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.29  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UncommentedEmptyMethodBody(빈 메소드에 빈메소드임을 나타내는 주석을 추가할 것)
+ *   2025.07.29  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/663
+
+<hr>
+
+```
 src/main/java/egovframework/com/uat/uap/filter/EgovLoginPolicyFilter.java:48:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
 src/main/java/egovframework/com/uat/uap/service/LoginPolicyVO.java:54:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
 src/main/java/egovframework/com/uat/uap/service/LoginPolicyVO.java:60:	ArrayIsStoredDirectly:	ArrayIsStoredDirectly: 배열 'delYn' 이 직접 저장되어 있음
