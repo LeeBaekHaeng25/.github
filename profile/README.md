@@ -179,6 +179,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-28 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-TroblReqstVO](#2025-07-28-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-troblreqstvo)|https://youtu.be/YSpMGK3xuH4|
 |2025-07-28 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTroblReqstController](#2025-07-28-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovtroblreqstcontroller)|https://youtu.be/kUIiUcC_BTY|
 |2025-07-29 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSSOLoginFilter](#2025-07-29-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovssologinfilter)|https://youtu.be/C5mp6oGvDPE|
+|2025-07-29 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSSOLogoutFilter](#2025-07-29-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovssologoutfilter)|https://youtu.be/HkSFNAGJKyg|
 
 <hr>
 
@@ -6847,6 +6848,38 @@ feature/pmd/EgovSSOLoginFilter
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/663
+
+<hr>
+
+### 2025-07-29 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSSOLogoutFilter
+
+`public void destroy() {}` 제거
+
+Egov SSO 로그아웃 필터
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uat/sso/filter/EgovSSOLogoutFilter.java:38:	UncommentedEmptyMethodBody:	UncommentedEmptyMethodBody: 빈 Method Body에 주석을 추가 할 것
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovSSOLogoutFilter
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.29  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UncommentedEmptyMethodBody(빈 메소드에 빈메소드임을 나타내는 주석을 추가할 것)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/664
 
 <hr>
 
