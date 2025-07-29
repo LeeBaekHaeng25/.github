@@ -180,7 +180,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-28 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTroblReqstController](#2025-07-28-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovtroblreqstcontroller)|https://youtu.be/kUIiUcC_BTY|
 |2025-07-29 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSSOLoginFilter](#2025-07-29-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovssologinfilter)|https://youtu.be/C5mp6oGvDPE|
 |2025-07-29 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSSOLogoutFilter](#2025-07-29-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovssologoutfilter)|https://youtu.be/HkSFNAGJKyg|
-|2025-07-30 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginPolicyFilter](#2025-07-30-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginpolicyfilter)|https://github.com/eGovFramework/egovframe-common-components/pull/666|
+|2025-07-30 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginPolicyFilter](#2025-07-30-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginpolicyfilter)|https://youtu.be/jIZ99HXbyxo|
 |2025-07-30 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-LoginPolicyVO](#2025-07-30-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-loginpolicyvo)|https://youtu.be/9HHXzPd_tyg|
 
 <hr>
