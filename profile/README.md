@@ -182,6 +182,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-29 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSSOLogoutFilter](#2025-07-29-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovssologoutfilter)|https://youtu.be/HkSFNAGJKyg|
 |2025-07-30 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginPolicyFilter](#2025-07-30-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginpolicyfilter)|https://youtu.be/jIZ99HXbyxo|
 |2025-07-30 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-LoginPolicyVO](#2025-07-30-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-loginpolicyvo)|https://youtu.be/9HHXzPd_tyg|
+|2025-07-31 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginServiceImpl](#2025-07-31-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginserviceimpl)|https://youtu.be/mDUpGx6xTrk|
 
 <hr>
 
@@ -6947,11 +6948,40 @@ https://github.com/eGovFramework/egovframe-common-components/pull/667
 
 <hr>
 
+### 2025-07-31 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginServiceImpl
+
+`if ("Y".equals((mapLockUserInfo.get("lockAt")))) {` 을 `if ("Y".equals(mapLockUserInfo.get("lockAt"))) {` 로 수정
+
+`} else if (!"Y".equals((mapLockUserInfo.get("lockAt")))) {` 을 `} else if (!"Y".equals(mapLockUserInfo.get("lockAt"))) {` 로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uat/uia/service/impl/EgovLoginServiceImpl.java:225:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/uat/uia/service/impl/EgovLoginServiceImpl.java:234:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/uat/uia/web/EgovLoginController.java:106:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'auth_error' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uat/uia/web/EgovLoginController.java:307:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'main_page' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovLoginServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.31  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/668
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/cmt/service/CmtManageVO.java:286:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'wrkt_dt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/cmt/service/impl/EgovCmtManageServiceImpl.java:75:	SimpleDateFormatNeedsLocale:	SimpleDateFormatNeedsLocale: SimpleDateFormat 인스턴스를 생성할때 Locale 을 지정하는 것이 바람직함
 src/main/java/egovframework/com/uss/cmt/service/impl/EgovCmtManageServiceImpl.java:102:	AvoidReassigningParameters:	AvoidReassigningParameters: 'cmtManageVO' 처럼 파라미터 값을 직접 변경하지 말 것
