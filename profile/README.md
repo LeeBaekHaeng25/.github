@@ -183,6 +183,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-30 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginPolicyFilter](#2025-07-30-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginpolicyfilter)|https://youtu.be/jIZ99HXbyxo|
 |2025-07-30 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-LoginPolicyVO](#2025-07-30-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-loginpolicyvo)|https://youtu.be/9HHXzPd_tyg|
 |2025-07-31 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginServiceImpl](#2025-07-31-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginserviceimpl)|https://youtu.be/mDUpGx6xTrk|
+|2025-07-31 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginController](#2025-07-31-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovlogincontroller)|https://youtu.be/u7pooWQmrao|
 
 <hr>
 
@@ -6978,6 +6979,39 @@ feature/pmd/EgovLoginServiceImpl
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/668
+
+<hr>
+
+### 2025-07-31 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginController
+
+`auth_error` 를 `authError` 로 이름 바꾸기
+
+`main_page` 를 `mainPage` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uat/uia/web/EgovLoginController.java:106:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'auth_error' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uat/uia/web/EgovLoginController.java:307:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'main_page' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovLoginController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.07.31  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/669
 
 <hr>
 
