@@ -185,6 +185,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-31 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginServiceImpl](#2025-07-31-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginserviceimpl)|https://youtu.be/mDUpGx6xTrk|
 |2025-07-31 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginController](#2025-07-31-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovlogincontroller)|https://youtu.be/u7pooWQmrao|
 |2025-08-01 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-CmtManageVO](#2025-08-01-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-cmtmanagevo)|https://youtu.be/V9qZu0p_EMI|
+|2025-08-01 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCmtManageServiceImpl](#2025-08-01-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcmtmanageserviceimpl)|https://youtu.be/_BpxEStfWoc|
 
 <hr>
 
@@ -7044,6 +7045,45 @@ feature/pmd/CmtManageVO
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/670
+
+<hr>
+
+### 2025-08-01 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCmtManageServiceImpl
+
+// NOPMD - SimpleDateFormatNeedsLocale
+```
+This is equivalent to calling SimpleDateFormat(pattern, Locale.getDefault(Locale.Category.FORMAT)).
+이는 SimpleDateFormat(pattern, Locale.getDefault(Locale.Category.FORMAT))를 호출하는 것과 같습니다.
+```
+
+`cmtManageVO = cmtManageDAO.selectWrkStartInfo(cmtManageVO);` 를 `CmtManageVO resultVO = cmtManageDAO.selectWrkStartInfo(cmtManageVO);` 로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/cmt/service/impl/EgovCmtManageServiceImpl.java:75:	SimpleDateFormatNeedsLocale:	SimpleDateFormatNeedsLocale: SimpleDateFormat 인스턴스를 생성할때 Locale 을 지정하는 것이 바람직함
+src/main/java/egovframework/com/uss/cmt/service/impl/EgovCmtManageServiceImpl.java:102:	AvoidReassigningParameters:	AvoidReassigningParameters: 'cmtManageVO' 처럼 파라미터 값을 직접 변경하지 말 것
+src/main/java/egovframework/com/uss/cmt/service/impl/EgovCmtManageServiceImpl.java:104:	SimpleDateFormatNeedsLocale:	SimpleDateFormatNeedsLocale: SimpleDateFormat 인스턴스를 생성할때 Locale 을 지정하는 것이 바람직함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovCmtManageServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.01  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-SimpleDateFormatNeedsLocale(SimpleDateFormat 인스턴스를 생성할때 Locale 을 지정하는 것이 바람직함)
+ *   2025.08.01  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/671
 
 <hr>
 
