@@ -184,6 +184,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-30 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-LoginPolicyVO](#2025-07-30-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-loginpolicyvo)|https://youtu.be/9HHXzPd_tyg|
 |2025-07-31 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginServiceImpl](#2025-07-31-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovloginserviceimpl)|https://youtu.be/mDUpGx6xTrk|
 |2025-07-31 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginController](#2025-07-31-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovlogincontroller)|https://youtu.be/u7pooWQmrao|
+|2025-08-01 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-CmtManageVO](#2025-08-01-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-cmtmanagevo)|https://youtu.be/V9qZu0p_EMI|
 
 <hr>
 
@@ -7015,11 +7016,38 @@ https://github.com/eGovFramework/egovframe-common-components/pull/669
 
 <hr>
 
+### 2025-08-01 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-CmtManageVO
+
+`wrkt_dt` 를 `wrktDt` 로 이름 바꾸기
+
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/cmt/service/CmtManageVO.java:286:	FormalParameterNamingConventions:	FormalParameterNamingConventions: 'method parameter' 의 변수 'wrkt_dt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/cmt/service/impl/EgovCmtManageServiceImpl.java:75:	SimpleDateFormatNeedsLocale:	SimpleDateFormatNeedsLocale: SimpleDateFormat 인스턴스를 생성할때 Locale 을 지정하는 것이 바람직함
-src/main/java/egovframework/com/uss/cmt/service/impl/EgovCmtManageServiceImpl.java:102:	AvoidReassigningParameters:	AvoidReassigningParameters: 'cmtManageVO' 처럼 파라미터 값을 직접 변경하지 말 것
-src/main/java/egovframework/com/uss/cmt/service/impl/EgovCmtManageServiceImpl.java:104:	SimpleDateFormatNeedsLocale:	SimpleDateFormatNeedsLocale: SimpleDateFormat 인스턴스를 생성할때 Locale 을 지정하는 것이 바람직함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/CmtManageVO
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.01  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-FormalParameterNamingConventions(변수명에 밑줄 사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/670
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/ion/ans/service/impl/EgovAnnvrsryManageServiceImpl.java:137:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'result_temp' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/ans/service/impl/EgovAnnvrsryManageServiceImpl.java:173:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'to_day' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/ans/service/impl/EgovAnnvrsryManageServiceImpl.java:174:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'target_day' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
