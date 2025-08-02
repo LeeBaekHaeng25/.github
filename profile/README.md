@@ -187,6 +187,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-01 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-CmtManageVO](#2025-08-01-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-cmtmanagevo)|https://youtu.be/V9qZu0p_EMI|
 |2025-08-01 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCmtManageServiceImpl](#2025-08-01-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcmtmanageserviceimpl)|https://youtu.be/_BpxEStfWoc|
 |2025-08-02 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAnnvrsryManageServiceImpl](#2025-08-02-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovannvrsrymanageserviceimpl)|https://youtu.be/i2m06tOAQHM|
+|2025-08-02 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAnnvrsryManageController](#2025-08-02-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovannvrsrymanagecontroller)|https://youtu.be/XD-tHCE3y-g|
 
 <hr>
 
@@ -7121,6 +7122,45 @@ feature/pmd/EgovAnnvrsryManageServiceImpl
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/673
+
+<hr>
+
+### 2025-08-02 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAnnvrsryManageController
+
+`annvrsryManageVO_Temp` 를 `resultVO` 로 이름 바꾸기
+
+`AnnvrsryManageVO annvrsryManageVO_Temp = new AnnvrsryManageVO();` 제거하고 `AnnvrsryManageVO resultVO = egovAnnvrsryManageService.selectAnnvrsryManage(annvrsryManageVO);` 로 수정
+
+`to_day` 를 `today` 로 이름 바꾸기
+
+`target_day` 를 `targetDate` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/ans/web/EgovAnnvrsryManageController.java:154:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'annvrsryManageVO_Temp' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/ans/web/EgovAnnvrsryManageController.java:381:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'annvrsryManageVO_Temp' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/ans/web/EgovAnnvrsryManageController.java:412:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'to_day' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/ans/web/EgovAnnvrsryManageController.java:413:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'target_day' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovAnnvrsryManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.02  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/674
 
 <hr>
 
