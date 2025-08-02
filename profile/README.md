@@ -186,6 +186,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-07-31 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovLoginController](#2025-07-31-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovlogincontroller)|https://youtu.be/u7pooWQmrao|
 |2025-08-01 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-CmtManageVO](#2025-08-01-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-cmtmanagevo)|https://youtu.be/V9qZu0p_EMI|
 |2025-08-01 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCmtManageServiceImpl](#2025-08-01-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcmtmanageserviceimpl)|https://youtu.be/_BpxEStfWoc|
+|2025-08-02 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAnnvrsryManageServiceImpl](#2025-08-02-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovannvrsrymanageserviceimpl)|https://youtu.be/i2m06tOAQHM|
 
 <hr>
 
@@ -7087,14 +7088,43 @@ https://github.com/eGovFramework/egovframe-common-components/pull/671
 
 <hr>
 
+### 2025-08-02 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAnnvrsryManageServiceImpl
+
+`result_temp` 를 `resultList` 로 이름 바꾸기
+
+`to_day` 를 `today` 로 이름 바꾸기
+
+`target_day` 를 `targetDate` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/ion/ans/service/impl/EgovAnnvrsryManageServiceImpl.java:137:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'result_temp' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/ans/service/impl/EgovAnnvrsryManageServiceImpl.java:173:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'to_day' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/ans/service/impl/EgovAnnvrsryManageServiceImpl.java:174:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'target_day' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/ans/web/EgovAnnvrsryManageController.java:154:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'annvrsryManageVO_Temp' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/ans/web/EgovAnnvrsryManageController.java:381:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'annvrsryManageVO_Temp' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/ans/web/EgovAnnvrsryManageController.java:412:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'to_day' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/ans/web/EgovAnnvrsryManageController.java:413:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'target_day' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovAnnvrsryManageServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.02  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/673
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/ion/bnr/service/BannerVO.java:53:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
 src/main/java/egovframework/com/uss/ion/bnr/service/BannerVO.java:59:	ArrayIsStoredDirectly:	ArrayIsStoredDirectly: 배열 'delYn' 이 직접 저장되어 있음
 src/main/java/egovframework/com/uss/ion/bnt/service/impl/EgovBndtManageServiceImpl.java:384:	CloseResource:	CloseResource: 리소스 'XSSFWorkbook' 가 사용 후에 닫혔는지 확인필요
