@@ -188,6 +188,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-01 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCmtManageServiceImpl](#2025-08-01-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcmtmanageserviceimpl)|https://youtu.be/_BpxEStfWoc|
 |2025-08-02 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAnnvrsryManageServiceImpl](#2025-08-02-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovannvrsrymanageserviceimpl)|https://youtu.be/i2m06tOAQHM|
 |2025-08-02 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAnnvrsryManageController](#2025-08-02-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovannvrsrymanagecontroller)|https://youtu.be/XD-tHCE3y-g|
+|2025-08-04 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-BannerVO](#2025-08-04-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-bannervo)|https://youtu.be/QIOjiNdNc00|
 
 <hr>
 
@@ -7164,12 +7165,39 @@ https://github.com/eGovFramework/egovframe-common-components/pull/674
 
 <hr>
 
+### 2025-08-04 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-BannerVO
+
+`getDelYn, setDelYn` 메서드를 제거하고 `private, @Getter, @Setter` 추가
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/ion/bnr/service/BannerVO.java:53:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
 src/main/java/egovframework/com/uss/ion/bnr/service/BannerVO.java:59:	ArrayIsStoredDirectly:	ArrayIsStoredDirectly: 배열 'delYn' 이 직접 저장되어 있음
-src/main/java/egovframework/com/uss/ion/bnt/service/impl/EgovBndtManageServiceImpl.java:384:	CloseResource:	CloseResource: 리소스 'XSSFWorkbook' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/uss/ion/bnt/service/impl/EgovBndtManageServiceImpl.java:484:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'target_day' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/bnt/service/impl/EgovBndtManageServiceImpl.java:506:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'target_day' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/BannerVO
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.04  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-MethodReturnsInternalArray(Private 배열에 Public 데이터 할당)
+ *   2025.08.04  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-ArrayIsStoredDirectly(Public 메소드부터 반환된 Private 배열)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/675
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/ion/bnt/web/EgovBndtManageController.java:169:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'bndtManageVO_Temp' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/bnt/web/EgovBndtManageController.java:348:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'bndtCeckManageVO_Temp' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/bnt/web/EgovBndtManageController.java:355:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'bndtCeckManage_Temp' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
