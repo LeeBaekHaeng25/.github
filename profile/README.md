@@ -189,6 +189,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-02 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAnnvrsryManageServiceImpl](#2025-08-02-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovannvrsrymanageserviceimpl)|https://youtu.be/i2m06tOAQHM|
 |2025-08-02 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAnnvrsryManageController](#2025-08-02-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovannvrsrymanagecontroller)|https://youtu.be/XD-tHCE3y-g|
 |2025-08-04 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-BannerVO](#2025-08-04-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-bannervo)|https://youtu.be/QIOjiNdNc00|
+|2025-08-04 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBndtManageServiceImpl](#2025-08-04-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbndtmanageserviceimpl)|https://youtu.be/m1hatwBmdCE|
 
 <hr>
 
@@ -7194,6 +7195,50 @@ feature/pmd/BannerVO
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/675
+
+<hr>
+
+### 2025-08-04 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBndtManageServiceImpl
+
+`try-with-resources` 로 수정
+- XSSFWorkbook 클래스를 직접 사용하는 것보다 Workbook 인터페이스를 사용하는 것이 유연성과 확장성 면에서 훨씬 좋아 수정
+- XSSFWorkbook -> Workbook
+- XSSFSheet -> Sheet
+- XSSFRow -> Row
+- XSSFCell -> Cell
+- `LOGGER.debug("=====>>>>> ERR : IOException " + e.getMessage());` 를 `throw new UncheckedIOException(e);` 로 수정
+- `hssfWB` 을 `workbook` 으로 이름 바꾸기
+
+`target_day` 를 `targetDate` 로 이름 바꾸기
+
+`private static final Logger LOGGER = LoggerFactory.getLogger(EgovBndtManageServiceImpl.class);` 제거
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/bnt/service/impl/EgovBndtManageServiceImpl.java:384:	CloseResource:	CloseResource: 리소스 'XSSFWorkbook' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/uss/ion/bnt/service/impl/EgovBndtManageServiceImpl.java:484:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'target_day' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/bnt/service/impl/EgovBndtManageServiceImpl.java:506:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'target_day' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovBndtManageServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.04  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.08.04  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/676
 
 <hr>
 
