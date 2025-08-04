@@ -191,6 +191,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-04 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-BannerVO](#2025-08-04-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-bannervo)|https://youtu.be/QIOjiNdNc00|
 |2025-08-04 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBndtManageServiceImpl](#2025-08-04-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbndtmanageserviceimpl)|https://youtu.be/m1hatwBmdCE|
 |2025-08-05 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovBndtManageController](#2025-08-05-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovbndtmanagecontroller)|https://youtu.be/pmNJpwZEDZA|
+|2025-08-05 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovEventCmpgnController](#2025-08-05-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egoveventcmpgncontroller)|https://youtu.be/LHzG5xEL8gQ|
 
 <hr>
 
@@ -7265,6 +7266,41 @@ src/main/java/egovframework/com/uss/ion/bnt/web/EgovBndtManageController.java:35
 
 ```
 feature/pmd/EgovBndtManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.05  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+<hr>
+
+### 2025-08-05 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovEventCmpgnController
+
+`_result` 를 `eventTyCode` 로 이름 바꾸기
+
+`_result` 를 `sexdstnCode` 로 이름 바꾸기
+
+`_result` 를 `occpTyCode` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/ecc/web/EgovEventCmpgnController.java:176:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/ecc/web/EgovEventCmpgnController.java:233:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/ecc/web/EgovEventCmpgnController.java:359:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/ecc/web/EgovEventCmpgnController.java:420:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovEventCmpgnController
 ```
 
 3. 이클립스 > Source > Format
