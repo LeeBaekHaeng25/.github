@@ -195,6 +195,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-06 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovEventManageController](#2025-08-06-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egoveventmanagecontroller)||
 |2025-08-06 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-IntnetSvcGuidanceVO](#2025-08-06-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-intnetsvcguidancevo)|https://youtu.be/OjWCbrHcM3w|
 |2025-08-07 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-LoginScrinImageVO](#2025-08-07-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-loginscrinimagevo)|https://youtu.be/pVJNpenqSX0|
+|2025-08-07 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MainImageVO](#2025-08-07-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-mainimagevo)|https://youtu.be/0Jmcz2qlLJI|
 
 <hr>
 
@@ -7407,6 +7408,38 @@ feature/pmd/LoginScrinImageVO
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/681
+
+<hr>
+
+### 2025-08-07 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-MainImageVO
+
+`getDelYn, setDelYn` 메서드를 제거하고 `private, @Getter, @Setter` 추가
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/msi/service/MainImageVO.java:47:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
+src/main/java/egovframework/com/uss/ion/msi/service/MainImageVO.java:53:	ArrayIsStoredDirectly:	ArrayIsStoredDirectly: 배열 'delYn' 이 직접 저장되어 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/MainImageVO
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.07  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-MethodReturnsInternalArray(Private 배열에 Public 데이터 할당)
+ *   2025.08.07  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-ArrayIsStoredDirectly(Public 메소드부터 반환된 Private 배열)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/682
 
 <hr>
 
