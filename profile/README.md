@@ -196,6 +196,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-06 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-IntnetSvcGuidanceVO](#2025-08-06-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-intnetsvcguidancevo)|https://youtu.be/OjWCbrHcM3w|
 |2025-08-07 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-LoginScrinImageVO](#2025-08-07-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-loginscrinimagevo)|https://youtu.be/pVJNpenqSX0|
 |2025-08-07 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-MainImageVO](#2025-08-07-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-mainimagevo)|https://youtu.be/0Jmcz2qlLJI|
+|2025-08-08 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMtgPlaceManageController](#2025-08-08-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmtgplacemanagecontroller)|https://youtu.be/f7KjNx2d8gc|
 
 <hr>
 
@@ -7443,6 +7444,22 @@ https://github.com/eGovFramework/egovframe-common-components/pull/682
 
 <hr>
 
+### 2025-08-08 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMtgPlaceManageController
+
+`_result` 를 `fvoList` 로 이름 바꾸기
+
+`_atchFileId` 를 `atchFileId` 로 이름 바꾸기
+
+`_cnt` 를 `fileKeyParam` 으로 이름 바꾸기
+
+`mtgPlaceManage_Temp` 를 `resultVO` 로 이름 바꾸기
+
+`mtgPlaceManageVO_Temp` 를 `resultVO` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/ion/mtg/web/EgovMtgPlaceManageController.java:195:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/mtg/web/EgovMtgPlaceManageController.java:196:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -7454,7 +7471,27 @@ src/main/java/egovframework/com/uss/ion/mtg/web/EgovMtgPlaceManageController.jav
 src/main/java/egovframework/com/uss/ion/mtg/web/EgovMtgPlaceManageController.java:312:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'mtgPlaceManage_Temp' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/mtg/web/EgovMtgPlaceManageController.java:391:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'mtgPlaceManageVO_Temp' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/mtg/web/EgovMtgPlaceManageController.java:421:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'mtgPlaceManageVO_Temp' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/ntm/service/NoteManageVO.java:235:	AvoidArrayLoops:	AvoidArrayLoops: 배열의 값을 루프문을 이용하여 복사하는 것 보다 System.arraycopy() 메소드를 이용하여 복사하는 것이 효율적이며 수행 속도가 빠름
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovMtgPlaceManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.08  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/684
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/ion/ntm/web/EgovNoteManageController.java:174:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/ntm/web/EgovNoteManageController.java:175:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/ntm/web/EgovNoteManageController.java:191:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'ReusltScript' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
