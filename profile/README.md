@@ -199,6 +199,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-08 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMtgPlaceManageController](#2025-08-08-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmtgplacemanagecontroller)|https://youtu.be/f7KjNx2d8gc|
 |2025-08-08 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-NoteManageVO](#2025-08-08-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-notemanagevo)|https://youtu.be/GTALAfaD7d0|
 |2025-08-09 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNoteManageController](#2025-08-09-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnotemanagecontroller)|https://youtu.be/18S2FRKJcDY|
+|2025-08-09 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-NoteRecptn](#2025-08-09-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-noterecptn)|https://youtu.be/ckOuB_6gt7w|
 
 <hr>
 
@@ -7558,6 +7559,38 @@ feature/pmd/EgovNoteManageController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/687
+
+<hr>
+
+### 2025-08-09 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-NoteRecptn
+
+`getAtchFileId, setAtchFileId` 메서드를 제거하고 `@Getter, @Setter` 추가
+
+`@SuppressWarnings("serial"), implements Serializable` 제거하고 `private static final long serialVersionUID = 1L;` 추가. Adds a default serial version ID to the selected type.
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/ntr/service/NoteRecptn.java:218:	AvoidArrayLoops:	AvoidArrayLoops: 배열의 값을 루프문을 이용하여 복사하는 것 보다 System.arraycopy() 메소드를 이용하여 복사하는 것이 효율적이며 수행 속도가 빠름
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/NoteRecptn
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.09  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidArrayLoops(배열의 값을 루프문을 이용하여 복사하는 것 보다, System.arraycopy() 메소드를 이용하여 복사하는 것이 효율적이며 수행 속도가 빠름)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/688
 
 <hr>
 
