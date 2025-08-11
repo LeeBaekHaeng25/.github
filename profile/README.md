@@ -201,6 +201,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-09 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNoteManageController](#2025-08-09-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnotemanagecontroller)|https://youtu.be/18S2FRKJcDY|
 |2025-08-09 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-NoteRecptn](#2025-08-09-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-noterecptn)|https://youtu.be/ckOuB_6gt7w|
 |2025-08-11 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNewsController](#2025-08-11-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnewscontroller)|https://youtu.be/eBCKM9VkX5Y|
+|2025-08-11 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovPopupManageController](#2025-08-11-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovpopupmanagecontroller)|https://youtu.be/1FQ1NHBuFCM|
 
 <hr>
 
@@ -7634,6 +7635,40 @@ feature/pmd/EgovNewsController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/689
+
+<hr>
+
+### 2025-08-11 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovPopupManageController
+
+`PrintWriter` 에 `// NOPMD - CloseResource 규칙 무시` 특정 규칙 무시 주석 추가
+
+`String fileUrl2` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/pwm/web/EgovPopupManageController.java:285:	CloseResource:	CloseResource: 리소스 'PrintWriter' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/uss/ion/pwm/web/EgovPopupManageController.java:318:	AvoidReassigningParameters:	AvoidReassigningParameters: 'fileUrl' 처럼 파라미터 값을 직접 변경하지 말 것
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovPopupManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.11  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.08.11  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/690
 
 <hr>
 
