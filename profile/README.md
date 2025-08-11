@@ -200,6 +200,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-08 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-NoteManageVO](#2025-08-08-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-notemanagevo)|https://youtu.be/GTALAfaD7d0|
 |2025-08-09 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNoteManageController](#2025-08-09-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnotemanagecontroller)|https://youtu.be/18S2FRKJcDY|
 |2025-08-09 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-NoteRecptn](#2025-08-09-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-noterecptn)|https://youtu.be/ckOuB_6gt7w|
+|2025-08-11 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNewsController](#2025-08-11-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnewscontroller)|https://youtu.be/eBCKM9VkX5Y|
 
 <hr>
 
@@ -7594,6 +7595,20 @@ https://github.com/eGovFramework/egovframe-common-components/pull/688
 
 <hr>
 
+### 2025-08-11 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNewsController
+
+`NewsList` 를 `resultList` 로 이름 바꾸기
+
+`_result` 를 `fvoList` 로 이름 바꾸기
+
+`_atchFileId` 를 `atchFileId` 로 이름 바꾸기
+
+`_cnt` 를 `fileKeyParam` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/ion/nws/web/EgovNewsController.java:82:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'NewsList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/nws/web/EgovNewsController.java:143:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -7602,8 +7617,27 @@ src/main/java/egovframework/com/uss/ion/nws/web/EgovNewsController.java:225:	Loc
 src/main/java/egovframework/com/uss/ion/nws/web/EgovNewsController.java:232:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/nws/web/EgovNewsController.java:239:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/nws/web/EgovNewsController.java:240:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/pwm/web/EgovPopupManageController.java:285:	CloseResource:	CloseResource: 리소스 'PrintWriter' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/uss/ion/pwm/web/EgovPopupManageController.java:318:	AvoidReassigningParameters:	AvoidReassigningParameters: 'fileUrl' 처럼 파라미터 값을 직접 변경하지 말 것
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovNewsController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.11  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/689
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/ion/rec/web/EgovRecomendSiteController.java:89:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'RecomendSiteList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/rmm/web/EgovRoughMapController.java:198:	AvoidReassigningParameters:	AvoidReassigningParameters: 'roughMap' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/uss/ion/rsm/web/EgovRecentSrchwrdController.java:203:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
