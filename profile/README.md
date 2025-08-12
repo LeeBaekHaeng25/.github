@@ -203,6 +203,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-11 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNewsController](#2025-08-11-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnewscontroller)|https://youtu.be/eBCKM9VkX5Y|
 |2025-08-11 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovPopupManageController](#2025-08-11-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovpopupmanagecontroller)|https://youtu.be/1FQ1NHBuFCM|
 |2025-08-12 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRecomendSiteController](#2025-08-12-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovrecomendsitecontroller)|https://youtu.be/K4fnsGj8rb0|
+|2025-08-12 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRoughMapController](#2025-08-12-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovroughmapcontroller)|https://youtu.be/YYZ7IOZofsw|
 
 <hr>
 
@@ -7700,6 +7701,36 @@ feature/pmd/EgovRecomendSiteController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/691
+
+<hr>
+
+### 2025-08-12 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRoughMapController
+
+`roughMap` 을 `RoughMapVO result` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/rmm/web/EgovRoughMapController.java:198:	AvoidReassigningParameters:	AvoidReassigningParameters: 'roughMap' 처럼 파라미터 값을 직접 변경하지 말 것
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovRoughMapController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.12  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/692
 
 <hr>
 
