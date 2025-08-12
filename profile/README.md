@@ -205,6 +205,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-12 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRecomendSiteController](#2025-08-12-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovrecomendsitecontroller)|https://youtu.be/K4fnsGj8rb0|
 |2025-08-12 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRoughMapController](#2025-08-12-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovroughmapcontroller)|https://youtu.be/YYZ7IOZofsw|
 |2025-08-13 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRecentSrchwrdController](#2025-08-13-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovrecentsrchwrdcontroller)|https://youtu.be/J7dO0p_6ahI|
+|2025-08-13 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRssServiceImpl](#2025-08-13-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovrssserviceimpl)|https://youtu.be/ASa0sx46MjE|
 
 <hr>
 
@@ -7779,6 +7780,70 @@ feature/pmd/EgovRecentSrchwrdController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/693
+
+<hr>
+
+### 2025-08-13 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRssServiceImpl
+
+`sBDT_TITLE` 을 `sBdtTitle` 로 이름 바꾸기
+
+`sBDT_LINK` 를 `sBdtLink` 로 이름 바꾸기
+
+`sBDT_DESCRIPTION` 을 `sBdtDescription` 로 이름 바꾸기
+
+`sBDT_TAG` 를 `sBdtTag` 로 이름 바꾸기
+
+`sBDT_ETC` 를 `sBdtEtc` 로 이름 바꾸기
+
+---
+
+`sM_BDT_TITLE` 를 `smBdtTitle` 로 이름 바꾸기
+
+`sM_BDT_LINK` 를 `smBdtLink` 로 이름 바꾸기
+
+`sM_BDT_DESCRIPTION` 를 `smBdtDescription` 로 이름 바꾸기
+
+`sM_BDT_TAG` 를 `smBdtTag` 로 이름 바꾸기
+
+`sM_BDT_ETC` 를 `smBdtEtc` 로 이름 바꾸기
+
+---
+
+`Keys` 를 `keys` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/rsn/service/impl/EgovRssServiceImpl.java:48:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sBDT_TITLE' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rsn/service/impl/EgovRssServiceImpl.java:49:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sBDT_LINK' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rsn/service/impl/EgovRssServiceImpl.java:50:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sBDT_DESCRIPTION' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rsn/service/impl/EgovRssServiceImpl.java:51:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sBDT_TAG' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rsn/service/impl/EgovRssServiceImpl.java:52:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sBDT_ETC' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rsn/service/impl/EgovRssServiceImpl.java:60:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sM_BDT_TITLE' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rsn/service/impl/EgovRssServiceImpl.java:61:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sM_BDT_LINK' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rsn/service/impl/EgovRssServiceImpl.java:62:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sM_BDT_DESCRIPTION' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rsn/service/impl/EgovRssServiceImpl.java:63:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sM_BDT_TAG' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rsn/service/impl/EgovRssServiceImpl.java:64:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sM_BDT_ETC' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rsn/service/impl/EgovRssServiceImpl.java:66:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'Keys' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovRssServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.13  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/694
 
 <hr>
 
