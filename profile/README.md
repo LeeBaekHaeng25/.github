@@ -206,6 +206,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-12 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRoughMapController](#2025-08-12-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovroughmapcontroller)|https://youtu.be/YYZ7IOZofsw|
 |2025-08-13 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRecentSrchwrdController](#2025-08-13-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovrecentsrchwrdcontroller)|https://youtu.be/J7dO0p_6ahI|
 |2025-08-13 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRssServiceImpl](#2025-08-13-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovrssserviceimpl)|https://youtu.be/ASa0sx46MjE|
+|2025-08-14 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-RssTagManageDao](#2025-08-14-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-rsstagmanagedao)|https://youtu.be/PNQlzO-4c0A|
 
 <hr>
 
@@ -7847,6 +7848,28 @@ https://github.com/eGovFramework/egovframe-common-components/pull/694
 
 <hr>
 
+### 2025-08-14 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-RssTagManageDao
+
+`TABLE_NAME` 을 `columnLabelTableName` 로 이름 바꾸기
+
+`TABLE_SCHEMA` 를 `columnLabelTableSchema` 로 이름 바꾸기
+
+`TABLE_AND_VIEW_TYPES` 을 `types` 로 이름 바꾸기
+
+`Connection conn = null;`, `ResultSet tables = null;` 을 try-with-resources 로 수정
+
+`Connection conn = null;`, `PreparedStatement st = null;`, `ResultSet rs = null;` 을 try-with-resources 로 수정
+
+`if ( tableWhiteList.contains(tableName.toLowerCase()) == true ) {` 를 `if (tableWhiteList.contains(tableName.toLowerCase())) {` 로 수정
+- `== true` 제거
+
+`if ( tableWhiteList.contains(sTableName.toLowerCase()) == true ) {` 를 `if (tableWhiteList.contains(sTableName.toLowerCase())) {` 로 수정
+- `== true` 제거
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/ion/rss/service/impl/RssTagManageDao.java:54:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'TABLE_NAME' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/rss/service/impl/RssTagManageDao.java:55:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'TABLE_SCHEMA' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -7858,14 +7881,29 @@ src/main/java/egovframework/com/uss/ion/rss/service/impl/RssTagManageDao.java:10
 src/main/java/egovframework/com/uss/ion/rss/service/impl/RssTagManageDao.java:106:	CloseResource:	CloseResource: 리소스 'PreparedStatement' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/uss/ion/rss/service/impl/RssTagManageDao.java:107:	CloseResource:	CloseResource: 리소스 'ResultSet' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/uss/ion/rss/service/impl/RssTagManageDao.java:114:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
-src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:157:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'rwardManage_1' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:217:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:218:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:262:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:272:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:282:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:283:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:307:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/RssTagManageDao
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.14  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+ *   2025.08.14  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.08.14  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-SimplifyBooleanExpressions(boolean 사용 시 불필요한 비교 연산을 피하도록 함)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/695
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/ion/sit/web/EgovSiteController.java:93:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'SiteList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/sit/web/EgovSiteController.java:135:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/sit/web/EgovSiteController.java:195:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
