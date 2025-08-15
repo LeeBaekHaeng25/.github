@@ -207,6 +207,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-13 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRecentSrchwrdController](#2025-08-13-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovrecentsrchwrdcontroller)|https://youtu.be/J7dO0p_6ahI|
 |2025-08-13 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRssServiceImpl](#2025-08-13-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovrssserviceimpl)|https://youtu.be/ASa0sx46MjE|
 |2025-08-14 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-RssTagManageDao](#2025-08-14-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-rsstagmanagedao)|https://youtu.be/PNQlzO-4c0A|
+|2025-08-15 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRwardManageController](#2025-08-15-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovrwardmanagecontroller)|https://youtu.be/PKWGghjC2ds|
 
 <hr>
 
@@ -7900,6 +7901,49 @@ feature/pmd/RssTagManageDao
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/695
+
+<hr>
+
+### 2025-08-15 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRwardManageController
+
+`rwardManage_1` 을 `rwardManage1` 로 이름 바꾸기
+
+`_result` 를 `fvoList` 로 이름 바꾸기
+
+`_atchFileId` 을 `atchFileId` 로 이름 바꾸기
+
+`_cnt` 를 `fileKeyParam` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:157:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'rwardManage_1' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:217:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:218:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:262:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:272:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:282:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:283:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/rwd/web/EgovRwardManageController.java:307:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovRwardManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.15  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/696
 
 <hr>
 
