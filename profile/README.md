@@ -209,6 +209,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-14 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-RssTagManageDao](#2025-08-14-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-rsstagmanagedao)|https://youtu.be/PNQlzO-4c0A|
 |2025-08-15 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRwardManageController](#2025-08-15-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovrwardmanagecontroller)|https://youtu.be/PKWGghjC2ds|
 |2025-08-15 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSiteController](#2025-08-15-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsitecontroller)|https://youtu.be/6ScTsJWYdR0|
+|2025-08-15 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTwitterTrnsmitServiceImpl](#2025-08-15-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovtwittertrnsmitserviceimpl)|https://youtu.be/9y4WtvXTVyY|
 
 <hr>
 
@@ -7979,6 +7980,49 @@ feature/pmd/EgovSiteController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/697
+
+<hr>
+
+### 2025-08-15 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTwitterTrnsmitServiceImpl
+
+`sCONSUMER_KEY` 를 `consumerKey` 로 이름 바꾸기
+
+`sCONSUMER_SECRET` 을 `consumerSecret` 로 이름 바꾸기
+
+`userCreate_at` 을 `userCreateAt` 로 이름 바꾸기
+
+`userProfile_url` 를 `userProfileUrl` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/tir/service/impl/EgovTwitterTrnsmitServiceImpl.java:55:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sCONSUMER_KEY' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/tir/service/impl/EgovTwitterTrnsmitServiceImpl.java:56:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sCONSUMER_SECRET' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/tir/service/impl/EgovTwitterTrnsmitServiceImpl.java:82:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sCONSUMER_KEY' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/tir/service/impl/EgovTwitterTrnsmitServiceImpl.java:83:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sCONSUMER_SECRET' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/tir/service/impl/EgovTwitterTrnsmitServiceImpl.java:100:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'userCreate_at' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/tir/service/impl/EgovTwitterTrnsmitServiceImpl.java:101:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'userProfile_url' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/tir/service/impl/EgovTwitterTrnsmitServiceImpl.java:120:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sCONSUMER_KEY' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/ion/tir/service/impl/EgovTwitterTrnsmitServiceImpl.java:121:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sCONSUMER_SECRET' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovTwitterTrnsmitServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.15  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/698
 
 <hr>
 
