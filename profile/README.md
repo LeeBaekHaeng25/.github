@@ -210,6 +210,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-15 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovRwardManageController](#2025-08-15-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovrwardmanagecontroller)|https://youtu.be/PKWGghjC2ds|
 |2025-08-15 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSiteController](#2025-08-15-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsitecontroller)|https://youtu.be/6ScTsJWYdR0|
 |2025-08-15 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTwitterTrnsmitServiceImpl](#2025-08-15-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovtwittertrnsmitserviceimpl)|https://youtu.be/9y4WtvXTVyY|
+|2025-08-16 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTwitterController](#2025-08-16-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovtwittercontroller)|https://youtu.be/8_4jkH2p-Tw|
 
 <hr>
 
@@ -8026,6 +8027,20 @@ https://github.com/eGovFramework/egovframe-common-components/pull/698
 
 <hr>
 
+### 2025-08-16 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTwitterController
+
+`ReusltScript` 를 `reusltScript` 로 이름 바꾸기
+
+`sCONSUMER_KEY` 를 `consumerKey` 로 이름 바꾸기
+
+`sCONSUMER_SECRET` 을 `consumerSecret` 로 이름 바꾸기
+
+`String tID2 = tID.replace("&quot;", "");` 로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/ion/tir/web/EgovTwitterController.java:168:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'ReusltScript' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/tir/web/EgovTwitterController.java:288:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sCONSUMER_KEY' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -8035,8 +8050,28 @@ src/main/java/egovframework/com/uss/ion/tir/web/EgovTwitterController.java:326:	
 src/main/java/egovframework/com/uss/ion/tir/web/EgovTwitterController.java:362:	AvoidReassigningParameters:	AvoidReassigningParameters: 'tID' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/uss/ion/tir/web/EgovTwitterController.java:365:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sCONSUMER_KEY' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/ion/tir/web/EgovTwitterController.java:366:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'sCONSUMER_SECRET' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/ion/uas/service/UserAbsnceVO.java:50:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
-src/main/java/egovframework/com/uss/ion/uas/service/UserAbsnceVO.java:56:	ArrayIsStoredDirectly:	ArrayIsStoredDirectly: 배열 'delYn' 이 직접 저장되어 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovTwitterController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.16  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+ *   2025.08.16  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/699
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/ion/ulm/web/EgovUnityLinkController.java:250:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/uss/ion/ulm/web/EgovUnityLinkController.java:319:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/uss/ion/vct/service/impl/EgovVcatnManageServiceImpl.java:472:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'Count' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
