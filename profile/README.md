@@ -211,6 +211,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-15 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSiteController](#2025-08-15-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsitecontroller)|https://youtu.be/6ScTsJWYdR0|
 |2025-08-15 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTwitterTrnsmitServiceImpl](#2025-08-15-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovtwittertrnsmitserviceimpl)|https://youtu.be/9y4WtvXTVyY|
 |2025-08-16 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTwitterController](#2025-08-16-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovtwittercontroller)|https://youtu.be/8_4jkH2p-Tw|
+|2025-08-16 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-UserAbsnceVO](#2025-08-16-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-userabsncevo)|https://youtu.be/c5kPQFsV_sU|
 
 <hr>
 
@@ -8068,6 +8069,38 @@ feature/pmd/EgovTwitterController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/699
+
+<hr>
+
+### 2025-08-16 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-UserAbsnceVO
+
+`getDelYn, setDelYn` 메서드를 제거하고 `private, @Getter, @Setter` 추가
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/uas/service/UserAbsnceVO.java:50:	MethodReturnsInternalArray:	MethodReturnsInternalArray: 'delYn'을 반환하면 내부 배열이 노출될 수 있음
+src/main/java/egovframework/com/uss/ion/uas/service/UserAbsnceVO.java:56:	ArrayIsStoredDirectly:	ArrayIsStoredDirectly: 배열 'delYn' 이 직접 저장되어 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/UserAbsnceVO
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.16  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-MethodReturnsInternalArray(Private 배열에 Public 데이터 할당)
+ *   2025.08.16  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-ArrayIsStoredDirectly(Public 메소드부터 반환된 Private 배열)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/700
 
 <hr>
 
