@@ -212,6 +212,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-15 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTwitterTrnsmitServiceImpl](#2025-08-15-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovtwittertrnsmitserviceimpl)|https://youtu.be/9y4WtvXTVyY|
 |2025-08-16 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTwitterController](#2025-08-16-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovtwittercontroller)|https://youtu.be/8_4jkH2p-Tw|
 |2025-08-16 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-UserAbsnceVO](#2025-08-16-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-userabsncevo)|https://youtu.be/c5kPQFsV_sU|
+|2025-08-18 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUnityLinkController](#2025-08-18-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovunitylinkcontroller)|https://youtu.be/wVy_cEEIhEo|
 
 <hr>
 
@@ -8104,10 +8105,52 @@ https://github.com/eGovFramework/egovframe-common-components/pull/700
 
 <hr>
 
+### 2025-08-18 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUnityLinkController
+
+아이디 설정 수정
+- `String uniqId = (loginVO == null ? "" : EgovStringUtil.isNullToString(loginVO.getUniqId()));` 제거
+
+```java
+		// 로그인 객체 선언
+		LoginVO loginVO = (LoginVO) EgovUserDetailsHelper.getAuthenticatedUser();
+
+		// 아이디 설정
+		if (loginVO != null) {
+			unityLink.setFrstRegisterId(loginVO.getUniqId());
+			unityLink.setLastUpdusrId(loginVO.getUniqId());
+		}
+```
+
+`LOGGER` 제거하고 `@Slf4j` 추가
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/ion/ulm/web/EgovUnityLinkController.java:250:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/uss/ion/ulm/web/EgovUnityLinkController.java:319:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/uss/ion/vct/service/impl/EgovVcatnManageServiceImpl.java:472:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'Count' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovUnityLinkController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.18  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/701
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/ion/vct/web/EgovVcatnManageController.java:103:	AvoidReassigningParameters:	AvoidReassigningParameters: 'vcatnManageVO' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/uss/ion/wik/bmk/service/impl/EgovWikiBookmarkServiceImpl.java:99:	UnnecessarySemicolon:	UnnecessarySemicolon: 필요없는 문장 (;)이 있음
 src/main/java/egovframework/com/uss/olh/awm/web/EgovAdministrationWordController.java:191:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
