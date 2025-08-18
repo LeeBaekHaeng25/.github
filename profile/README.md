@@ -213,6 +213,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-16 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovTwitterController](#2025-08-16-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovtwittercontroller)|https://youtu.be/8_4jkH2p-Tw|
 |2025-08-16 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-UserAbsnceVO](#2025-08-16-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-userabsncevo)|https://youtu.be/c5kPQFsV_sU|
 |2025-08-18 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUnityLinkController](#2025-08-18-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovunitylinkcontroller)|https://youtu.be/wVy_cEEIhEo|
+|2025-08-18 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovVcatnManageServiceImpl](#2025-08-18-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovvcatnmanageserviceimpl)|https://youtu.be/XwcFLQf9_Lg|
 
 <hr>
 
@@ -8147,6 +8148,37 @@ feature/pmd/EgovUnityLinkController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/701
+
+<hr>
+
+### 2025-08-18 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovVcatnManageServiceImpl
+
+`Count` 를 `count` 로 이름 바꾸기
+- `double Count = 0.0;`
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/vct/service/impl/EgovVcatnManageServiceImpl.java:472:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'Count' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovVcatnManageServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.18  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/702
 
 <hr>
 
