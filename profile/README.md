@@ -215,6 +215,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-18 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUnityLinkController](#2025-08-18-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovunitylinkcontroller)|https://youtu.be/wVy_cEEIhEo|
 |2025-08-18 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovVcatnManageServiceImpl](#2025-08-18-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovvcatnmanageserviceimpl)|https://youtu.be/XwcFLQf9_Lg|
 |2025-08-19 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovVcatnManageController](#2025-08-19-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovvcatnmanagecontroller)|https://youtu.be/TW-2k9OqElI|
+|2025-08-19 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWikiBookmarkServiceImpl](#2025-08-19-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwikibookmarkserviceimpl)|https://youtu.be/-zS5SXUsTlE|
 
 <hr>
 
@@ -8214,6 +8215,36 @@ feature/pmd/EgovVcatnManageController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/703
+
+<hr>
+
+### 2025-08-19 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWikiBookmarkServiceImpl
+
+필요없는 ; 문장 제거
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/ion/wik/bmk/service/impl/EgovWikiBookmarkServiceImpl.java:99:	UnnecessarySemicolon:	UnnecessarySemicolon: 필요없는 문장 (;)이 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovWikiBookmarkServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.19  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessarySemicolon(필요없는 ; 문장 존재)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/704
 
 <hr>
 
