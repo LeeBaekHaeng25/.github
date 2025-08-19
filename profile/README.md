@@ -214,6 +214,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-16 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-UserAbsnceVO](#2025-08-16-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-userabsncevo)|https://youtu.be/c5kPQFsV_sU|
 |2025-08-18 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUnityLinkController](#2025-08-18-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovunitylinkcontroller)|https://youtu.be/wVy_cEEIhEo|
 |2025-08-18 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovVcatnManageServiceImpl](#2025-08-18-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovvcatnmanageserviceimpl)|https://youtu.be/XwcFLQf9_Lg|
+|2025-08-19 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovVcatnManageController](#2025-08-19-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovvcatnmanagecontroller)|https://youtu.be/TW-2k9OqElI|
 
 <hr>
 
@@ -8182,9 +8183,41 @@ https://github.com/eGovFramework/egovframe-common-components/pull/702
 
 <hr>
 
+### 2025-08-19 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovVcatnManageController
+
+`vcatnManageVO` 를 `resultVO` 로 이름 바꾸기
+```java
+//vcatnManageVO = egovVcatnManageService.selectIndvdlYrycManage(user.getUniqId());
+VcatnManageVO resultVO = egovVcatnManageService.selectIndvdlYrycManage(user.getUniqId());
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/ion/vct/web/EgovVcatnManageController.java:103:	AvoidReassigningParameters:	AvoidReassigningParameters: 'vcatnManageVO' 처럼 파라미터 값을 직접 변경하지 말 것
-src/main/java/egovframework/com/uss/ion/wik/bmk/service/impl/EgovWikiBookmarkServiceImpl.java:99:	UnnecessarySemicolon:	UnnecessarySemicolon: 필요없는 문장 (;)이 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovVcatnManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.19  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/703
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/olh/awm/web/EgovAdministrationWordController.java:191:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/olh/awm/web/EgovAdministrationWordController.java:248:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/olh/faq/web/EgovFaqController.java:105:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'FaqList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
