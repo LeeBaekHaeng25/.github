@@ -216,6 +216,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-18 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovVcatnManageServiceImpl](#2025-08-18-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovvcatnmanageserviceimpl)|https://youtu.be/XwcFLQf9_Lg|
 |2025-08-19 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovVcatnManageController](#2025-08-19-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovvcatnmanagecontroller)|https://youtu.be/TW-2k9OqElI|
 |2025-08-19 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovWikiBookmarkServiceImpl](#2025-08-19-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovwikibookmarkserviceimpl)|https://youtu.be/-zS5SXUsTlE|
+|2025-08-20 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAdministrationWordController](#2025-08-20-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovadministrationwordcontroller)|https://youtu.be/QuBKCxXLcYk|
 
 <hr>
 
@@ -8248,14 +8249,38 @@ https://github.com/eGovFramework/egovframe-common-components/pull/704
 
 <hr>
 
+### 2025-08-20 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAdministrationWordController
+
+`_result` 를 `wordSeCode` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
-src/main/java/egovframework/com/uss/olh/awm/web/EgovAdministrationWordController.java:191:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/olh/awm/web/EgovAdministrationWordController.java:201:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/olh/awm/web/EgovAdministrationWordController.java:248:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olh/faq/web/EgovFaqController.java:105:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'FaqList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olh/faq/web/EgovFaqController.java:176:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olh/faq/web/EgovFaqController.java:177:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olh/faq/web/EgovFaqController.java:269:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olh/faq/web/EgovFaqController.java:297:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovAdministrationWordController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.20  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/705
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/olh/hpc/web/EgovHpcmController.java:96:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'HpcmList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/olh/hpc/web/EgovHpcmController.java:140:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/olh/hpc/web/EgovHpcmController.java:197:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
