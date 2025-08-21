@@ -219,6 +219,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-20 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovAdministrationWordController](#2025-08-20-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovadministrationwordcontroller)|https://youtu.be/QuBKCxXLcYk|
 |2025-08-20 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFaqController](#2025-08-20-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfaqcontroller)|https://youtu.be/EL8avqOQCiI|
 |2025-08-21 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovHpcmController](#2025-08-21-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovhpcmcontroller)|https://youtu.be/oFwVpJcynRI|
+|2025-08-21 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovOnlineManualController](#2025-08-21-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovonlinemanualcontroller)|https://youtu.be/d2o8AVtVwIs|
 
 <hr>
 
@@ -8351,6 +8352,37 @@ feature/pmd/EgovHpcmController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/707
+
+<hr>
+
+### 2025-08-21 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovOnlineManualController
+
+`_result` 를 `onlineMnlSeCode` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/olh/omm/web/EgovOnlineManualController.java:196:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/olh/omm/web/EgovOnlineManualController.java:253:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovOnlineManualController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.21  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/708
 
 <hr>
 
