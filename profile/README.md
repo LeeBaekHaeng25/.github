@@ -220,6 +220,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-20 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFaqController](#2025-08-20-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfaqcontroller)|https://youtu.be/EL8avqOQCiI|
 |2025-08-21 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovHpcmController](#2025-08-21-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovhpcmcontroller)|https://youtu.be/oFwVpJcynRI|
 |2025-08-21 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovOnlineManualController](#2025-08-21-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovonlinemanualcontroller)|https://youtu.be/d2o8AVtVwIs|
+|2025-08-22 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovQnaController](#2025-08-22-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovqnacontroller)|https://youtu.be/of-xlyCrSa8|
 
 <hr>
 
@@ -8386,6 +8387,27 @@ https://github.com/eGovFramework/egovframe-common-components/pull/708
 
 <hr>
 
+### 2025-08-22 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovQnaController
+
+`QnaList` 를 `resultList` 로 이름 바꾸기
+
+필요없는 ; 문장 제거
+- `QnaVO vo = egovQnaService.selectQnaDetail(qnaVO);;`
+
+`QnaAnswerList` 를 `resultList` 로 이름 바꾸기
+
+`_result` 를 `qnaProcessSttusCode` 로 이름 바꾸기
+
+`qnaVO` 를 `resultVO` 로 이름 바꾸기
+```java
+//qnaVO = egovQnaService.selectQnaDetail(qnaVO);
+QnaVO resultVO = egovQnaService.selectQnaDetail(qnaVO);
+````
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/olh/qna/web/EgovQnaController.java:102:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'QnaList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/olh/qna/web/EgovQnaController.java:274:	UnnecessarySemicolon:	UnnecessarySemicolon: 필요없는 문장 (;)이 있음
@@ -8393,16 +8415,29 @@ src/main/java/egovframework/com/uss/olh/qna/web/EgovQnaController.java:321:	Unne
 src/main/java/egovframework/com/uss/olh/qna/web/EgovQnaController.java:360:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'QnaAnswerList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/olh/qna/web/EgovQnaController.java:403:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/olh/qna/web/EgovQnaController.java:406:	AvoidReassigningParameters:	AvoidReassigningParameters: 'qnaVO' 처럼 파라미터 값을 직접 변경하지 말 것
-src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:302:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:303:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:456:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:464:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:473:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:474:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:517:	UnnecessarySemicolon:	UnnecessarySemicolon: 필요없는 문장 (;)이 있음
-src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:530:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:571:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CnsltAnswerList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:618:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovQnaController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.22  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+ *   2025.08.22  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessarySemicolon(필요없는 ; 문장 존재)
+ *   2025.08.22  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/709
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/olp/opm/web/EgovOnlinePollManageController.java:221:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/uss/olp/opm/web/EgovOnlinePollManageController.java:290:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/uss/olp/opp/web/EgovOnlinePollPartcptnController.java:200:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'ReusltScript' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
