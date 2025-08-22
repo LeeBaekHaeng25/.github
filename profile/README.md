@@ -221,6 +221,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-21 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovHpcmController](#2025-08-21-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovhpcmcontroller)|https://youtu.be/oFwVpJcynRI|
 |2025-08-21 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovOnlineManualController](#2025-08-21-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovonlinemanualcontroller)|https://youtu.be/d2o8AVtVwIs|
 |2025-08-22 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovQnaController](#2025-08-22-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovqnacontroller)|https://youtu.be/of-xlyCrSa8|
+|2025-08-22 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCnsltManageController](#2025-08-22-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcnsltmanagecontroller)|https://youtu.be/TNq_wqdQIK0|
 
 <hr>
 
@@ -8434,6 +8435,57 @@ feature/pmd/EgovQnaController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/709
+
+<hr>
+
+### 2025-08-22 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCnsltManageController
+
+`_result` 를 `fvoList` 로 이름 바꾸기
+
+`_atchFileId` 를 `atchFileId` 로 이름 바꾸기
+
+`_cnt` 를 `fileKeyParam` 로 이름 바꾸기
+
+필요없는 ; 문장 제거
+- `LOGGER.debug("@ XSS 권한체크 START ----------------------------------------------");`
+
+`CnsltAnswerList` 를 `resultList` 로 이름 바꾸기
+
+`_result` 를 `resultList` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:302:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:303:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:456:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:464:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:473:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_cnt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:474:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:517:	UnnecessarySemicolon:	UnnecessarySemicolon: 필요없는 문장 (;)이 있음
+src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:530:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_atchFileId' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:571:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'CnsltAnswerList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/uss/olp/cns/web/EgovCnsltManageController.java:618:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 '_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovCnsltManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.22  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+ *   2025.08.22  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessarySemicolon(필요없는 ; 문장 존재)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/710
 
 <hr>
 
