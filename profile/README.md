@@ -224,6 +224,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-22 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCnsltManageController](#2025-08-22-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcnsltmanagecontroller)|https://youtu.be/TNq_wqdQIK0|
 |2025-08-23 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovOnlinePollManageController](#2025-08-23-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovonlinepollmanagecontroller)|https://youtu.be/O7DYca9ILmM|
 |2025-08-23 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovOnlinePollPartcptnController](#2025-08-23-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovonlinepollpartcptncontroller)|https://youtu.be/Wj7UJyMN_BM|
+|2025-08-23 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovQustnrManageController](#2025-08-25-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovqustnrmanagecontroller)|https://youtu.be/RW_xZY4yrDU|
 
 <hr>
 
@@ -8563,9 +8564,52 @@ https://github.com/eGovFramework/egovframe-common-components/pull/712
 
 <hr>
 
+### 2025-08-25 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovQustnrManageController
+
+불필요한 괄호제거
+```java
+		// 로그인 객체 선언
+		LoginVO loginVO = (LoginVO) EgovUserDetailsHelper.getAuthenticatedUser();
+//		String uniqId = (loginVO == null ? "" : EgovStringUtil.isNullToString(loginVO.getUniqId()));
+		// 아이디 설정
+		if (loginVO != null) {
+			qustnrManageVO.setFrstRegisterId(loginVO.getUniqId());
+			qustnrManageVO.setLastUpdusrId(loginVO.getUniqId());
+		}
+````
+
+LOGGER 제거하고 `@Slf4j` 로 수정
+```java
+//private static final Logger LOGGER = LoggerFactory.getLogger(EgovQustnrManageController.class);
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/olp/qmc/web/EgovQustnrManageController.java:374:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/uss/olp/qri/web/EgovQustnrRespondInfoController.java:381:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'ResultScript' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovQustnrManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.25  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/714
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/olp/qrm/web/EgovQustnrRespondManageController.java:243:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/uss/olp/qrm/web/EgovQustnrRespondManageController.java:333:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/uss/olp/qtm/service/QustnrTmplatManageVO.java:96:	AvoidArrayLoops:	AvoidArrayLoops: 배열의 값을 루프문을 이용하여 복사하는 것 보다 System.arraycopy() 메소드를 이용하여 복사하는 것이 효율적이며 수행 속도가 빠름
