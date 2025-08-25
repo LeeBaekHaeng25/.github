@@ -224,7 +224,8 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-22 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovCnsltManageController](#2025-08-22-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovcnsltmanagecontroller)|https://youtu.be/TNq_wqdQIK0|
 |2025-08-23 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovOnlinePollManageController](#2025-08-23-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovonlinepollmanagecontroller)|https://youtu.be/O7DYca9ILmM|
 |2025-08-23 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovOnlinePollPartcptnController](#2025-08-23-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovonlinepollpartcptncontroller)|https://youtu.be/Wj7UJyMN_BM|
-|2025-08-23 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovQustnrManageController](#2025-08-25-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovqustnrmanagecontroller)|https://youtu.be/RW_xZY4yrDU|
+|2025-08-25 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovQustnrManageController](#2025-08-25-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovqustnrmanagecontroller)|https://youtu.be/RW_xZY4yrDU|
+|2025-08-25 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovQustnrRespondInfoController](#2025-08-25-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovqustnrrespondinfocontroller)|https://youtu.be/CPR8c7VWxLA|
 
 <hr>
 
@@ -8606,6 +8607,36 @@ feature/pmd/EgovQustnrManageController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/714
+
+<hr>
+
+### 2025-08-25 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovQustnrRespondInfoController
+
+`ReusltScript` 를 `reusltScript` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/olp/qri/web/EgovQustnrRespondInfoController.java:381:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'ResultScript' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovQustnrRespondInfoController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.25  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/715
 
 <hr>
 
