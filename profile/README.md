@@ -228,6 +228,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-25 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovQustnrRespondInfoController](#2025-08-25-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovqustnrrespondinfocontroller)|https://youtu.be/CPR8c7VWxLA|
 |2025-08-26 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovQustnrRespondManageController](#2025-08-26-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovqustnrrespondmanagecontroller)|https://youtu.be/HwH9p1UyowQ|
 |2025-08-26 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-QustnrTmplatManageVO](#2025-08-26-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-qustnrtmplatmanagevo)|https://youtu.be/Z8qWeftP4k4|
+|2025-08-27 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovIndvdlInfoPolicyController](#2025-08-27-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovindvdlinfopolicycontroller)|https://youtu.be/K9ClNt3Sh7s|
 
 <hr>
 
@@ -8713,10 +8714,42 @@ https://github.com/eGovFramework/egovframe-common-components/pull/717
 
 <hr>
 
+### 2025-08-27 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovIndvdlInfoPolicyController
+
+불필요한 괄호제거
+```java
+//String uniqId = (loginVO == null ? "" : EgovStringUtil.isNullToString(loginVO.getUniqId()));
+String uniqId = loginVO == null ? "" : EgovStringUtil.isNullToString(loginVO.getUniqId());
+````
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/sam/ipm/web/EgovIndvdlInfoPolicyController.java:198:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/uss/sam/ipm/web/EgovIndvdlInfoPolicyController.java:263:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/uss/sam/stp/web/EgovStplatManageController.java:112:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'StplatList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovIndvdlInfoPolicyController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.27  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/718
+
+<hr>
+
+```
 src/main/java/egovframework/com/uss/umt/web/EgovEntrprsManageController.java:79:	UnusedPrivateMethod:	UnusedPrivateMethod: 사용되지 않는 Private Method 'getPasswordHintResult(ComDefaultCodeVO)' 가 선언되었음
 src/main/java/egovframework/com/uss/umt/web/EgovEntrprsManageController.java:86:	UnusedPrivateMethod:	UnusedPrivateMethod: 사용되지 않는 Private Method 'getSexdstnCode_result(ComDefaultCodeVO)' 가 선언되었음
 src/main/java/egovframework/com/uss/umt/web/EgovEntrprsManageController.java:93:	UnusedPrivateMethod:	UnusedPrivateMethod: 사용되지 않는 Private Method 'getEntrprsMberSttus_result(ComDefaultCodeVO)' 가 선언되었음
