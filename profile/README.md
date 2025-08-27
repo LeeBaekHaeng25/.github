@@ -229,6 +229,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-26 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovQustnrRespondManageController](#2025-08-26-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovqustnrrespondmanagecontroller)|https://youtu.be/HwH9p1UyowQ|
 |2025-08-26 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-QustnrTmplatManageVO](#2025-08-26-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-qustnrtmplatmanagevo)|https://youtu.be/Z8qWeftP4k4|
 |2025-08-27 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovIndvdlInfoPolicyController](#2025-08-27-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovindvdlinfopolicycontroller)|https://youtu.be/K9ClNt3Sh7s|
+|2025-08-27 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovStplatManageController](#2025-08-27-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovstplatmanagecontroller)|https://youtu.be/U-PEf-8h8ZE|
 
 <hr>
 
@@ -8746,6 +8747,36 @@ feature/pmd/EgovIndvdlInfoPolicyController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/718
+
+<hr>
+
+### 2025-08-27 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovStplatManageController
+
+`StplatList` 를 `resultList` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/uss/sam/stp/web/EgovStplatManageController.java:112:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'StplatList' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovStplatManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.27  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/719
 
 <hr>
 
