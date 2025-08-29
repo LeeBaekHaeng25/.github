@@ -8987,6 +8987,8 @@ feature/pmd/EgovMessageUtil
  *   2025.08.29  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
 ```
 
+https://github.com/eGovFramework/egovframe-common-components/pull/726
+
 <hr>
 
 ```
