@@ -233,6 +233,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-28 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovEntrprsManageController](#2025-08-28-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egoventrprsmanagecontroller)|https://youtu.be/SgOiQ5ogjSs|
 |2025-08-28 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMberManageController](#2025-08-28-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmbermanagecontroller)|https://youtu.be/J7D0VDeJggs|
 |2025-08-29 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUserManageController](#2025-08-29-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovusermanagecontroller)|https://youtu.be/ZwpaxjX2mDs|
+|2025-08-29 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMessageUtil](#2025-08-29-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmessageutil)|https://youtu.be/EmFr7NVHpJU|
 
 <hr>
 
@@ -8953,6 +8954,38 @@ feature/pmd/EgovUserManageController
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/725
+
+<hr>
+
+### 2025-08-29 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMessageUtil
+
+불필요한 괄호제거
+```java
+//for (int i = (arrParam.length > 0 ? arrParam.length - 1 : -1); i >= 0; i--) {
+for (int i = arrParam.length > 0 ? arrParam.length - 1 : -1; i >= 0; i--) {
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/utl/cas/service/EgovMessageUtil.java:137:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovMessageUtil
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.29  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
 
 <hr>
 
