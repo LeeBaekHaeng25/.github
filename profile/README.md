@@ -232,6 +232,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-27 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovStplatManageController](#2025-08-27-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovstplatmanagecontroller)|https://youtu.be/U-PEf-8h8ZE|
 |2025-08-28 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovEntrprsManageController](#2025-08-28-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egoventrprsmanagecontroller)|https://youtu.be/SgOiQ5ogjSs|
 |2025-08-28 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMberManageController](#2025-08-28-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmbermanagecontroller)|https://youtu.be/J7D0VDeJggs|
+|2025-08-29 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUserManageController](#2025-08-29-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovusermanagecontroller)|https://youtu.be/ZwpaxjX2mDs|
 
 <hr>
 
@@ -8889,6 +8890,38 @@ https://github.com/eGovFramework/egovframe-common-components/pull/724
 
 <hr>
 
+### 2025-08-29 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUserManageController
+
+`emplyrSttusCode_result` 를 `emplyrSttusCodeResult` 로 이름 바꾸기
+
+`passwordHint_result` 를 `passwordHintResult` 로 이름 바꾸기
+
+`sexdstnCode_result` 를 `sexdstnCodeResult` 로 이름 바꾸기
+
+`emplyrSttusCode_result` 를 `emplyrSttusCodeResult` 로 이름 바꾸기
+
+`insttCode_result` 를 `insttCodeResult` 로 이름 바꾸기
+
+`orgnztId_result` 를 `orgnztIdResult` 로 이름 바꾸기
+
+`groupId_result` 를 `groupIdResult` 로 이름 바꾸기
+
+`passwordHint_result` 를 `passwordHintResult` 로 이름 바꾸기
+
+`sexdstnCode_result` 를 `sexdstnCodeResult` 로 이름 바꾸기
+
+`emplyrSttusCode_result` 를 `emplyrSttusCodeResult` 로 이름 바꾸기
+
+`insttCode_result` 를 `insttCodeResult` 로 이름 바꾸기
+
+`orgnztId_result` 를 `orgnztIdResult` 로 이름 바꾸기
+
+`groupId_result` 를 `groupIdResult` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/uss/umt/web/EgovUserManageController.java:119:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'emplyrSttusCode_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/umt/web/EgovUserManageController.java:147:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'passwordHint_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -8903,7 +8936,27 @@ src/main/java/egovframework/com/uss/umt/web/EgovUserManageController.java:235:	L
 src/main/java/egovframework/com/uss/umt/web/EgovUserManageController.java:238:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'insttCode_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/umt/web/EgovUserManageController.java:241:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'orgnztId_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/uss/umt/web/EgovUserManageController.java:244:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'groupId_result' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/utl/cas/service/EgovMessageUtil.java:137:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovUserManageController
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.29  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/725
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/fcc/service/EgovDateUtil.java:195:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/utl/fcc/service/EgovDateUtil.java:196:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/utl/fcc/service/EgovDateUtil.java:575:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'SDay' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
