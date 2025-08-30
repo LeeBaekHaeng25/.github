@@ -234,6 +234,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-28 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMberManageController](#2025-08-28-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmbermanagecontroller)|https://youtu.be/J7D0VDeJggs|
 |2025-08-29 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUserManageController](#2025-08-29-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovusermanagecontroller)|https://youtu.be/ZwpaxjX2mDs|
 |2025-08-29 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMessageUtil](#2025-08-29-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmessageutil)|https://youtu.be/EmFr7NVHpJU|
+|2025-08-30 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovDateUtil](#2025-08-30-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovdateutil)|https://youtu.be/1iruXz8jy3A|
 
 <hr>
 
@@ -8991,6 +8992,38 @@ https://github.com/eGovFramework/egovframe-common-components/pull/726
 
 <hr>
 
+### 2025-08-30 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovDateUtil
+
+불필요한 괄호제거
+```java
+//			int days1 = (int) ((date1.getTime() / 3600000) / 24);
+//			int days2 = (int) ((date2.getTime() / 3600000) / 24);
+			int days1 = (int) (date1.getTime() / 3600000) / 24;
+			int days2 = (int) (date2.getTime() / 3600000) / 24;
+```
+
+`SDay` 를 `sDay` 로 이름 바꾸기
+
+`Week` 를 `week` 로 이름 바꾸기
+
+`HH` 를 `hh` 로 이름 바꾸기
+
+`MM` 를 `mm` 로 이름 바꾸기
+
+파라미터 값을 직접 변경하지 말게 수정
+```java
+		if (timeStr.length() == 5) {
+//			timeStr = EgovStringUtil.remove(timeStr, ':');
+			return EgovStringUtil.remove(timeStr, ':');
+		}
+
+		return timeStr;
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/fcc/service/EgovDateUtil.java:195:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
 src/main/java/egovframework/com/utl/fcc/service/EgovDateUtil.java:196:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
@@ -8999,21 +9032,29 @@ src/main/java/egovframework/com/utl/fcc/service/EgovDateUtil.java:701:	LocalVari
 src/main/java/egovframework/com/utl/fcc/service/EgovDateUtil.java:728:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'HH' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/fcc/service/EgovDateUtil.java:729:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'MM' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/fcc/service/EgovDateUtil.java:859:	AvoidReassigningParameters:	AvoidReassigningParameters: 'timeStr' 처럼 파라미터 값을 직접 변경하지 말 것
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:81:	CloseResource:	CloseResource: 리소스 'InputStream' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:82:	CloseResource:	CloseResource: 리소스 'InputStreamReader' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:262:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:277:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:277:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:280:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:292:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:292:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:295:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:304:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:307:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:307:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:319:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:319:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:322:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovDateUtil
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.30  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+ *   2025.08.30  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+ *   2025.08.30  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/728
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedFileUtil.java:104:	CloseResource:	CloseResource: 리소스 'OutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedFileUtil.java:113:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
 src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedFileUtil.java:218:	AvoidReassigningParameters:	AvoidReassigningParameters: 'original' 처럼 파라미터 값을 직접 변경하지 말 것
