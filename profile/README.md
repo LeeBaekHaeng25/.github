@@ -235,6 +235,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-29 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUserManageController](#2025-08-29-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovusermanagecontroller)|https://youtu.be/ZwpaxjX2mDs|
 |2025-08-29 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMessageUtil](#2025-08-29-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmessageutil)|https://youtu.be/EmFr7NVHpJU|
 |2025-08-30 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovDateUtil](#2025-08-30-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovdateutil)|https://youtu.be/1iruXz8jy3A|
+|2025-08-30 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovEhgtCalcUtil](#2025-08-30-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovehgtcalcutil)|https://youtu.be/R1kD8Ptoqy4|
 
 <hr>
 
@@ -9051,6 +9052,103 @@ feature/pmd/EgovDateUtil
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/728
+
+<hr>
+
+### 2025-08-30 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovEhgtCalcUtil
+
+try-with-resources 로 수정
+```java
+	public void readHtmlParsing(String str) {
+		HttpURLConnection con = null;
+//		InputStream is = null;
+//		InputStreamReader reader = null;
+		try {
+			// 입력받은 URL에 연결하여 InputStream을 통해 읽은 후 파싱 한다.
+			URL url = new URL(EHGT_URL + str);
+
+			con = (HttpURLConnection) url.openConnection();
+
+			try (InputStream is = con.getInputStream();
+					InputStreamReader reader = new InputStreamReader(is, "euc-kr");) {
+			// InputStreamReader reader = new InputStreamReader(con.getInputStream(),
+			// "utf-8");
+
+			new ParserDelegator().parse(reader, new CallbackHandler(), true);
+			}
+
+			con.disconnect();
+
+		} catch (MalformedURLException e) {
+			throw new RuntimeException(e);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		} finally {
+//			EgovResourceCloseHelper.close(reader, is);
+
+			if (con != null) {
+				con.disconnect();
+			}
+		}
+	}
+```
+
+불필요한 괄호제거
+```java
+//sCnvrAmount = (bSrcAmount.divide(bCnvrStdrRt, 4, 4)).multiply(bStdr).setScale(2, 4).toString();
+sCnvrAmount = bSrcAmount.divide(bCnvrStdrRt, 4, 4).multiply(bStdr).setScale(2, 4).toString();
+
+//sCnvrAmount = ((bSrcAmount.multiply(bSrcStdrRt).setScale(4, 4)).divide(bCnvrStdrRt, 2, 4)).multiply(bStdr).setScale(2, 4).toString();
+sCnvrAmount = bSrcAmount.multiply(bSrcStdrRt).setScale(4, 4).divide(bCnvrStdrRt, 2, 4).multiply(bStdr).setScale(2, 4).toString();
+
+//sCnvrAmount = (bSrcAmount.multiply(bSrcStdrRt).setScale(4, 4)).divide(bCnvrStdrRt, 2, 4).toString();
+sCnvrAmount = bSrcAmount.multiply(bSrcStdrRt).setScale(4, 4).divide(bCnvrStdrRt, 2, 4).toString();
+
+//sCnvrAmount = (bSrcAmount.multiply(bSrcStdrRt).setScale(4, 4)).divide(bStdr, 2, 4).toString();
+sCnvrAmount = bSrcAmount.multiply(bSrcStdrRt).setScale(4, 4).divide(bStdr, 2, 4).toString();
+
+//sCnvrAmount = ((bSrcAmount.multiply(bSrcStdrRt).setScale(4, 4)).divide(bStdr, 2, 4)).divide(bCnvrStdrRt, 2, 4).toString();
+sCnvrAmount = bSrcAmount.multiply(bSrcStdrRt).setScale(4, 4).divide(bStdr, 2, 4).divide(bCnvrStdrRt, 2, 4).toString();
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:81:	CloseResource:	CloseResource: 리소스 'InputStream' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:82:	CloseResource:	CloseResource: 리소스 'InputStreamReader' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:262:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:277:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:277:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:280:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:292:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:292:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:295:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:304:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:307:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:307:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:319:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:319:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovEhgtCalcUtil.java:322:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovEhgtCalcUtil
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.08.30  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.08.30  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/729
 
 <hr>
 
