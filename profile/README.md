@@ -236,6 +236,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-29 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMessageUtil](#2025-08-29-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmessageutil)|https://youtu.be/EmFr7NVHpJU|
 |2025-08-30 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovDateUtil](#2025-08-30-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovdateutil)|https://youtu.be/1iruXz8jy3A|
 |2025-08-30 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovEhgtCalcUtil](#2025-08-30-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovehgtcalcutil)|https://youtu.be/R1kD8Ptoqy4|
+|2025-09-01 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedFileUtil](#2025-09-01-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovformbasedfileutil)|https://youtu.be/MsWGEK-wxV8|
 
 <hr>
 
@@ -9152,6 +9153,26 @@ https://github.com/eGovFramework/egovframe-common-components/pull/729
 
 <hr>
 
+### 2025-09-01 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedFileUtil
+
+부적절한 자원 해제, 피연산자내에 할당문이 사용된 것 제거
+```java
+FileCopyUtils.copy(is, os);
+```
+
+넘겨받는 메소드 parameter 값을 직접 변경하는 코드 수정
+```java
+//		original = original.replaceAll("\r", "").replaceAll("\n", "");
+		String original2 = original.replaceAll("\r", "").replaceAll("\n", "");
+		response.setContentType("application/octet-stream");
+//		response.setHeader("Content-Disposition", "attachment; filename=\"" + convert(original) + "\";");
+		response.setHeader("Content-Disposition", "attachment; filename=\"" + convert(original2) + "\";");
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedFileUtil.java:104:	CloseResource:	CloseResource: 리소스 'OutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedFileUtil.java:113:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
@@ -9162,17 +9183,29 @@ src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedFileUtil.java:234:	
 src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedFileUtil.java:297:	CloseResource:	CloseResource: 리소스 'BufferedInputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedFileUtil.java:298:	CloseResource:	CloseResource: 리소스 'BufferedOutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedFileUtil.java:306:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
-src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:235:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
-src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:237:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
-src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:239:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
-src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:241:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
-src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:243:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
-src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:434:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:482:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:503:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:504:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:505:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:506:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovFormBasedFileUtil
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.01  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.09.01  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+ *   2025.09.01  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/731
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/fcc/service/EgovNumberCheckUtil.java:35:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'IDAdd' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/fcc/service/EgovNumberCheckUtil.java:37:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'count_num' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/fcc/service/EgovNumberCheckUtil.java:38:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'add_num' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
