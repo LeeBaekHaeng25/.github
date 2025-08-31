@@ -236,7 +236,8 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-29 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMessageUtil](#2025-08-29-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmessageutil)|https://youtu.be/EmFr7NVHpJU|
 |2025-08-30 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovDateUtil](#2025-08-30-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovdateutil)|https://youtu.be/1iruXz8jy3A|
 |2025-08-30 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovEhgtCalcUtil](#2025-08-30-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovehgtcalcutil)|https://youtu.be/R1kD8Ptoqy4|
-|2025-09-01 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedFileUtil](#2025-09-01-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovformbasedfileutil)|https://youtu.be/MsWGEK-wxV8|
+|2025-09-01 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedFileUtil](#2025-09-01-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovformbasedfileutil)|https://youtu.be/MsWGEK-wxV8|
+|2025-09-01 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedUUID](#2025-09-01-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovformbaseduuid)|https://youtu.be/8OPO_0e-8Go|
 
 <hr>
 
@@ -9153,7 +9154,7 @@ https://github.com/eGovFramework/egovframe-common-components/pull/729
 
 <hr>
 
-### 2025-09-01 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedFileUtil
+### 2025-09-01 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedFileUtil
 
 부적절한 자원 해제, 피연산자내에 할당문이 사용된 것 제거
 ```java
@@ -9202,6 +9203,89 @@ feature/pmd/EgovFormBasedFileUtil
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/731
+
+<hr>
+
+### 2025-09-01 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedUUID
+
+불필요한 WrapperObject `.longValue()` 제거
+```java
+//        long mostSigBits = Long.decode(components[0]).longValue();
+        long mostSigBits = Long.decode(components[0]);
+        mostSigBits <<= 16;
+//        mostSigBits |= Long.decode(components[1]).longValue();
+        mostSigBits |= Long.decode(components[1]);
+        mostSigBits <<= 16;
+//        mostSigBits |= Long.decode(components[2]).longValue();
+        mostSigBits |= Long.decode(components[2]);
+
+//        long leastSigBits = Long.decode(components[3]).longValue();
+        long leastSigBits = Long.decode(components[3]);
+        leastSigBits <<= 48;
+//        leastSigBits |= Long.decode(components[4]).longValue();
+        leastSigBits |= Long.decode(components[4]);
+```
+
+불필요한 괄호제거
+```java
+//        return (digits(mostSigBits >> 32, 8) + "-"
+//                + digits(mostSigBits >> 16, 4) + "-" + digits(mostSigBits, 4)
+//                + "-" + digits(leastSigBits >> 48, 4) + "-" + digits(
+//                leastSigBits, 12));
+        return digits(mostSigBits >> 32, 8) + "-"
+                + digits(mostSigBits >> 16, 4) + "-" + digits(mostSigBits, 4)
+                + "-" + digits(leastSigBits >> 48, 4) + "-" + digits(
+                leastSigBits, 12);
+
+//        return (mostSigBits == id.mostSigBits && leastSigBits == id.leastSigBits);
+        return mostSigBits == id.mostSigBits && leastSigBits == id.leastSigBits;
+
+//        return (this.mostSigBits < val.mostSigBits ? -1
+//                : (this.mostSigBits > val.mostSigBits ? 1
+//                        : (this.leastSigBits < val.leastSigBits ? -1
+//                                : (this.leastSigBits > val.leastSigBits ? 1 : 0))));
+        return this.mostSigBits < val.mostSigBits ? -1
+                : this.mostSigBits > val.mostSigBits ? 1
+                        : this.leastSigBits < val.leastSigBits ? -1
+                                : this.leastSigBits > val.leastSigBits ? 1 : 0;
+```
+
+`@SuppressWarnings("serial")` 제거하고 `private static final long serialVersionUID = 1L;` 추가
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:235:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
+src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:237:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
+src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:239:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
+src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:241:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
+src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:243:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
+src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:434:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:482:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:503:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:504:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:505:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fcc/service/EgovFormBasedUUID.java:506:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovFormBasedUUID
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.01  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryBoxing(불필요한 WrapperObject 생성)
+ *   2025.09.01  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/732
 
 <hr>
 
