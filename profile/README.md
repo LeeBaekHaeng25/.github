@@ -239,6 +239,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-01 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedFileUtil](#2025-09-01-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovformbasedfileutil)|https://youtu.be/MsWGEK-wxV8|
 |2025-09-01 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedUUID](#2025-09-01-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovformbaseduuid)|https://youtu.be/8OPO_0e-8Go|
 |2025-09-02 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNumberCheckUtil](#2025-09-02-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnumbercheckutil)|https://youtu.be/_GqGjhGid_E|
+|2025-09-02 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovStringUtil](#2025-09-02-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovstringutil)|https://youtu.be/l3MANuAhoj8|
 
 <hr>
 
@@ -9342,6 +9343,62 @@ feature/pmd/EgovNumberCheckUtil
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/735
+
+<hr>
+
+### 2025-09-02 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovStringUtil
+
+피연산자내에 할당문이 사용된 것 제거
+```java
+//		int strLen;
+		int strLen = str.length();
+//		if (str == null || (strLen = str.length()) == 0) {
+		if (str == null || strLen == 0) {
+
+//		int end;
+		int end = str.length();
+//		if (str == null || (end = str.length()) == 0) {
+		if (str == null || end == 0) {
+```
+
+불필요한 WrapperObject 제거
+- 자동 형변환 (A의 유니코드 65)
+- 즉, char는 내부적으로 2바이트 유니코드 정수라서 int로 변환하면 문자 코드값이 나옵니다.
+```java
+		// 시작문자 및 종료문자를 아스키숫자로 변환한다.
+//		int startInt = Integer.valueOf(startChr);
+		int startInt = startChr;
+//		int endInt = Integer.valueOf(endChr);
+		int endInt = endChr;
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:639:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:678:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:768:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit conversion from char to int through Integer
+src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:769:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit conversion from char to int through Integer
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovStringUtil
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.02  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+ *   2025.09.02  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryBoxing(불필요한 WrapperObject 생성)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/736
 
 <hr>
 
