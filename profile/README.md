@@ -238,6 +238,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-08-30 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovEhgtCalcUtil](#2025-08-30-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovehgtcalcutil)|https://youtu.be/R1kD8Ptoqy4|
 |2025-09-01 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedFileUtil](#2025-09-01-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovformbasedfileutil)|https://youtu.be/MsWGEK-wxV8|
 |2025-09-01 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedUUID](#2025-09-01-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovformbaseduuid)|https://youtu.be/8OPO_0e-8Go|
+|2025-09-02 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNumberCheckUtil](#2025-09-02-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnumbercheckutil)|https://youtu.be/_GqGjhGid_E|
 
 <hr>
 
@@ -9289,16 +9290,62 @@ https://github.com/eGovFramework/egovframe-common-components/pull/732
 
 <hr>
 
+### 2025-09-02 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNumberCheckUtil
+
+`IDAdd` 를 `iDAdd` 로 이름 바꾸기
+
+`count_num` 를 `countNum` 로 이름 바꾸기
+
+`add_num` 를 `addNum` 로 이름 바꾸기
+
+`total_id` 를 `totalId` 로 이름 바꾸기
+
+불필요한 괄호제거
+```java
+//		hap += (Character.getNumericValue(compNumber.charAt(8))*5)/10;
+		hap += Character.getNumericValue(compNumber.charAt(8))*5/10;
+```
+
+EgovNumberCheckUtilTest 테스트 메서드 없음
+- `checkJuminNumber(String jumin1, String jumin2)`
+- `boolean checkCompNumber(String comp1, String comp2, String comp3)`
+
+`egovDateUtil.checkDate` 를 `EgovDateUtil.checkDate` 로 수정
+- `@SuppressWarnings("static-access")` 제거
+- `EgovDateUtil egovDateUtil = new EgovDateUtil();` 제거
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/fcc/service/EgovNumberCheckUtil.java:35:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'IDAdd' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/fcc/service/EgovNumberCheckUtil.java:37:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'count_num' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/fcc/service/EgovNumberCheckUtil.java:38:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'add_num' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/fcc/service/EgovNumberCheckUtil.java:39:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'total_id' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/fcc/service/EgovNumberCheckUtil.java:157:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:639:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
-src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:678:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
-src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:768:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit conversion from char to int through Integer
-src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:769:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit conversion from char to int through Integer
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovNumberCheckUtil
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.02  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+ *   2025.09.02  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/735
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:22:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'g_hmVt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:25:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'g_hmVl' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:28:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'g_hmAr' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
