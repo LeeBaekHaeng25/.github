@@ -240,6 +240,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-01 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFormBasedUUID](#2025-09-01-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovformbaseduuid)|https://youtu.be/8OPO_0e-8Go|
 |2025-09-02 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNumberCheckUtil](#2025-09-02-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnumbercheckutil)|https://youtu.be/_GqGjhGid_E|
 |2025-09-02 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovStringUtil](#2025-09-02-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovstringutil)|https://youtu.be/l3MANuAhoj8|
+|2025-09-03 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUnitCalcUtil](#2025-09-03-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovunitcalcutil)|https://youtu.be/jxGYCBEZB6E|
 
 <hr>
 
@@ -9399,6 +9400,81 @@ feature/pmd/EgovStringUtil
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/736
+
+<hr>
+
+### 2025-09-03 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUnitCalcUtil
+
+`g_hmVt` 를 `hmVt` 로 이름 바꾸기
+
+`g_hmVl` 를 `hmVl` 로 이름 바꾸기
+
+`g_hmAr` 를 `hmAr` 로 이름 바꾸기
+
+`g_hmWt` 를 `hmWt` 로 이름 바꾸기
+
+불필요한 괄호제거
+
+`private final` 추가
+```java
+	// 길이
+//	HashMap<String, Double> hmVt = new HashMap<String, Double>();
+	private Map<String, Double> hmVt = new HashMap<>();
+```
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:22:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'g_hmVt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:25:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'g_hmVl' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:28:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'g_hmAr' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:31:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'g_hmWt' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:41:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:42:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:43:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:44:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:46:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:47:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:48:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:53:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:54:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:55:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:59:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:60:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:61:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:62:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:72:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:73:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:74:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:83:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:84:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:85:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:86:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:87:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:104:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:119:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:134:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+src/main/java/egovframework/com/utl/fda/ucc/service/EgovUnitCalcUtil.java:149:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovUnitCalcUtil
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.03  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(변수명에 밑줄 사용)
+ *   2025.09.03  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/738
 
 <hr>
 
