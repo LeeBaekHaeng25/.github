@@ -242,6 +242,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-02 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovStringUtil](#2025-09-02-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovstringutil)|https://youtu.be/l3MANuAhoj8|
 |2025-09-03 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUnitCalcUtil](#2025-09-03-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovunitcalcutil)|https://youtu.be/jxGYCBEZB6E|
 |2025-09-03 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-PrntngOutptVO](#2025-09-03-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-prntngoutptvo)|https://youtu.be/ahkzIAmKd5Y|
+|2025-09-04 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovClntInfo](#2025-09-04-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovclntinfo)|https://youtu.be/JC6igGNu6Hs|
 
 <hr>
 
@@ -9509,6 +9510,22 @@ https://github.com/eGovFramework/egovframe-common-components/pull/739
 
 <hr>
 
+### 2025-09-04 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovClntInfo
+
+`user_agent` 를 `userAgent` 로 이름 바꾸기
+
+`os_info` 를 `osInfo2` 로 이름 바꾸기
+
+`os_conf` 를 `osConf` 로 이름 바꾸기
+
+`s_loc` 를 `sLoc` 로 이름 바꾸기
+
+`f_loc` 를 `fLoc` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/sim/service/EgovClntInfo.java:79:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'user_agent' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/sim/service/EgovClntInfo.java:80:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'os_info' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
@@ -9517,11 +9534,27 @@ src/main/java/egovframework/com/utl/sim/service/EgovClntInfo.java:99:	LocalVaria
 src/main/java/egovframework/com/utl/sim/service/EgovClntInfo.java:139:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'user_agent' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/sim/service/EgovClntInfo.java:145:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 's_loc' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/sim/service/EgovClntInfo.java:147:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'f_loc' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:53:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:54:	CloseResource:	CloseResource: 리소스 'FileOutputStream' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:55:	CloseResource:	CloseResource: 리소스 'ZipInputStream' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:73:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
-src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:84:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovClntInfo
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.04  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/740
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/sim/service/EgovFileMntrg.java:277:	CloseResource:	CloseResource: 리소스 'FileWriter' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovFileMntrg.java:278:	CloseResource:	CloseResource: 리소스 'BufferedWriter' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovFileMntrg.java:279:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
