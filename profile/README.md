@@ -243,6 +243,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-03 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovUnitCalcUtil](#2025-09-03-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovunitcalcutil)|https://youtu.be/jxGYCBEZB6E|
 |2025-09-03 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-PrntngOutptVO](#2025-09-03-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-prntngoutptvo)|https://youtu.be/ahkzIAmKd5Y|
 |2025-09-04 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovClntInfo](#2025-09-04-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovclntinfo)|https://youtu.be/JC6igGNu6Hs|
+|2025-09-07 일|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileCmprs](#2025-09-07-일-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilecmprs)|https://youtu.be/xOCWcHprIoI|
 
 <hr>
 
@@ -9551,6 +9552,92 @@ feature/pmd/EgovClntInfo
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/740
+
+<hr>
+
+### 2025-09-07 일 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileCmprs
+
+`TestDecompress` 테스트 실행 에러 수정
+
+`CloseResource(부적절한 자원 해제)` 제거
+
+`AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)` 제거
+
+`throws Exception` 제거
+
+<hr>
+
+TestDecompress 테스트 실행
+- NoSuchFileException
+- 해당 파일 없음 예외
+- `java.nio.file.NoSuchFileException: C:\eGovFrameDev-4.3.0-64bit\workspace-egov\git\egovframe-common-components-25a\target\sample.zip` 예외 확인
+```
+Working Directory = C:\eGovFrameDev-4.3.0-64bit\workspace-egov\git\egovframe-common-components-25a
+source = C:\eGovFrameDev-4.3.0-64bit\workspace-egov\git\egovframe-common-components-25a\target\sample.zip
+target = C:\eGovFrameDev-4.3.0-64bit\workspace-egov\git\egovframe-common-components-25a\target\result
+[log4j]2025-09-07 12:35:55,022 DEBUG [egovframework.com.cmm.service.EgovProperties] ===>>> getProperty/C:/eGovFrameDev-4.3.0-64bit/workspace-egov/git/egovframe-common-components-25a/target/classes/
+[log4j]2025-09-07 12:35:55,091 DEBUG [egovframework.com.cmm.service.EgovProperties] getProperty : /C:/eGovFrameDev-4.3.0-64bit/workspace-egov/git/egovframe-common-components-25a/target/test-classes/egovframework/egovProps\globals.properties = Globals.fileStorePath
+result = true
+java.nio.file.NoSuchFileException: C:\eGovFrameDev-4.3.0-64bit\workspace-egov\git\egovframe-common-components-25a\target\sample.zip -> C:\eGovFrameDev-4.3.0-64bit\workspace-egov\git\egovframe-common-components-25a\target\result\sample.zip.bak
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:79)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:97)
+	at sun.nio.fs.WindowsFileCopy.move(WindowsFileCopy.java:387)
+	at sun.nio.fs.WindowsFileSystemProvider.move(WindowsFileSystemProvider.java:287)
+	at java.nio.file.Files.move(Files.java:1395)
+	at egovframework.com.file.TestDecompress.main(TestDecompress.java:45)
+```
+
+<hr>
+
+`/egovframe-common-components-25a/src/test/resources/egovframework/data` 를 `/egovframe-common-components-25a/target/sample.zip` 으로 압축하기
+- https://commons.apache.org/proper/commons-compress/examples.html
+- Common Archival Logic
+
+<hr>
+
+파일/폴더 위치
+```
+C:\eGovFrameDev-4.3.0-64bit\workspace-egov\git\egovframe-common-components-25a\target
+sample.zip
+
+C:\egovframework\upload\test\result
+result_2025-09-07T13-40-43.606
+result_2025-09-07T13-43-04.297
+result_2025-09-07T13-44-32.030
+```
+
+<hr>
+
+// TODO recursive 재귀적 압축 하기/풀기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:53:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:54:	CloseResource:	CloseResource: 리소스 'FileOutputStream' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:55:	CloseResource:	CloseResource: 리소스 'ZipInputStream' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:73:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:84:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovFileCmprs
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.07  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.09.07  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/747
 
 <hr>
 
