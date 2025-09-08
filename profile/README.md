@@ -244,6 +244,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-03 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-PrntngOutptVO](#2025-09-03-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-prntngoutptvo)|https://youtu.be/ahkzIAmKd5Y|
 |2025-09-04 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovClntInfo](#2025-09-04-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovclntinfo)|https://youtu.be/JC6igGNu6Hs|
 |2025-09-07 일|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileCmprs](#2025-09-07-일-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilecmprs)|https://youtu.be/xOCWcHprIoI|
+|2025-09-08 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMntrg](#2025-09-08-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilemntrg)|https://youtu.be/gtbudG8w1Z0|
 
 <hr>
 
@@ -9641,6 +9642,12 @@ https://github.com/eGovFramework/egovframe-common-components/pull/747
 
 <hr>
 
+### 2025-09-08 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMntrg
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/sim/service/EgovFileMntrg.java:277:	CloseResource:	CloseResource: 리소스 'FileWriter' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovFileMntrg.java:278:	CloseResource:	CloseResource: 리소스 'BufferedWriter' 가 사용 후에 닫혔는지 확인필요
@@ -9649,12 +9656,28 @@ src/main/java/egovframework/com/utl/sim/service/EgovFileMntrg.java:285:	Assignme
 src/main/java/egovframework/com/utl/sim/service/EgovFileMntrg.java:310:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovFileMntrg.java:311:	CloseResource:	CloseResource: 리소스 'FileReader' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovFileMntrg.java:321:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
-src/main/java/egovframework/com/utl/sim/service/EgovFileScrty.java:72:	CloseResource:	CloseResource: 리소스 'BufferedInputStream' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/sim/service/EgovFileScrty.java:73:	CloseResource:	CloseResource: 리소스 'BufferedOutputStream' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/sim/service/EgovFileScrty.java:84:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
-src/main/java/egovframework/com/utl/sim/service/EgovFileScrty.java:114:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/sim/service/EgovFileScrty.java:115:	CloseResource:	CloseResource: 리소스 'BufferedOutputStream' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/sim/service/EgovFileScrty.java:126:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovFileMntrg
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.08  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.09.08  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/749
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/sim/service/EgovFileTool.java:98:	AvoidReassigningParameters:	AvoidReassigningParameters: 'basePath' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/utl/sim/service/EgovFileTool.java:141:	AvoidReassigningParameters:	AvoidReassigningParameters: 'basePath' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/utl/sim/service/EgovFileTool.java:206:	AvoidReassigningParameters:	AvoidReassigningParameters: 'basePath' 처럼 파라미터 값을 직접 변경하지 말 것
