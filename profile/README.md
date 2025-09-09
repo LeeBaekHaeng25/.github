@@ -249,6 +249,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-09 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileTool](#2025-09-09-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfiletool)|https://youtu.be/UpehCQPqbcc|
 |2025-09-09 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileToolBean](#2025-09-09-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfiletoolbean)|https://youtu.be/ouE-gpQbW20|
 |2025-09-10 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuGov](#2025-09-10-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenugov)|https://youtu.be/18SkPmFEmm0|
+|2025-09-10 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNetworkState](#2025-09-10-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnetworkstate)|https://youtu.be/DrlWJa1rdMA|
 
 <hr>
 
@@ -9838,6 +9839,65 @@ feature/pmd/EgovMenuGov
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/753
+
+<hr>
+
+### 2025-09-10 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNetworkState
+
+`try-with-resources` 로 수정
+
+피연산자내에 할당문 제거
+
+`out = out + new String(new Character((char) c).toString());` 을 `out = out + new Character((char) c).toString();` 로 수정
+- `new String(` 제거
+
+`InetA` 를 `inetA` 로 이름 바꾸기
+
+`b_out` 를 `bOut` 로 이름 바꾸기
+
+`new Character(c);` 를 `c;` 로 수정
+- `new Character(` 제거
+
+`RuntimeException` 을 `UncheckedIOException` 으로 수정
+
+`RuntimeException` 을 `BaseRuntimeException` 으로 수정
+
+`ex` 를 `e` 로 이름 바꾸기
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/utl/sim/service/EgovNetworkState.java:84:	CloseResource:	CloseResource: 리소스 'InputStream' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/sim/service/EgovNetworkState.java:87:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+src/main/java/egovframework/com/utl/sim/service/EgovNetworkState.java:88:	StringInstantiation:	StringInstantiation: 필요없는 Instance가 생성되어 있음
+src/main/java/egovframework/com/utl/sim/service/EgovNetworkState.java:118:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/sim/service/EgovNetworkState.java:183:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'InetA' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/utl/sim/service/EgovNetworkState.java:228:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/sim/service/EgovNetworkState.java:228:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'b_out' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/utl/sim/service/EgovNetworkState.java:293:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit boxing
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovNetworkState
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.10  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.09.10  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+ *   2025.09.10  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-StringInstantiation(불필요한 String Instance를 생성하는 코드를 탐지. 간단한 형태의 코드로 변경 필요)
+ *   2025.09.10  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+ *   2025.09.10  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryBoxing(불필요한 WrapperObject 생성)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/754
 
 <hr>
 
