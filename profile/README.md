@@ -247,6 +247,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-08 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileMntrg](#2025-09-08-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilemntrg)|https://youtu.be/gtbudG8w1Z0|
 |2025-09-08 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileScrty](#2025-09-08-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfilescrty)|https://youtu.be/XYcgr6yBt3E|
 |2025-09-09 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileTool](#2025-09-09-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfiletool)|https://youtu.be/UpehCQPqbcc|
+|2025-09-09 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileToolBean](#2025-09-09-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfiletoolbean)|https://youtu.be/ouE-gpQbW20|
 
 <hr>
 
@@ -9761,6 +9762,46 @@ feature/pmd/EgovFileTool
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/751
+
+<hr>
+
+### 2025-09-09 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileToolBean
+
+`basePath2` 추가
+
+`try-with-resources` 로 수정
+
+피연산자내에 할당문 제거
+
+TestFileToolBasePathAOP
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/utl/sim/service/EgovFileToolBean.java:85:	AvoidReassigningParameters:	AvoidReassigningParameters: 'basePath' 처럼 파라미터 값을 직접 변경하지 말 것
+src/main/java/egovframework/com/utl/sim/service/EgovFileToolBean.java:99:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/sim/service/EgovFileToolBean.java:108:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovFileToolBean
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.09  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+ *   2025.09.09  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.09.09  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/752
 
 <hr>
 
