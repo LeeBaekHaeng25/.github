@@ -251,6 +251,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-10 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuGov](#2025-09-10-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenugov)|https://youtu.be/18SkPmFEmm0|
 |2025-09-10 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNetworkState](#2025-09-10-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnetworkstate)|https://youtu.be/DrlWJa1rdMA|
 |2025-09-11 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovPdfCnvr](#2025-09-11-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovpdfcnvr)|https://youtu.be/VtYZRSobSns|
+|2025-09-11 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovXMLDoc](#2025-09-11-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovxmldoc)|https://youtu.be/RIrbEG_4RdM|
 
 <hr>
 
@@ -9945,11 +9946,53 @@ https://github.com/eGovFramework/egovframe-common-components/pull/755
 
 <hr>
 
+### 2025-09-11 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovXMLDoc
+
+부적절한 자원 해제를 제거
+- 사용되지 않는 `FileInputStream fis = null;` 제거
+- `throws Exception` 제거하고 `throw new BaseRuntimeException(e);` 추가
+
+부적절한 자원 해제를 `try-with-resources` 로 수정
+- `throws Exception` 제거하고 `throw new UncheckedIOException(e);` 추가
+
+넘겨받는 메소드 parameter 값을 직접 변경하는 코드 수정
+- `String file2` 추가
+
+부적절한 자원 해제를 `try-with-resources` 로 수정
+- `throws Exception` 제거하고 `throw new UncheckedIOException(e);` 추가
+- `throws Exception` 제거하고 `throw new BaseRuntimeException(e);` 추가
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/sim/service/EgovXMLDoc.java:63:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovXMLDoc.java:90:	CloseResource:	CloseResource: 리소스 'FileOutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovXMLDoc.java:94:	AvoidReassigningParameters:	AvoidReassigningParameters: 'file' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/utl/sim/service/EgovXMLDoc.java:120:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovXMLDoc
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.11  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.09.11  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/756
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/sys/dbm/service/DbMntrngChecker.java:49:	CloseResource:	CloseResource: 리소스 'Connection' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sys/dbm/service/DbMntrngChecker.java:50:	CloseResource:	CloseResource: 리소스 'PreparedStatement' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sys/dbm/service/DbMntrngChecker.java:52:	CloseResource:	CloseResource: 리소스 'ResultSet' 가 사용 후에 닫혔는지 확인필요
