@@ -250,6 +250,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-09 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovFileToolBean](#2025-09-09-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovfiletoolbean)|https://youtu.be/ouE-gpQbW20|
 |2025-09-10 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovMenuGov](#2025-09-10-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovmenugov)|https://youtu.be/18SkPmFEmm0|
 |2025-09-10 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNetworkState](#2025-09-10-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnetworkstate)|https://youtu.be/DrlWJa1rdMA|
+|2025-09-11 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovPdfCnvr](#2025-09-11-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovpdfcnvr)|https://youtu.be/VtYZRSobSns|
 
 <hr>
 
@@ -9901,11 +9902,50 @@ https://github.com/eGovFramework/egovframe-common-components/pull/754
 
 <hr>
 
+### 2025-09-11 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovPdfCnvr
+
+`file_iter` 를 `fileIter` 로 이름 바꾸기
+
+`FileCopyUtils.copy` 로 수정
+
+피연산자내에 할당문 제거
+
+`LOGGER` 제거하고 `@Slf4j` 추가
+
+`throws Exception` 제거하고 `throw new UncheckedIOException(e);` 추가
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/sim/service/EgovPdfCnvr.java:75:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'file_iter' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/sim/service/EgovPdfCnvr.java:141:	CloseResource:	CloseResource: 리소스 'InputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovPdfCnvr.java:142:	CloseResource:	CloseResource: 리소스 'OutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovPdfCnvr.java:162:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovPdfCnvr
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.11  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+ *   2025.09.11  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.09.11  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/755
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/sim/service/EgovXMLDoc.java:63:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovXMLDoc.java:90:	CloseResource:	CloseResource: 리소스 'FileOutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovXMLDoc.java:94:	AvoidReassigningParameters:	AvoidReassigningParameters: 'file' 처럼 파라미터 값을 직접 변경하지 말 것
