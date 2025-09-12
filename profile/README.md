@@ -253,6 +253,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-11 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovPdfCnvr](#2025-09-11-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovpdfcnvr)|https://youtu.be/VtYZRSobSns|
 |2025-09-11 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovXMLDoc](#2025-09-11-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovxmldoc)|https://youtu.be/RIrbEG_4RdM|
 |2025-09-12 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-DbMntrngChecker](#2025-09-12-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-dbmntrngchecker)|https://youtu.be/c20VnRxmLTM|
+|2025-09-12 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-FileSystemChecker](#2025-09-12-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-filesystemchecker)|https://youtu.be/jKOxaAHXABQ|
 
 <hr>
 
@@ -10025,6 +10026,30 @@ https://github.com/eGovFramework/egovframe-common-components/pull/758
 
 <hr>
 
+### 2025-09-12 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-FileSystemChecker
+
+CloseResource(부적절한 자원 해제)
+- `try-with-resources` 로 수정
+
+UnnecessaryBoxing(불필요한 WrapperObject 생성)
+- `Long.valueOf` 대신 Long.parseLong(...)을 사용
+- 불필요한 implicit unboxing. Use Long.parseLong(...) instead
+  - 암시적 언박싱을 수행합니다. 대신 Long.parseLong(...)을 사용하세요
+
+UselessParentheses(불필요한 괄호사용)
+- 불필요한 괄호제거
+
+LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+- `b_out` 을 `bOut` 으로 이름 바꾸기
+
+`throws IOException` 제거하고 `throw new UncheckedIOException(e);` 을 추가
+
+`throw new IOException("Command line threw an InterruptedException` 을 `BaseRuntimeException` 로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/sys/fsm/service/FileSystemChecker.java:110:	CloseResource:	CloseResource: 리소스 'FileWriter' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sys/fsm/service/FileSystemChecker.java:138:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 implicit unboxing. Use Long.parseLong(...) instead
@@ -10033,6 +10058,30 @@ src/main/java/egovframework/com/utl/sys/fsm/service/FileSystemChecker.java:185:	
 src/main/java/egovframework/com/utl/sys/fsm/service/FileSystemChecker.java:211:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 implicit unboxing. Use Long.parseLong(...) instead
 src/main/java/egovframework/com/utl/sys/fsm/service/FileSystemChecker.java:233:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sys/fsm/service/FileSystemChecker.java:233:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'b_out' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/FileSystemChecker
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.12  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.09.12  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryBoxing(불필요한 WrapperObject 생성)
+ *   2025.09.12  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+ *   2025.09.12  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/759
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/sys/htm/service/HttpMntrngChecker.java:40:	AvoidUsingHardCodedIP:	AvoidUsingHardCodedIP: 하드코딩된 IP 주소 whiteListURL 사용
 src/main/java/egovframework/com/utl/sys/htm/service/HttpMntrngChecker.java:65:	AvoidReassigningParameters:	AvoidReassigningParameters: 'siteUrl' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/utl/sys/htm/service/impl/EgovHttpMonServiceImpl.java:33:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'HttpMonDAO' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
