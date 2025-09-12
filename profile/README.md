@@ -252,6 +252,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-10 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNetworkState](#2025-09-10-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovnetworkstate)|https://youtu.be/DrlWJa1rdMA|
 |2025-09-11 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovPdfCnvr](#2025-09-11-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovpdfcnvr)|https://youtu.be/VtYZRSobSns|
 |2025-09-11 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovXMLDoc](#2025-09-11-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovxmldoc)|https://youtu.be/RIrbEG_4RdM|
+|2025-09-12 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-DbMntrngChecker](#2025-09-12-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-dbmntrngchecker)|https://youtu.be/c20VnRxmLTM|
 
 <hr>
 
@@ -9992,10 +9993,39 @@ https://github.com/eGovFramework/egovframe-common-components/pull/756
 
 <hr>
 
+### 2025-09-12 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-DbMntrngChecker
+
+`CloseResource(부적절한 자원 해제)` 를 `try-with-resources` 로 수정
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/sys/dbm/service/DbMntrngChecker.java:49:	CloseResource:	CloseResource: 리소스 'Connection' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sys/dbm/service/DbMntrngChecker.java:50:	CloseResource:	CloseResource: 리소스 'PreparedStatement' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sys/dbm/service/DbMntrngChecker.java:52:	CloseResource:	CloseResource: 리소스 'ResultSet' 가 사용 후에 닫혔는지 확인필요
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/DbMntrngChecker
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.12  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/758
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/sys/fsm/service/FileSystemChecker.java:110:	CloseResource:	CloseResource: 리소스 'FileWriter' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sys/fsm/service/FileSystemChecker.java:138:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 implicit unboxing. Use Long.parseLong(...) instead
 src/main/java/egovframework/com/utl/sys/fsm/service/FileSystemChecker.java:142:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 implicit unboxing. Use Long.parseLong(...) instead
