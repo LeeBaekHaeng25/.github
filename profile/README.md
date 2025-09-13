@@ -254,6 +254,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-11 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovXMLDoc](#2025-09-11-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovxmldoc)|https://youtu.be/RIrbEG_4RdM|
 |2025-09-12 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-DbMntrngChecker](#2025-09-12-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-dbmntrngchecker)|https://youtu.be/c20VnRxmLTM|
 |2025-09-12 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-FileSystemChecker](#2025-09-12-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-filesystemchecker)|https://youtu.be/jKOxaAHXABQ|
+|2025-09-13 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-HttpMntrngChecker](#2025-09-13-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-httpmntrngchecker)|https://youtu.be/xBYYOJ0g7mg|
 
 <hr>
 
@@ -10081,9 +10082,61 @@ https://github.com/eGovFramework/egovframe-common-components/pull/759
 
 <hr>
 
+### 2025-09-13 토 PMD로 소프트웨어 보안약점 진단하고 제거하기-HttpMntrngChecker
+
+AvoidUsingHardCodedIP(하드코드된 중요정보)
+- globals.properties 에 HTTP서비스모니터링을 위한 Check 클래스 화이트 리스트 추가
+- /egovframe-common-components-25a/src/main/resources/egovframework/egovProps/globals.properties
+- /egovframe-common-components-25a/src/test/resources/egovframework/egovProps/globals.properties
+```properties
+# HTTP서비스모니터링을 위한 Check 클래스 화이트 리스트
+HttpMntrngChecker.whiteListURL=wwww.egovwebserver.go.kr,wwww.egovwasserver.go.kr,192.168.100.133,211.188.83.139,www.egovframe.go.kr
+```
+- Globals.java 에 HTTP서비스모니터링을 위한 Check 클래스 화이트 리스트 추가
+```java
+	/**
+	 * HTTP서비스모니터링을 위한 Check 클래스 화이트 리스트
+	 */
+	public static final String[] HTTP_MNTRNG_CHECKER_WHITE_LIST_URL = EgovProperties
+			.getProperty("HttpMntrngChecker.whiteListURL").split(",");
+```
+
+AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+- `URL url = new URL(siteUrl);` 을 `URL url = new URL(EgovWebUtil.filePathBlackList(siteUrl));` 로 수정
+
+FILE_SEPARATOR, MAX_STR_LEN, whiteListURL 제거
+
+HttpMntrngCheckerTest 단위 테스트 추가
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/sys/htm/service/HttpMntrngChecker.java:40:	AvoidUsingHardCodedIP:	AvoidUsingHardCodedIP: 하드코딩된 IP 주소 whiteListURL 사용
 src/main/java/egovframework/com/utl/sys/htm/service/HttpMntrngChecker.java:65:	AvoidReassigningParameters:	AvoidReassigningParameters: 'siteUrl' 처럼 파라미터 값을 직접 변경하지 말 것
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/HttpMntrngChecker
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.13  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidUsingHardCodedIP(하드코드된 중요정보)
+ *   2025.09.13  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/761
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/sys/htm/service/impl/EgovHttpMonServiceImpl.java:33:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'HttpMonDAO' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/sys/nsm/service/EgovNtwrkSvcMntrngScheduling.java:88:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 implicit unboxing. Use Integer.parseInt(...) instead
 src/main/java/egovframework/com/utl/sys/prm/service/ProcessMonChecker.java:52:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
