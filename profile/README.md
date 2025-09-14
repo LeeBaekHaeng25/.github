@@ -256,6 +256,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-12 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-FileSystemChecker](#2025-09-12-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-filesystemchecker)|https://youtu.be/jKOxaAHXABQ|
 |2025-09-13 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-HttpMntrngChecker](#2025-09-13-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-httpmntrngchecker)|https://youtu.be/xBYYOJ0g7mg|
 |2025-09-13 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovHttpMonServiceImpl](#2025-09-13-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovhttpmonserviceimpl)|https://youtu.be/lZFIDgm_e10|
+|2025-09-15 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNtwrkSvcMntrngScheduling](#2025-09-15-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovntwrksvcmntrngscheduling)|https://youtu.be/qSS98rLTAOE|
 
 <hr>
 
@@ -10168,10 +10169,41 @@ https://github.com/eGovFramework/egovframe-common-components/pull/762
 
 <hr>
 
+### 2025-09-15 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNtwrkSvcMntrngScheduling
+
+
+UnnecessaryBoxing(불필요한 WrapperObject 생성)
+- `Integer.valueOf` 를 `Integer.parseInt` 로 수정
+- 불필요한 implicit unboxing. Use Integer.parseInt(...) instead
+  - 불필요한 암묵적 언박싱. 대신 Integer.parseInt(...)를 사용하세요.
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/sys/nsm/service/EgovNtwrkSvcMntrngScheduling.java:88:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 implicit unboxing. Use Integer.parseInt(...) instead
-src/main/java/egovframework/com/utl/sys/prm/service/ProcessMonChecker.java:52:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/sys/prm/service/ProcessMonChecker.java:79:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovNtwrkSvcMntrngScheduling
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.15  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UnnecessaryBoxing(불필요한 WrapperObject 생성)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/764
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/sys/pxy/service/ProxyServer.java:112:	CloseResource:	CloseResource: 리소스 'InputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sys/pxy/service/ProxyServer.java:113:	CloseResource:	CloseResource: 리소스 'OutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sys/pxy/service/ProxyServer.java:118:	CloseResource:	CloseResource: 리소스 'InputStream' 가 사용 후에 닫혔는지 확인필요
