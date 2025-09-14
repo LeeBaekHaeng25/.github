@@ -257,6 +257,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-13 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-HttpMntrngChecker](#2025-09-13-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-httpmntrngchecker)|https://youtu.be/xBYYOJ0g7mg|
 |2025-09-13 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovHttpMonServiceImpl](#2025-09-13-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovhttpmonserviceimpl)|https://youtu.be/lZFIDgm_e10|
 |2025-09-15 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNtwrkSvcMntrngScheduling](#2025-09-15-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovntwrksvcmntrngscheduling)|https://youtu.be/qSS98rLTAOE|
+|2025-09-15 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProcessMonChecker](#2025-09-15-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-processmonchecker)|https://youtu.be/aFFEJ5E4_As|
 
 <hr>
 
@@ -10200,6 +10201,45 @@ feature/pmd/EgovNtwrkSvcMntrngScheduling
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/764
+
+<hr>
+
+### 2025-09-15 월 PMD로 소프트웨어 보안약점 진단하고 제거하기-ProcessMonChecker
+
+
+CloseResource(부적절한 자원 해제)
+- `BufferedReader buf = null;`
+- `try-with-resources` 로 수정
+
+UselessParentheses(불필요한 괄호사용)
+- `while ((buf.readLine()) != null) {` 을 `while (buf.readLine() != null) {` 로 수정
+- 불필요한 괄호제거
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/utl/sys/prm/service/ProcessMonChecker.java:52:	CloseResource:	CloseResource: 리소스 'BufferedReader' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/sys/prm/service/ProcessMonChecker.java:79:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/ProcessMonChecker
+```
+
+3. 이클립스 > Source > Format
+
+4. 개정이력 수정
+
+```java
+ *   2025.09.15  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.09.15  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/765
 
 <hr>
 
