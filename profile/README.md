@@ -258,6 +258,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-13 토|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovHttpMonServiceImpl](#2025-09-13-토-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovhttpmonserviceimpl)|https://youtu.be/lZFIDgm_e10|
 |2025-09-15 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNtwrkSvcMntrngScheduling](#2025-09-15-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovntwrksvcmntrngscheduling)|https://youtu.be/qSS98rLTAOE|
 |2025-09-15 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProcessMonChecker](#2025-09-15-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-processmonchecker)|https://youtu.be/aFFEJ5E4_As|
+|2025-09-16 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProxyServer](#2025-09-16-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-proxyserver)|https://youtu.be/qiUS5LQTaQw|
 
 <hr>
 
@@ -10243,6 +10244,12 @@ https://github.com/eGovFramework/egovframe-common-components/pull/765
 
 <hr>
 
+### 2025-09-16 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-ProxyServer
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/sys/pxy/service/ProxyServer.java:112:	CloseResource:	CloseResource: 리소스 'InputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sys/pxy/service/ProxyServer.java:113:	CloseResource:	CloseResource: 리소스 'OutputStream' 가 사용 후에 닫혔는지 확인필요
@@ -10250,8 +10257,38 @@ src/main/java/egovframework/com/utl/sys/pxy/service/ProxyServer.java:118:	CloseR
 src/main/java/egovframework/com/utl/sys/pxy/service/ProxyServer.java:119:	CloseResource:	CloseResource: 리소스 'OutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sys/pxy/service/ProxyServer.java:128:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
 src/main/java/egovframework/com/utl/sys/pxy/service/ProxyServer.java:164:	UselessParentheses:	UselessParentheses: 괄호가 없어도 되는 상황에서 불필요한 괄호를 사용할 경우 마치 메소드 호출처럼 보여서 소스 코드의 가독성을 떨어뜨릴 수 있음
-src/main/java/egovframework/com/utl/sys/pxy/service/ProxyThread.java:22:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'client' 를 Final로 선언하지 않았음
-src/main/java/egovframework/com/utl/sys/pxy/service/ProxyThread.java:99:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/ProxyServer
+```
+
+3. 이클립스 > Source > Format
+
+4. 수정
+
+CloseResource(부적절한 자원 해제)
+- `try-with-resources` 로 수정
+AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+- 피연산자내에 할당문 제거
+UselessParentheses(불필요한 괄호사용)
+- 불필요한 괄호제거
+
+5. 개정이력 수정
+
+```java
+ *   2025.09.16  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.09.16  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+ *   2025.09.16  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-UselessParentheses(불필요한 괄호사용)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/766
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/sys/pxy/web/EgovProxySvcController.java:74:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'EgovCmmUseService' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/sys/pxy/web/EgovProxySvcController.java:127:	AvoidReassigningParameters:	AvoidReassigningParameters: 'proxySvcVO' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/utl/sys/srm/service/EgovServerResrceMntrngScheduling.java:72:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'serverResrceMntrngVO' 를 Final로 선언하지 않았음
