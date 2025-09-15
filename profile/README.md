@@ -259,6 +259,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-15 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovNtwrkSvcMntrngScheduling](#2025-09-15-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovntwrksvcmntrngscheduling)|https://youtu.be/qSS98rLTAOE|
 |2025-09-15 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProcessMonChecker](#2025-09-15-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-processmonchecker)|https://youtu.be/aFFEJ5E4_As|
 |2025-09-16 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProxyServer](#2025-09-16-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-proxyserver)|https://youtu.be/qiUS5LQTaQw|
+|2025-09-16 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProxyThread](#2025-09-16-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-proxythread)|https://youtu.be/fkBnRk0ecCA|
 
 <hr>
 
@@ -10285,6 +10286,45 @@ UselessParentheses(불필요한 괄호사용)
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/766
+
+<hr>
+
+### 2025-09-16 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-ProxyThread
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/utl/sys/pxy/service/ProxyThread.java:22:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'client' 를 Final로 선언하지 않았음
+src/main/java/egovframework/com/utl/sys/pxy/service/ProxyThread.java:99:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/ProxyThread
+```
+
+3. 이클립스 > Source > Format
+
+4. 수정
+
+ImmutableField(생성자를 통해 할당된 변수를 Final로 선언하지 않았음)
+- 생성자를 통해 할당된 변수를 Final로 선언
+
+AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+- 피연산자내에 할당문 제거
+
+
+5. 개정이력 수정
+
+```java
+ *   2025.09.16  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-ImmutableField(생성자를 통해 할당된 변수를 Final로 선언하지 않았음)
+ *   2025.09.16  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/767
 
 <hr>
 
