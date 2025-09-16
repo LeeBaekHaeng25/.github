@@ -260,6 +260,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-15 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProcessMonChecker](#2025-09-15-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-processmonchecker)|https://youtu.be/aFFEJ5E4_As|
 |2025-09-16 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProxyServer](#2025-09-16-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-proxyserver)|https://youtu.be/qiUS5LQTaQw|
 |2025-09-16 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProxyThread](#2025-09-16-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-proxythread)|https://youtu.be/fkBnRk0ecCA|
+|2025-09-17 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovProxySvcController](#2025-09-17-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovproxysvccontroller)|https://youtu.be/ih-hqCkFqi0|
 
 <hr>
 
@@ -10328,11 +10329,55 @@ https://github.com/eGovFramework/egovframe-common-components/pull/767
 
 <hr>
 
+### 2025-09-17 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovProxySvcController
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/sys/pxy/web/EgovProxySvcController.java:74:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'EgovCmmUseService' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/sys/pxy/web/EgovProxySvcController.java:127:	AvoidReassigningParameters:	AvoidReassigningParameters: 'proxySvcVO' 처럼 파라미터 값을 직접 변경하지 말 것
-src/main/java/egovframework/com/utl/sys/srm/service/EgovServerResrceMntrngScheduling.java:72:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'serverResrceMntrngVO' 를 Final로 선언하지 않았음
-src/main/java/egovframework/com/utl/sys/srm/service/EgovServerResrceMntrngScheduling.java:83:	CloseResource:	CloseResource: 리소스 'JMXConnector' 가 사용 후에 닫혔는지 확인필요
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovProxySvcController
+```
+
+3. 이클립스 > Source > Format
+
+4. 수정
+
+FieldNamingConventions(변수명에 밑줄 사용)
+
+```java
+//    EgovCmmUseService EgovCmmUseService;
+	private EgovCmmUseService egovCmmUseService;
+```
+
+AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+
+```java
+//        proxySvcVO = egovProxySvcService.selectProxySvc(proxySvcVO);
+//        model.addAttribute("proxySvc", proxySvcVO);
+		ProxySvcVO proxySvc = egovProxySvcService.selectProxySvc(proxySvcVO);
+		model.addAttribute("proxySvc", proxySvc);
+```
+
+5. 개정이력 수정
+
+```java
+ *   2025.09.17  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(변수명에 밑줄 사용)
+ *   2025.09.17  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/768
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/sys/srm/web/EgovServerResrceMntrngController.java:150:	AvoidReassigningParameters:	AvoidReassigningParameters: 'serverResrceMntrngVO' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:249:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'SynchrnServerVo' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:327:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
