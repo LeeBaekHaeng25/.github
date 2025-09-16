@@ -260,7 +260,8 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-15 월|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProcessMonChecker](#2025-09-15-월-pmd로-소프트웨어-보안약점-진단하고-제거하기-processmonchecker)|https://youtu.be/aFFEJ5E4_As|
 |2025-09-16 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProxyServer](#2025-09-16-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-proxyserver)|https://youtu.be/qiUS5LQTaQw|
 |2025-09-16 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProxyThread](#2025-09-16-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-proxythread)|https://youtu.be/fkBnRk0ecCA|
-|2025-09-17 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovProxySvcController](#2025-09-17-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovproxysvccontroller)|https://youtu.be/ih-hqCkFqi0|
+|2025-09-17 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovProxySvcController](#2025-09-17-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovproxysvccontroller)|https://youtu.be/ih-hqCkFqi0|
+|2025-09-17 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovServerResrceMntrngScheduling](#2025-09-17-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovserverresrcemntrngscheduling)|https://youtu.be/piv9KewULA4|
 
 <hr>
 
@@ -10329,7 +10330,7 @@ https://github.com/eGovFramework/egovframe-common-components/pull/767
 
 <hr>
 
-### 2025-09-17 화 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovProxySvcController
+### 2025-09-17 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovProxySvcController
 
 <hr>
 
@@ -10374,6 +10375,82 @@ AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/768
+
+<hr>
+
+### 2025-09-17 수 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovServerResrceMntrngScheduling
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/utl/sys/srm/service/EgovServerResrceMntrngScheduling.java:72:	ImmutableField:	ImmutableField: 생성자에서 Assign된 변수 'serverResrceMntrngVO' 를 Final로 선언하지 않았음
+src/main/java/egovframework/com/utl/sys/srm/service/EgovServerResrceMntrngScheduling.java:83:	CloseResource:	CloseResource: 리소스 'JMXConnector' 가 사용 후에 닫혔는지 확인필요
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovServerResrceMntrngScheduling
+```
+
+3. 이클립스 > Source > Format
+
+4. 수정
+
+ImmutableField(생성자를 통해 할당된 변수를 Final로 선언하지 않았음)
+- `private ServerResrceMntrngVO serverResrceMntrngVO = null;` 제거
+
+```
+//	private ServerResrceMntrngVO serverResrceMntrngVO = null;
+
+	/**
+	 * 서버자원 모니터링를 수행한다.
+	 * @param
+	 * @return
+	 */
+	public void monitorServerResrce() {
+
+		try {
+//			List<ServerResrceMntrngVO> result = egovServerResrceMntrngService.selectMntrngServerList(serverResrceMntrngVO);
+//			Iterator<ServerResrceMntrngVO> iter = result.iterator();
+//
+//			while (iter.hasNext()) {
+//				ServerResrceMntrngVO serverResrceMntrngVO = (ServerResrceMntrngVO) iter.next();
+//				init(serverResrceMntrngVO);
+//			}
+			ServerResrceMntrngVO serverResrceMntrngVO = new ServerResrceMntrngVO();
+
+			List<ServerResrceMntrngVO> resultList = egovServerResrceMntrngService
+					.selectMntrngServerList(serverResrceMntrngVO);
+
+			for (ServerResrceMntrngVO result : resultList) {
+				init(result);
+			}
+		} catch (NoSuchElementException e) { //KISA 보안약점 조치 (2018-10-29, 윤창원)
+			LOGGER.debug("Server monitoring error - NoSuchElementException", e);
+
+		} catch (Exception e) {
+			LOGGER.debug("Server monitoring error", e);
+		}
+	}
+```
+
+`errorContents += serverResrceMntrngVO.getServerNm();` 을 `errorContents += serverResrceMntrng.getServerNm();` 로 수정
+
+CloseResource(부적절한 자원 해제)
+- `try-with-resources` 로 수정
+
+
+5. 개정이력 수정
+
+```java
+ *   2025.09.17  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-ImmutableField(생성자를 통해 할당된 변수를 Final로 선언하지 않았음)
+ *   2025.09.17  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/769
 
 <hr>
 
