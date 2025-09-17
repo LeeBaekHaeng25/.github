@@ -263,6 +263,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-17 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovProxySvcController](#2025-09-17-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovproxysvccontroller)|https://youtu.be/ih-hqCkFqi0|
 |2025-09-17 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovServerResrceMntrngScheduling](#2025-09-17-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovserverresrcemntrngscheduling)|https://youtu.be/piv9KewULA4|
 |2025-09-18 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovServerResrceMntrngController](#2025-09-18-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovserverresrcemntrngcontroller)|https://youtu.be/pvBXQFqCTKs|
+|2025-09-18 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSynchrnServerServiceImpl](#2025-09-18-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsynchrnserverserviceimpl)|https://youtu.be/cAfkBZAPGB4|
 
 <hr>
 
@@ -10485,6 +10486,54 @@ AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경
 ```
 
 https://github.com/eGovFramework/egovframe-common-components/pull/773
+
+<hr>
+
+### 2025-09-18 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSynchrnServerServiceImpl
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
+```
+src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:249:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'SynchrnServerVo' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:327:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:460:	CloseResource:	CloseResource: 리소스 'InputStream' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:461:	CloseResource:	CloseResource: 리소스 'OutputStream' 가 사용 후에 닫혔는지 확인필요
+src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:480:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:485:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'SynchrnServerVo' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:519:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'SynchrnServerVo' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovSynchrnServerServiceImpl
+```
+
+3. 이클립스 > Source > Format
+
+4. 수정
+
+LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+- `processSynchrn, writeFile, deleteFile` 메서드에서 `iterator` 를 `for` 로 수정
+
+CloseResource(부적절한 자원 해제)
+- `try-with-resources` 로 수정
+- `FileCopyUtils.copy` 로 수정
+
+AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+- 피연산자내에 할당문을 `FileCopyUtils.copy` 로 수정
+
+5. 개정이력 수정
+
+```java
+ *   2025.09.18  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-LocalVariableNamingConventions(final이 아닌 변수는 밑줄을 포함할 수 없음)
+ *   2025.09.18  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-CloseResource(부적절한 자원 해제)
+ *   2025.09.18  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AssignmentInOperand(피연산자내에 할당문이 사용됨. 해당 코드를 복잡하고 가독성이 떨어지게 만듬)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/774
 
 <hr>
 
