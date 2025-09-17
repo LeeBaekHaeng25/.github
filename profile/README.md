@@ -262,6 +262,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-16 화|[PMD로 소프트웨어 보안약점 진단하고 제거하기-ProxyThread](#2025-09-16-화-pmd로-소프트웨어-보안약점-진단하고-제거하기-proxythread)|https://youtu.be/fkBnRk0ecCA|
 |2025-09-17 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovProxySvcController](#2025-09-17-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovproxysvccontroller)|https://youtu.be/ih-hqCkFqi0|
 |2025-09-17 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovServerResrceMntrngScheduling](#2025-09-17-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovserverresrcemntrngscheduling)|https://youtu.be/piv9KewULA4|
+|2025-09-18 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovServerResrceMntrngController](#2025-09-18-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovserverresrcemntrngcontroller)|https://youtu.be/pvBXQFqCTKs|
 
 <hr>
 
@@ -10454,21 +10455,51 @@ https://github.com/eGovFramework/egovframe-common-components/pull/769
 
 <hr>
 
+### 2025-09-18 목 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovServerResrceMntrngController
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/sys/srm/web/EgovServerResrceMntrngController.java:150:	AvoidReassigningParameters:	AvoidReassigningParameters: 'serverResrceMntrngVO' 처럼 파라미터 값을 직접 변경하지 말 것
-src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:249:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'SynchrnServerVo' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:327:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:460:	CloseResource:	CloseResource: 리소스 'InputStream' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:461:	CloseResource:	CloseResource: 리소스 'OutputStream' 가 사용 후에 닫혔는지 확인필요
-src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:480:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
-src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:485:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'SynchrnServerVo' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
-src/main/java/egovframework/com/utl/sys/ssy/service/impl/EgovSynchrnServerServiceImpl.java:519:	LocalVariableNamingConventions:	LocalVariableNamingConventions: 'local variable' 의 변수 'SynchrnServerVo' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
+```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovServerResrceMntrngController
+```
+
+3. 이클립스 > Source > Format
+
+4. 수정
+
+AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+- 넘겨받는 메소드 parameter 값을 직접 변경하는 코드 수정
+
+5. 개정이력 수정
+
+```java
+ *   2025.09.18  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+```
+
+https://github.com/eGovFramework/egovframe-common-components/pull/773
+
+<hr>
+
+```
 src/main/java/egovframework/com/utl/sys/ssy/web/EgovSynchrnServerController.java:69:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'EgovCmmUseService' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/sys/ssy/web/EgovSynchrnServerController.java:152:	AvoidReassigningParameters:	AvoidReassigningParameters: 'synchrnServerVO' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/utl/sys/ssy/web/EgovSynchrnServerController.java:172:	AvoidReassigningParameters:	AvoidReassigningParameters: 'synchrnServerVO' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/utl/sys/ssy/web/EgovSynchrnServerController.java:191:	AvoidReassigningParameters:	AvoidReassigningParameters: 'synchrnServerVO' 처럼 파라미터 값을 직접 변경하지 말 것
 src/main/java/egovframework/com/utl/sys/ssy/web/EgovSynchrnServerController.java:370:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
 src/main/java/egovframework/com/utl/sys/ssy/web/EgovSynchrnServerController.java:373:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
+```
+
+2025 멘토링-
+
+```
 src/main/java/egovframework/com/utl/sys/trm/service/impl/TrsmrcvMntrngCheckerTestImpl.java:51:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
 src/main/java/egovframework/com/utl/sys/trm/service/impl/TrsmrcvMntrngCheckerTestImpl.java:52:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
 src/main/java/egovframework/com/utl/sys/trm/service/impl/TrsmrcvMntrngCheckerTestImpl.java:54:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit unboxing
