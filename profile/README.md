@@ -264,6 +264,7 @@ https://www.youtube.com/playlist?list=PL6pSCmAEuNPE0vLtodu2geX-SA1YO6ALg
 |2025-09-17 수|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovServerResrceMntrngScheduling](#2025-09-17-수-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovserverresrcemntrngscheduling)|https://youtu.be/piv9KewULA4|
 |2025-09-18 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovServerResrceMntrngController](#2025-09-18-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovserverresrcemntrngcontroller)|https://youtu.be/pvBXQFqCTKs|
 |2025-09-18 목|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSynchrnServerServiceImpl](#2025-09-18-목-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsynchrnserverserviceimpl)|https://youtu.be/cAfkBZAPGB4|
+|2025-09-19 금|[PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSynchrnServerController](#2025-09-19-금-pmd로-소프트웨어-보안약점-진단하고-제거하기-egovsynchrnservercontroller)|https://youtu.be/ISZM7DNLVT0|
 
 <hr>
 
@@ -10537,6 +10538,12 @@ https://github.com/eGovFramework/egovframe-common-components/pull/774
 
 <hr>
 
+### 2025-09-19 금 PMD로 소프트웨어 보안약점 진단하고 제거하기-EgovSynchrnServerController
+
+<hr>
+
+1. PMD로 소프트웨어 보안약점 진단 결과
+
 ```
 src/main/java/egovframework/com/utl/sys/ssy/web/EgovSynchrnServerController.java:69:	FieldNamingConventions:	FieldNamingConventions: 'field' 의 변수 'EgovCmmUseService' 이  '[a-z][a-zA-Z0-9]*'  로 시작함
 src/main/java/egovframework/com/utl/sys/ssy/web/EgovSynchrnServerController.java:152:	AvoidReassigningParameters:	AvoidReassigningParameters: 'synchrnServerVO' 처럼 파라미터 값을 직접 변경하지 말 것
@@ -10545,6 +10552,35 @@ src/main/java/egovframework/com/utl/sys/ssy/web/EgovSynchrnServerController.java
 src/main/java/egovframework/com/utl/sys/ssy/web/EgovSynchrnServerController.java:370:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
 src/main/java/egovframework/com/utl/sys/ssy/web/EgovSynchrnServerController.java:373:	SimplifyBooleanExpressions:	SimplifyBooleanExpressions: boolean 사용 시 불필요한 비교 연산을 피하도록 함
 ```
+
+2. 브랜치 생성
+
+```
+feature/pmd/EgovSynchrnServerController
+```
+
+3. 이클립스 > Source > Format
+
+4. 수정
+
+FieldNamingConventions(변수명에 밑줄 사용)
+- `EgovCmmUseService` 를 `egovCmmUseService` 로 이름 바꾸기
+
+AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+- 넘겨받는 메소드 parameter 값을 직접 변경하는 코드 수정
+
+SimplifyBooleanExpressions(boolean 사용 시 불필요한 비교 연산을 피하도록 함)
+- boolean 사용 시 불필요한 비교 연산을 피하도록 수정
+
+5. 개정이력 수정
+
+```java
+ *   2025.09.19  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-FieldNamingConventions(변수명에 밑줄 사용)
+ *   2025.09.19  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-AvoidReassigningParameters(넘겨받는 메소드 parameter 값을 직접 변경하는 코드 탐지)
+ *   2025.09.19  이백행          2025년 컨트리뷰션 PMD로 소프트웨어 보안약점 진단하고 제거하기-SimplifyBooleanExpressions(boolean 사용 시 불필요한 비교 연산을 피하도록 함)
+```
+
+<hr>
 
 2025 멘토링-
 
