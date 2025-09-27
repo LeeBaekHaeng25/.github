@@ -6,6 +6,8 @@
 src/main/java/egovframework/com/cmm/web/EgovComAbstractController.java:30:	AbstractClassWithoutAbstractMethod:	AbstractClassWithoutAbstractMethod: Abstract Class내에  Abstract Method가 존재하지 않음
 ```
 
+https://github.com/LeeBaekHaeng25/egovframe-common-components-25b/commit/3cf4cbca3115aea7cc9e2ff7b87e102d05a08ca1
+
 https://youtu.be/GHwAubNnl50
 
 ## PMD 보고서
