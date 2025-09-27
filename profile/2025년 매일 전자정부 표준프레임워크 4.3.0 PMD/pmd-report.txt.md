@@ -1,10 +1,12 @@
-# 2025년 매일 전자정부 표준프레임워크 4.3.0 공통컴포넌트 PMD 진단 제거
+# 2025년 매일 전자정부 표준프레임워크 4.3.0 PMD
 
-## 2025-09-27 토 EgovComAbstractController
+## 2025-09-27 토 PMD EgovComAbstractController
 
 ```
 src/main/java/egovframework/com/cmm/web/EgovComAbstractController.java:30:	AbstractClassWithoutAbstractMethod:	AbstractClassWithoutAbstractMethod: Abstract Class내에  Abstract Method가 존재하지 않음
 ```
+
+https://youtu.be/GHwAubNnl50
 
 ## PMD 보고서
 
