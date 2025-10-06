@@ -1,5 +1,18 @@
 # 2025년 매일 전자정부 표준프레임워크 4.3.0 PMD
 
+## 2025-10-03 금 PMD 진단/제거(조치) EgovStringUtil
+
+```
+src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:639:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:678:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
+src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:768:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit conversion from char to int through Integer
+src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:769:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit conversion from char to int through Integer
+```
+
+https://github.com/LeeBaekHaeng25/egovframe-common-components-25b/commit/8d077f51af5b65e96db05b227e3e45a7169b6a05
+
+https://youtu.be/oyfh-zxJXqk
+
 ## 2025-10-03 금 PMD EgovImageProcessController
 
 ```
@@ -46,10 +59,6 @@ https://youtu.be/GHwAubNnl50
 ## PMD 보고서
 
 ```
-src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:639:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
-src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:678:	AssignmentInOperand:	AssignmentInOperand: 피연산자내에 할당문이 사용됨. Code 를 복잡하고 가독성이 떨어지게 만듬
-src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:768:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit conversion from char to int through Integer
-src/main/java/egovframework/com/utl/fcc/service/EgovStringUtil.java:769:	UnnecessaryBoxing:	UnnecessaryBoxing: 불필요한 explicit conversion from char to int through Integer
 src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:53:	CloseResource:	CloseResource: 리소스 'FileInputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:54:	CloseResource:	CloseResource: 리소스 'FileOutputStream' 가 사용 후에 닫혔는지 확인필요
 src/main/java/egovframework/com/utl/sim/service/EgovFileCmprs.java:55:	CloseResource:	CloseResource: 리소스 'ZipInputStream' 가 사용 후에 닫혔는지 확인필요
